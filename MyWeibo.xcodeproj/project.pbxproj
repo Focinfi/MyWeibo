@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		044CB8C81B104525000E8FBE /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 044CB8C71B104525000E8FBE /* Random.m */; };
-		04605D8F1B0F187100EA03D6 /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04605D8E1B0F187100EA03D6 /* NewsModel.m */; };
-		04605D931B0F1DA100EA03D6 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04605D921B0F1DA100EA03D6 /* DBManager.m */; };
-		04605D961B0F39D300EA03D6 /* NSArray+Assemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 04605D951B0F39D300EA03D6 /* NSArray+Assemble.m */; };
-		04605D991B0F786B00EA03D6 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 04605D981B0F786B00EA03D6 /* NSString+Format.m */; };
+		C9D260871B1065F400A49E0A /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260841B1065F400A49E0A /* NewsTableViewController.m */; };
+		C9D260881B1065F400A49E0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260861B1065F400A49E0A /* ViewController.m */; };
+		C9D2608B1B10661700A49E0A /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2608A1B10661700A49E0A /* NewsModel.m */; };
+		C9D260941B10664500A49E0A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2608D1B10664500A49E0A /* DBManager.m */; };
+		C9D260951B10664500A49E0A /* NSArray+Assemble.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2608F1B10664500A49E0A /* NSArray+Assemble.m */; };
+		C9D260961B10664500A49E0A /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260911B10664500A49E0A /* NSString+Format.m */; };
+		C9D260971B10664500A49E0A /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260931B10664500A49E0A /* Random.m */; };
+		C9D2609B1B10665F00A49E0A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D260981B10665F00A49E0A /* NewsCell.xib */; };
+		C9D2609C1B10665F00A49E0A /* NewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */; };
 		C9D3F3A41B0B459900313035 /* MyWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F3A31B0B459900313035 /* MyWeiboTests.m */; };
 		C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F4231B0B681100313035 /* AppDelegate.m */; };
 		C9D3F4341B0B681100313035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D3F4241B0B681100313035 /* LaunchScreen.xib */; };
 		C9D3F4351B0B681100313035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D3F4261B0B681100313035 /* Main.storyboard */; };
 		C9D3F4361B0B681100313035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D3F4281B0B681100313035 /* Images.xcassets */; };
-		C9D3F4381B0B681100313035 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D3F42A1B0B681100313035 /* NewsCell.xib */; };
-		C9D3F43A1B0B681100313035 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F42E1B0B681100313035 /* NewsTableViewController.m */; };
-		C9D3F43B1B0B681100313035 /* NewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F4301B0B681100313035 /* NewTableViewCell.m */; };
-		C9D3F43C1B0B681100313035 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F4321B0B681100313035 /* ViewController.m */; };
 		C9D3F43F1B0B68F500313035 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F43E1B0B68F500313035 /* main.m */; };
 		C9D3F44C1B0B699700313035 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F4421B0B699700313035 /* FMDatabase.m */; };
 		C9D3F44D1B0B699700313035 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F4441B0B699700313035 /* FMDatabaseAdditions.m */; };
@@ -41,16 +41,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		044CB8C61B104525000E8FBE /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
-		044CB8C71B104525000E8FBE /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
-		04605D8D1B0F187100EA03D6 /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
-		04605D8E1B0F187100EA03D6 /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
-		04605D911B0F1DA100EA03D6 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
-		04605D921B0F1DA100EA03D6 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
-		04605D941B0F39D300EA03D6 /* NSArray+Assemble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Assemble.h"; sourceTree = "<group>"; };
-		04605D951B0F39D300EA03D6 /* NSArray+Assemble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Assemble.m"; sourceTree = "<group>"; };
-		04605D971B0F786B00EA03D6 /* NSString+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
-		04605D981B0F786B00EA03D6 /* NSString+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
+		C9D260831B1065F400A49E0A /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewController.h; path = controllers/NewsTableViewController.h; sourceTree = "<group>"; };
+		C9D260841B1065F400A49E0A /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewController.m; path = controllers/NewsTableViewController.m; sourceTree = "<group>"; };
+		C9D260851B1065F400A49E0A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = controllers/ViewController.h; sourceTree = "<group>"; };
+		C9D260861B1065F400A49E0A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = controllers/ViewController.m; sourceTree = "<group>"; };
+		C9D260891B10661700A49E0A /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsModel.h; path = models/NewsModel.h; sourceTree = "<group>"; };
+		C9D2608A1B10661700A49E0A /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsModel.m; path = models/NewsModel.m; sourceTree = "<group>"; };
+		C9D2608C1B10664500A49E0A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBManager.h; path = utils/DBManager.h; sourceTree = "<group>"; };
+		C9D2608D1B10664500A49E0A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBManager.m; path = utils/DBManager.m; sourceTree = "<group>"; };
+		C9D2608E1B10664500A49E0A /* NSArray+Assemble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Assemble.h"; path = "utils/NSArray+Assemble.h"; sourceTree = "<group>"; };
+		C9D2608F1B10664500A49E0A /* NSArray+Assemble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Assemble.m"; path = "utils/NSArray+Assemble.m"; sourceTree = "<group>"; };
+		C9D260901B10664500A49E0A /* NSString+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Format.h"; path = "utils/NSString+Format.h"; sourceTree = "<group>"; };
+		C9D260911B10664500A49E0A /* NSString+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Format.m"; path = "utils/NSString+Format.m"; sourceTree = "<group>"; };
+		C9D260921B10664500A49E0A /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Random.h; path = utils/Random.h; sourceTree = "<group>"; };
+		C9D260931B10664500A49E0A /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Random.m; path = utils/Random.m; sourceTree = "<group>"; };
+		C9D260981B10665F00A49E0A /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsCell.xib; path = views/NewsCell.xib; sourceTree = "<group>"; };
+		C9D260991B10665F00A49E0A /* NewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewTableViewCell.h; path = views/NewTableViewCell.h; sourceTree = "<group>"; };
+		C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewTableViewCell.m; path = views/NewTableViewCell.m; sourceTree = "<group>"; };
 		C9D3F3841B0B459900313035 /* MyWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D3F39D1B0B459900313035 /* MyWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D3F3A21B0B459900313035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,13 +68,6 @@
 		C9D3F4271B0B681100313035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9D3F4281B0B681100313035 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C9D3F4291B0B681100313035 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9D3F42A1B0B681100313035 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
-		C9D3F42D1B0B681100313035 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
-		C9D3F42E1B0B681100313035 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
-		C9D3F42F1B0B681100313035 /* NewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTableViewCell.h; sourceTree = "<group>"; };
-		C9D3F4301B0B681100313035 /* NewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTableViewCell.m; sourceTree = "<group>"; };
-		C9D3F4311B0B681100313035 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C9D3F4321B0B681100313035 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C9D3F43E1B0B68F500313035 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9D3F4411B0B699700313035 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		C9D3F4421B0B699700313035 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		04605D8C1B0F185700EA03D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04605D8D1B0F187100EA03D6 /* NewsModel.h */,
-				04605D8E1B0F187100EA03D6 /* NewsModel.m */,
+				C9D260891B10661700A49E0A /* NewsModel.h */,
+				C9D2608A1B10661700A49E0A /* NewsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -114,14 +114,14 @@
 		04605D901B0F1D6D00EA03D6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				04605D911B0F1DA100EA03D6 /* DBManager.h */,
-				04605D921B0F1DA100EA03D6 /* DBManager.m */,
-				044CB8C61B104525000E8FBE /* Random.h */,
-				044CB8C71B104525000E8FBE /* Random.m */,
-				04605D941B0F39D300EA03D6 /* NSArray+Assemble.h */,
-				04605D951B0F39D300EA03D6 /* NSArray+Assemble.m */,
-				04605D971B0F786B00EA03D6 /* NSString+Format.h */,
-				04605D981B0F786B00EA03D6 /* NSString+Format.m */,
+				C9D2608C1B10664500A49E0A /* DBManager.h */,
+				C9D2608D1B10664500A49E0A /* DBManager.m */,
+				C9D2608E1B10664500A49E0A /* NSArray+Assemble.h */,
+				C9D2608F1B10664500A49E0A /* NSArray+Assemble.m */,
+				C9D260901B10664500A49E0A /* NSString+Format.h */,
+				C9D260911B10664500A49E0A /* NSString+Format.m */,
+				C9D260921B10664500A49E0A /* Random.h */,
+				C9D260931B10664500A49E0A /* Random.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -208,11 +208,11 @@
 		C9D3F4511B0B69B300313035 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9D260981B10665F00A49E0A /* NewsCell.xib */,
+				C9D260991B10665F00A49E0A /* NewTableViewCell.h */,
+				C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */,
 				C9D3F4261B0B681100313035 /* Main.storyboard */,
 				C9D3F4241B0B681100313035 /* LaunchScreen.xib */,
-				C9D3F42A1B0B681100313035 /* NewsCell.xib */,
-				C9D3F42F1B0B681100313035 /* NewTableViewCell.h */,
-				C9D3F4301B0B681100313035 /* NewTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -220,10 +220,10 @@
 		C9D3F4521B0B69C100313035 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C9D3F42D1B0B681100313035 /* NewsTableViewController.h */,
-				C9D3F42E1B0B681100313035 /* NewsTableViewController.m */,
-				C9D3F4311B0B681100313035 /* ViewController.h */,
-				C9D3F4321B0B681100313035 /* ViewController.m */,
+				C9D260831B1065F400A49E0A /* NewsTableViewController.h */,
+				C9D260841B1065F400A49E0A /* NewsTableViewController.m */,
+				C9D260851B1065F400A49E0A /* ViewController.h */,
+				C9D260861B1065F400A49E0A /* ViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -309,8 +309,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D3F4361B0B681100313035 /* Images.xcassets in Resources */,
-				C9D3F4381B0B681100313035 /* NewsCell.xib in Resources */,
 				C9D3F4341B0B681100313035 /* LaunchScreen.xib in Resources */,
+				C9D2609B1B10665F00A49E0A /* NewsCell.xib in Resources */,
 				C9D3F4351B0B681100313035 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,20 +329,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D260881B1065F400A49E0A /* ViewController.m in Sources */,
 				C9D3F43F1B0B68F500313035 /* main.m in Sources */,
-				C9D3F43A1B0B681100313035 /* NewsTableViewController.m in Sources */,
-				04605D961B0F39D300EA03D6 /* NSArray+Assemble.m in Sources */,
-				C9D3F43B1B0B681100313035 /* NewTableViewCell.m in Sources */,
-				044CB8C81B104525000E8FBE /* Random.m in Sources */,
-				04605D931B0F1DA100EA03D6 /* DBManager.m in Sources */,
 				C9D3F44C1B0B699700313035 /* FMDatabase.m in Sources */,
-				04605D991B0F786B00EA03D6 /* NSString+Format.m in Sources */,
 				C9D3F4501B0B699700313035 /* FMResultSet.m in Sources */,
+				C9D260951B10664500A49E0A /* NSArray+Assemble.m in Sources */,
 				C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */,
-				04605D8F1B0F187100EA03D6 /* NewsModel.m in Sources */,
+				C9D260961B10664500A49E0A /* NSString+Format.m in Sources */,
+				C9D260871B1065F400A49E0A /* NewsTableViewController.m in Sources */,
+				C9D260971B10664500A49E0A /* Random.m in Sources */,
+				C9D2609C1B10665F00A49E0A /* NewTableViewCell.m in Sources */,
+				C9D2608B1B10661700A49E0A /* NewsModel.m in Sources */,
+				C9D260941B10664500A49E0A /* DBManager.m in Sources */,
 				C9D3F44E1B0B699700313035 /* FMDatabasePool.m in Sources */,
 				C9D3F44D1B0B699700313035 /* FMDatabaseAdditions.m in Sources */,
-				C9D3F43C1B0B681100313035 /* ViewController.m in Sources */,
 				C9D3F44F1B0B699700313035 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
