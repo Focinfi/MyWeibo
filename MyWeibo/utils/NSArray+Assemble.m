@@ -10,7 +10,7 @@
 #import "NSString+Format.h"
 
 @implementation NSArray (Assemble)
-- (NSString *) joinWithBoundary:(NSString *)boundary
+- (NSString *) stringJoinSimpelyWithBoundary:(NSString *)boundary
 {
     NSString *mapString = @"";
     
@@ -23,7 +23,7 @@
     
     return mapString;
 }
-- (NSString *) joinToStringWithBoundary:(NSString *) boundary
+- (NSString *) stringByJoinEntierWithBoundary:(NSString *) boundary
 {
     NSString *mapString = @"";
 

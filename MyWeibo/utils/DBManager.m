@@ -43,7 +43,7 @@
     }
     
     NSLog(@"Pairs count: %lu", (unsigned long)pairs.count);
-    mapString = [pairs joinWithBoundary:@","]; 
+    mapString = [pairs stringByJoinEntierWithBoundary:@","]; 
     NSLog(@"Pairs: %@", pairs);
     return mapString;
 }
@@ -81,7 +81,7 @@
 
 #pragma mark - Query
 
-- (NSUInteger) queyCountOfTableName:(NSString *)name
+- (NSUInteger) queryCountOfTableName:(NSString *)name
 {
     if ([self.db open]) {
         NSUInteger newsTotalCount = [self.db intForQuery:[NSString stringWithFormat:@"select count(*) from %@", name]];
@@ -103,7 +103,7 @@
                           @"SELECT * FROM %@",name];
         FMResultSet * rs = [self.db executeQuery:sql];
         
-        for (int first = 0; [rs next] && first < to; first ++) {
+        for (int first = 0; [rs next] && first < to; first++) {
             NSLog(@"Count in seart: %d", first);
             if (first >= from && first < to) {
                 NSMutableDictionary *item = [NSMutableDictionary dictionary];
@@ -115,7 +115,7 @@
                         [item setValue:value forKey:columns[i]];
                     }
                 }
-                
+                NSLog(@"RS ID: %@", [rs objectForColumnName:@"id"]);
                 [data addObject:item];
             }
         }
@@ -136,7 +136,7 @@
         NSArray *values = [columns allValues];
         NSString *insertSql = [NSString stringWithFormat:
                                @"INSERT INTO %@ (%@) VALUES (%@)",
-                               name, [keys joinToStringWithBoundary:@","], [values joinToStringWithBoundary:@","]];
+                               name, [keys stringByJoinEntierWithBoundary:@","], [values stringByJoinEntierWithBoundary:@","]];
         
         BOOL res = [self.db executeUpdate:insertSql];
         

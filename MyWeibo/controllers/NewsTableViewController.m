@@ -45,7 +45,7 @@
     NSLog(@"Rand: %d", arc4random());
     [self initValues];
     [self initDB];
-    [self insearItemsToTableData];
+    [self initTableData];
     [self addRefreshViewControl];
     [self setUpForTableView];
     [super viewDidLoad];
@@ -66,7 +66,7 @@
     tableData = [[NSMutableArray alloc] init];
     self.dbManager = [[DBManager alloc] init];
     self.sizeOfRefresh = 10;
-    self.count = self.sizeOfRefresh;
+    self.count = 0;
     
     _newsAttributesAndTypes = [NewsModel directoryForAtrributesAndTpyes];
     _newsAttributesAndNames = [NewsModel directoryForAtrributesAndNames];
@@ -79,6 +79,14 @@
     _weiboImage = [_newsAttributesAndNames objectForKey:@"weibo_image"];
 
 }
+
+- (void) initTableData
+{
+    [self insearItemsToTableData];
+    self.count = tableData.count;
+    [self.tableView reloadData];
+}
+
 
 #pragma mark - Set Up For Table View
 
@@ -94,7 +102,7 @@
     [self.dbManager connectDBName:_dbName];
     [self.dbManager createTableName:_tableName columns: [NewsModel directoryForAtrributesAndTpyes]];
     
-    if ([self.dbManager queyCountOfTableName:_tableName] <= 20) {
+    if ([self.dbManager queryCountOfTableName:_tableName] <= 20) {
         for (int i = 0; i < 20; i++) {
             NewsModel *news = [NewsModel newsWithRandomValues];
             [self.dbManager insearItemsTableName:_tableName columns: [news dictionaryWithNewsPairs]];
@@ -189,7 +197,7 @@
     
     long r = (long)indexPath.row;
     long index = self.count - 1 - r;
-    
+        
     NSDictionary *d = (NSDictionary *) [tableData objectAtIndex:index];
     cell.avatar.image = [UIImage imageNamed:[d objectForKey:_avatar]];
     cell.name.text = [[d objectForKey:_name] stringByAppendingFormat:@"_%ld", index];

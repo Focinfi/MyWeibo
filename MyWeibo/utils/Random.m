@@ -41,7 +41,7 @@
         
     }
     
-    return [weibos joinWithBoundary:@" "];
+    return [weibos stringByJoinEntierWithBoundary:@" "];
 }
 
 @end
