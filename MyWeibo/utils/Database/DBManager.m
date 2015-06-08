@@ -8,6 +8,7 @@
 
 #import "DBManager.h"
 #import "FMDatabaseAdditions.h"
+#import "NSDictionary+Assemble.h"
 #import "NSArray+Assemble.h"
 #import "NSString+Format.h"
 
@@ -93,14 +94,18 @@
 }
 
 
-- (NSArray *) queryItemsInTableName:(NSString *) name from:(long) from to:(long) to columns: (NSArray *) columns
+- (NSArray *) queryItemsInTableName:(NSString *) name from:(long) from to:(long) to columns: (NSArray *) columns wehere:(NSDictionary *) conditions
 {
     NSLog(@"%@", columns);
     NSMutableArray *data = [NSMutableArray array];
     
     if ([self.db open]) {
         NSString * sql = [NSString stringWithFormat:
-                          @"SELECT * FROM %@",name];
+                          @"SELECT * FROM %@ ", name];
+        if (conditions) {
+            sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+//            sql = [sql stringByAppendingString:@"WHERE name = '仓井优'"];
+        }
         FMResultSet * rs = [self.db executeQuery:sql];
         
         for (int first = 0; [rs next] && first < to; first++) {

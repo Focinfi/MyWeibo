@@ -11,6 +11,7 @@
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
 #import "NewsModel.h"
+#import "MyWeiApp.h"
 
 @interface NewsTableViewController () {
     NSMutableArray *tableData;
@@ -64,7 +65,8 @@
     _tableName = @"news";
     
     tableData = [[NSMutableArray alloc] init];
-    self.dbManager = [[DBManager alloc] init];
+
+    self.dbManager = [MyWeiApp sharedManager].databaseManager;
     self.sizeOfRefresh = 10;
     self.count = 0;
     
@@ -113,7 +115,13 @@
 - (void) insearItemsToTableData
 {
     long to = self.count + self.sizeOfRefresh;
-    NSArray *adding = [self.dbManager queryItemsInTableName:_tableName from: self.count to: to columns:self.columns];
+    NSArray *adding = [self.dbManager
+                       queryItemsInTableName:_tableName
+                       from: self.count to: to columns:self.columns
+                       wehere:[NSDictionary dictionaryWithObjects:
+                                                          [NSArray arrayWithObjects:@"仓井优", nil]
+                                                          forKeys:
+                                                                [NSArray arrayWithObjects:@"name", nil]]];
     
     [tableData addObjectsFromArray:adding];
     

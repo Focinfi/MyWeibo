@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0494E8F11B25273B004FD3BA /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8F01B25273B004FD3BA /* ImageModel.m */; };
+		0494E9031B253146004FD3BA /* NSArray+Assemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8F81B253146004FD3BA /* NSArray+Assemble.m */; };
+		0494E9041B253146004FD3BA /* NSDictionary+Assemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8FA1B253146004FD3BA /* NSDictionary+Assemble.m */; };
+		0494E9051B253146004FD3BA /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8FC1B253146004FD3BA /* NSString+Format.m */; };
+		0494E9061B253146004FD3BA /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8FF1B253146004FD3BA /* DBManager.m */; };
+		0494E9071B253146004FD3BA /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E9021B253146004FD3BA /* Random.m */; };
+		0494E90A1B253182004FD3BA /* MyWeiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E9091B253182004FD3BA /* MyWeiApp.m */; };
 		C9D260871B1065F400A49E0A /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260841B1065F400A49E0A /* NewsTableViewController.m */; };
 		C9D260881B1065F400A49E0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260861B1065F400A49E0A /* ViewController.m */; };
 		C9D2608B1B10661700A49E0A /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2608A1B10661700A49E0A /* NewsModel.m */; };
-		C9D260941B10664500A49E0A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2608D1B10664500A49E0A /* DBManager.m */; };
-		C9D260951B10664500A49E0A /* NSArray+Assemble.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2608F1B10664500A49E0A /* NSArray+Assemble.m */; };
-		C9D260961B10664500A49E0A /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260911B10664500A49E0A /* NSString+Format.m */; };
-		C9D260971B10664500A49E0A /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260931B10664500A49E0A /* Random.m */; };
 		C9D2609B1B10665F00A49E0A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D260981B10665F00A49E0A /* NewsCell.xib */; };
 		C9D2609C1B10665F00A49E0A /* NewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */; };
 		C9D3F3A41B0B459900313035 /* MyWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F3A31B0B459900313035 /* MyWeiboTests.m */; };
@@ -41,20 +44,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0494E8EF1B25273B004FD3BA /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageModel.h; path = models/ImageModel.h; sourceTree = "<group>"; };
+		0494E8F01B25273B004FD3BA /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageModel.m; path = models/ImageModel.m; sourceTree = "<group>"; };
+		0494E8F71B253146004FD3BA /* NSArray+Assemble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Assemble.h"; sourceTree = "<group>"; };
+		0494E8F81B253146004FD3BA /* NSArray+Assemble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Assemble.m"; sourceTree = "<group>"; };
+		0494E8F91B253146004FD3BA /* NSDictionary+Assemble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Assemble.h"; sourceTree = "<group>"; };
+		0494E8FA1B253146004FD3BA /* NSDictionary+Assemble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Assemble.m"; sourceTree = "<group>"; };
+		0494E8FB1B253146004FD3BA /* NSString+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
+		0494E8FC1B253146004FD3BA /* NSString+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
+		0494E8FE1B253146004FD3BA /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		0494E8FF1B253146004FD3BA /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		0494E9011B253146004FD3BA /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		0494E9021B253146004FD3BA /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
+		0494E9081B253182004FD3BA /* MyWeiApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyWeiApp.h; path = utils/MyWeiApp.h; sourceTree = "<group>"; };
+		0494E9091B253182004FD3BA /* MyWeiApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyWeiApp.m; path = utils/MyWeiApp.m; sourceTree = "<group>"; };
 		C9D260831B1065F400A49E0A /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewController.h; path = controllers/NewsTableViewController.h; sourceTree = "<group>"; };
 		C9D260841B1065F400A49E0A /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewController.m; path = controllers/NewsTableViewController.m; sourceTree = "<group>"; };
 		C9D260851B1065F400A49E0A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = controllers/ViewController.h; sourceTree = "<group>"; };
 		C9D260861B1065F400A49E0A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = controllers/ViewController.m; sourceTree = "<group>"; };
 		C9D260891B10661700A49E0A /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsModel.h; path = models/NewsModel.h; sourceTree = "<group>"; };
 		C9D2608A1B10661700A49E0A /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsModel.m; path = models/NewsModel.m; sourceTree = "<group>"; };
-		C9D2608C1B10664500A49E0A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBManager.h; path = utils/DBManager.h; sourceTree = "<group>"; };
-		C9D2608D1B10664500A49E0A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBManager.m; path = utils/DBManager.m; sourceTree = "<group>"; };
-		C9D2608E1B10664500A49E0A /* NSArray+Assemble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Assemble.h"; path = "utils/NSArray+Assemble.h"; sourceTree = "<group>"; };
-		C9D2608F1B10664500A49E0A /* NSArray+Assemble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Assemble.m"; path = "utils/NSArray+Assemble.m"; sourceTree = "<group>"; };
-		C9D260901B10664500A49E0A /* NSString+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Format.h"; path = "utils/NSString+Format.h"; sourceTree = "<group>"; };
-		C9D260911B10664500A49E0A /* NSString+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Format.m"; path = "utils/NSString+Format.m"; sourceTree = "<group>"; };
-		C9D260921B10664500A49E0A /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Random.h; path = utils/Random.h; sourceTree = "<group>"; };
-		C9D260931B10664500A49E0A /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Random.m; path = utils/Random.m; sourceTree = "<group>"; };
 		C9D260981B10665F00A49E0A /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsCell.xib; path = views/NewsCell.xib; sourceTree = "<group>"; };
 		C9D260991B10665F00A49E0A /* NewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewTableViewCell.h; path = views/NewTableViewCell.h; sourceTree = "<group>"; };
 		C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewTableViewCell.m; path = views/NewTableViewCell.m; sourceTree = "<group>"; };
@@ -107,6 +116,8 @@
 			children = (
 				C9D260891B10661700A49E0A /* NewsModel.h */,
 				C9D2608A1B10661700A49E0A /* NewsModel.m */,
+				0494E8EF1B25273B004FD3BA /* ImageModel.h */,
+				0494E8F01B25273B004FD3BA /* ImageModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -114,16 +125,47 @@
 		04605D901B0F1D6D00EA03D6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C9D2608C1B10664500A49E0A /* DBManager.h */,
-				C9D2608D1B10664500A49E0A /* DBManager.m */,
-				C9D2608E1B10664500A49E0A /* NSArray+Assemble.h */,
-				C9D2608F1B10664500A49E0A /* NSArray+Assemble.m */,
-				C9D260901B10664500A49E0A /* NSString+Format.h */,
-				C9D260911B10664500A49E0A /* NSString+Format.m */,
-				C9D260921B10664500A49E0A /* Random.h */,
-				C9D260931B10664500A49E0A /* Random.m */,
+				0494E8F61B253146004FD3BA /* Categroies */,
+				0494E8FD1B253146004FD3BA /* Database */,
+				0494E9001B253146004FD3BA /* Kits */,
+				0494E9081B253182004FD3BA /* MyWeiApp.h */,
+				0494E9091B253182004FD3BA /* MyWeiApp.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		0494E8F61B253146004FD3BA /* Categroies */ = {
+			isa = PBXGroup;
+			children = (
+				0494E8F71B253146004FD3BA /* NSArray+Assemble.h */,
+				0494E8F81B253146004FD3BA /* NSArray+Assemble.m */,
+				0494E8F91B253146004FD3BA /* NSDictionary+Assemble.h */,
+				0494E8FA1B253146004FD3BA /* NSDictionary+Assemble.m */,
+				0494E8FB1B253146004FD3BA /* NSString+Format.h */,
+				0494E8FC1B253146004FD3BA /* NSString+Format.m */,
+			);
+			name = Categroies;
+			path = utils/Categroies;
+			sourceTree = "<group>";
+		};
+		0494E8FD1B253146004FD3BA /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				0494E8FE1B253146004FD3BA /* DBManager.h */,
+				0494E8FF1B253146004FD3BA /* DBManager.m */,
+			);
+			name = Database;
+			path = utils/Database;
+			sourceTree = "<group>";
+		};
+		0494E9001B253146004FD3BA /* Kits */ = {
+			isa = PBXGroup;
+			children = (
+				0494E9011B253146004FD3BA /* Random.h */,
+				0494E9021B253146004FD3BA /* Random.m */,
+			);
+			name = Kits;
+			path = utils/Kits;
 			sourceTree = "<group>";
 		};
 		C9D3F37B1B0B459900313035 = {
@@ -329,21 +371,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0494E9051B253146004FD3BA /* NSString+Format.m in Sources */,
 				C9D260881B1065F400A49E0A /* ViewController.m in Sources */,
 				C9D3F43F1B0B68F500313035 /* main.m in Sources */,
+				0494E9071B253146004FD3BA /* Random.m in Sources */,
+				0494E9031B253146004FD3BA /* NSArray+Assemble.m in Sources */,
 				C9D3F44C1B0B699700313035 /* FMDatabase.m in Sources */,
 				C9D3F4501B0B699700313035 /* FMResultSet.m in Sources */,
-				C9D260951B10664500A49E0A /* NSArray+Assemble.m in Sources */,
 				C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */,
-				C9D260961B10664500A49E0A /* NSString+Format.m in Sources */,
+				0494E9061B253146004FD3BA /* DBManager.m in Sources */,
 				C9D260871B1065F400A49E0A /* NewsTableViewController.m in Sources */,
-				C9D260971B10664500A49E0A /* Random.m in Sources */,
 				C9D2609C1B10665F00A49E0A /* NewTableViewCell.m in Sources */,
+				0494E9041B253146004FD3BA /* NSDictionary+Assemble.m in Sources */,
 				C9D2608B1B10661700A49E0A /* NewsModel.m in Sources */,
-				C9D260941B10664500A49E0A /* DBManager.m in Sources */,
+				0494E8F11B25273B004FD3BA /* ImageModel.m in Sources */,
 				C9D3F44E1B0B699700313035 /* FMDatabasePool.m in Sources */,
 				C9D3F44D1B0B699700313035 /* FMDatabaseAdditions.m in Sources */,
 				C9D3F44F1B0B699700313035 /* FMDatabaseQueue.m in Sources */,
+				0494E90A1B253182004FD3BA /* MyWeiApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

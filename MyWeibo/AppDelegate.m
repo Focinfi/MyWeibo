@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FMDatabase.h"
+#import "MyWeiApp.h"
 
 @interface AppDelegate ()
 @end
@@ -16,13 +17,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    [self setDBConnection];
     [self setTab];
 
     return YES;
 }
 
+#pragma mark DB Connection Init
+- (void) setDBConnection
+{
+    [MyWeiApp sharedManager].databaseManager = [[DBManager alloc] init];
+    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo"];         
+}
 
+
+#pragma mark UI Init
 
 - (void) setTab{
     UITabBarController *tabViewController = (UITabBarController *) self.window.rootViewController;

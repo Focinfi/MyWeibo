@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsModel : UITableViewController
+@interface NewsModel : NSObject
 
 @property (nonatomic) NSString *avatar;
 @property (nonatomic) NSString *name;
