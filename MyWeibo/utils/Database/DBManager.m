@@ -94,7 +94,7 @@
 }
 
 
-- (NSArray *) queryItemsInTableName:(NSString *) name from:(long) from to:(long) to columns: (NSArray *) columns wehere:(NSDictionary *) conditions
+- (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to;
 {
     NSLog(@"%@", columns);
     NSMutableArray *data = [NSMutableArray array];

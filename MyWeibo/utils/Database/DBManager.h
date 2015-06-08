@@ -15,7 +15,7 @@
 - (void) connectDBName: (NSString *)name;
 - (BOOL) createTableName:(NSString *)name columns:(NSDictionary *)colums;
 - (BOOL) insearItemsTableName:(NSString *)name columns:(NSDictionary *)columns;
-- (NSArray *) queryItemsInTableName:(NSString *) name from:(long) from to:(long) to columns: (NSArray *) columns wehere:(NSDictionary *) condition;
+- (NSArray *) arrayBySelect:(NSArray *) colums fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to;
 - (NSUInteger) queryCountOfTableName:(NSString *)name;
 
 @property (nonatomic) FMDatabase *db;

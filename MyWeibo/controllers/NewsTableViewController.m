@@ -102,12 +102,12 @@
 
 - (void) initDB {
     [self.dbManager connectDBName:_dbName];
-    [self.dbManager createTableName:_tableName columns: [NewsModel directoryForAtrributesAndTpyes]];
+    [self.dbManager createTableName:_tableName columns:[NewsModel directoryForAtrributesAndTpyes]];
     
     if ([self.dbManager queryCountOfTableName:_tableName] <= 20) {
         for (int i = 0; i < 20; i++) {
             NewsModel *news = [NewsModel newsWithRandomValues];
-            [self.dbManager insearItemsTableName:_tableName columns: [news dictionaryWithNewsPairs]];
+            [self.dbManager insearItemsTableName:_tableName columns:[news dictionaryWithNewsPairs]];
         }
     }
 }
@@ -115,13 +115,13 @@
 - (void) insearItemsToTableData
 {
     long to = self.count + self.sizeOfRefresh;
+
     NSArray *adding = [self.dbManager
-                       queryItemsInTableName:_tableName
-                       from: self.count to: to columns:self.columns
-                       wehere:[NSDictionary dictionaryWithObjects:
-                                                          [NSArray arrayWithObjects:@"仓井优", nil]
-                                                          forKeys:
-                                                                [NSArray arrayWithObjects:@"name", nil]]];
+                        arrayBySelect:self.columns
+                        fromTable:_tableName
+                        where:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"仓井优", nil]
+                                                          forKeys:[NSArray arrayWithObjects:@"name", nil]]
+                        from:self.count to:to];
     
     [tableData addObjectsFromArray:adding];
     
