@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044D86861B268ED0008F415E /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86851B268ED0008F415E /* CommentModel.m */; };
+		044D86891B268EF7008F415E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86881B268EF7008F415E /* UserModel.m */; };
 		0494E8F11B25273B004FD3BA /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8F01B25273B004FD3BA /* ImageModel.m */; };
 		0494E9031B253146004FD3BA /* NSArray+Assemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8F81B253146004FD3BA /* NSArray+Assemble.m */; };
 		0494E9041B253146004FD3BA /* NSDictionary+Assemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8FA1B253146004FD3BA /* NSDictionary+Assemble.m */; };
@@ -44,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044D86841B268ED0008F415E /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentModel.h; path = models/CommentModel.h; sourceTree = "<group>"; };
+		044D86851B268ED0008F415E /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentModel.m; path = models/CommentModel.m; sourceTree = "<group>"; };
+		044D86871B268EF7008F415E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = models/UserModel.h; sourceTree = "<group>"; };
+		044D86881B268EF7008F415E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = models/UserModel.m; sourceTree = "<group>"; };
 		0494E8EF1B25273B004FD3BA /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageModel.h; path = models/ImageModel.h; sourceTree = "<group>"; };
 		0494E8F01B25273B004FD3BA /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageModel.m; path = models/ImageModel.m; sourceTree = "<group>"; };
 		0494E8F71B253146004FD3BA /* NSArray+Assemble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Assemble.h"; sourceTree = "<group>"; };
@@ -118,6 +124,10 @@
 				C9D2608A1B10661700A49E0A /* NewsModel.m */,
 				0494E8EF1B25273B004FD3BA /* ImageModel.h */,
 				0494E8F01B25273B004FD3BA /* ImageModel.m */,
+				044D86841B268ED0008F415E /* CommentModel.h */,
+				044D86851B268ED0008F415E /* CommentModel.m */,
+				044D86871B268EF7008F415E /* UserModel.h */,
+				044D86881B268EF7008F415E /* UserModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -377,6 +387,7 @@
 				0494E9071B253146004FD3BA /* Random.m in Sources */,
 				0494E9031B253146004FD3BA /* NSArray+Assemble.m in Sources */,
 				C9D3F44C1B0B699700313035 /* FMDatabase.m in Sources */,
+				044D86891B268EF7008F415E /* UserModel.m in Sources */,
 				C9D3F4501B0B699700313035 /* FMResultSet.m in Sources */,
 				C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */,
 				0494E9061B253146004FD3BA /* DBManager.m in Sources */,
@@ -386,6 +397,7 @@
 				C9D2608B1B10661700A49E0A /* NewsModel.m in Sources */,
 				0494E8F11B25273B004FD3BA /* ImageModel.m in Sources */,
 				C9D3F44E1B0B699700313035 /* FMDatabasePool.m in Sources */,
+				044D86861B268ED0008F415E /* CommentModel.m in Sources */,
 				C9D3F44D1B0B699700313035 /* FMDatabaseAdditions.m in Sources */,
 				C9D3F44F1B0B699700313035 /* FMDatabaseQueue.m in Sources */,
 				0494E90A1B253182004FD3BA /* MyWeiApp.m in Sources */,
