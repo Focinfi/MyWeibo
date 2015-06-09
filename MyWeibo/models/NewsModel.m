@@ -13,6 +13,11 @@
 
 #pragma mark - Dictionary Format For NewsModel
 
++ (NSString *) stringOfNewsTableName
+{
+    return @"news";
+}
+
 + (NSDictionary *) directoryForAtrributesAndTpyes
 {
     NSArray *keys = [NSArray arrayWithObjects:@"avatar", @"name", @"desc", @"weibo", @"weibo_image", nil];
@@ -30,7 +35,7 @@
 {
     NewsModel *news = [[NewsModel alloc] init];
 
-    news.weibo = [Random stringOfRandomWeibo:[Random randZeroToNum:3]];
+    news.weibo = [Random stringOfRandomWeiboSetencesCount:[Random randZeroToNum:3]];
 
     if ([Random possibilityTenOfNum:5]) {
         news.name = @"仓井优";

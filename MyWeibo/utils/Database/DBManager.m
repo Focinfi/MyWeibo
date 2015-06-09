@@ -44,7 +44,7 @@
     }
     
     NSLog(@"Pairs count: %lu", (unsigned long)pairs.count);
-    mapString = [pairs stringByJoinEntierWithBoundary:@","]; 
+    mapString = [pairs stringByJoinSimpelyWithBoundary:@","];
     NSLog(@"Pairs: %@", pairs);
     return mapString;
 }

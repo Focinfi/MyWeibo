@@ -12,6 +12,9 @@
 @property (nonatomic) NSString *userID;
 @property (nonatomic) NSString *content;
 
++ (NSString *) stringOfCommentTableName;
 + (NSArray *) arrayOfProperties;
++ (NSDictionary *) directoryOfPropertiesAndTypes;
++ (CommentModel *) commentWithRandomValues;
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
 @end

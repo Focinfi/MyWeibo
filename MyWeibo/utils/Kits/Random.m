@@ -25,7 +25,7 @@
     return arc4random() % num;
 }
 
-+ (NSString *) stringOfRandomWeibo:(int)length
++ (NSString *) stringOfRandomWeiboSetencesCount:(int)length
 {
     NSArray *weiboArray = [NSArray arrayWithObjects:
                            @"我生君未生，君生我已老，我恨君生迟，君恨我生早。错过的感觉真的很不好。",
@@ -41,7 +41,7 @@
         
     }
     
-    return [weibos stringByJoinEntierWithBoundary:@" "];
+    return [weibos stringByJoinSimpelyWithBoundary:@" "];
 }
 
 @end

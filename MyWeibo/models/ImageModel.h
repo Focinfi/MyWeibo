@@ -12,6 +12,10 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *commentID;
 
++ (NSString *) stringOfImageTableName;
 + (NSArray *) arrayOfProperties;
++ (NSDictionary *) directoryOfPropertiesAndTypes;
++ (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID;
+
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
 @end

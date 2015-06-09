@@ -12,6 +12,6 @@
 
 + (int) randZeroToNum:(int)num;
 + (BOOL) possibilityTenOfNum:(int)num;
-+ (NSString *) stringOfRandomWeibo:(int)length;
++ (NSString *) stringOfRandomWeiboSetencesCount:(int)length;
 
 @end

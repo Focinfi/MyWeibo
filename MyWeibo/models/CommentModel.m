@@ -8,14 +8,33 @@
 //
 
 #import "CommentModel.h"
+#import "Random.h"
 
 @implementation CommentModel
 @synthesize userID;
 @synthesize content;
 
++ (NSString *) stringOfCommentTableName
+{
+    return @"comments";
+}
+
 + (NSArray *) arrayOfProperties
 {
     return [NSArray arrayWithObjects: @"user_id", @"content", nil];
+}
+
++ (NSDictionary *) directoryOfPropertiesAndTypes
+{
+    NSArray *types = [NSArray arrayWithObjects:@"TEXT", @"TEXT", nil];
+    return [NSDictionary dictionaryWithObjects:[CommentModel arrayOfProperties] forKeys:types];
+}
+
++ (CommentModel *) commentWithRandomValues
+{
+    CommentModel *comment = [[CommentModel alloc] init];
+    comment.content = [Random stringOfRandomWeiboSetencesCount:[Random randZeroToNum:3]];
+    return comment;
 }
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues

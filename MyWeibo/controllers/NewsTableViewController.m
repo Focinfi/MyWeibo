@@ -12,6 +12,7 @@
 #import "FMDatabaseAdditions.h"
 #import "NewsModel.h"
 #import "MyWeiApp.h"
+#import "SVProgressHUD.h"
 
 @interface NewsTableViewController () {
     NSMutableArray *tableData;
@@ -46,7 +47,6 @@
     NSLog(@"Rand: %d", arc4random());
     [self initValues];
     [self initDB];
-    [self initTableData];
     [self addRefreshViewControl];
     [self setUpForTableView];
     [super viewDidLoad];
@@ -100,16 +100,22 @@
 
 #pragma mark - News Database operation
 
-- (void) initDB {
-    [self.dbManager connectDBName:_dbName];
-    [self.dbManager createTableName:_tableName columns:[NewsModel directoryForAtrributesAndTpyes]];
-    
-    if ([self.dbManager queryCountOfTableName:_tableName] <= 20) {
-        for (int i = 0; i < 20; i++) {
-            NewsModel *news = [NewsModel newsWithRandomValues];
-            [self.dbManager insearItemsTableName:_tableName columns:[news dictionaryWithNewsPairs]];
+- (void) initDB
+{
+    [SVProgressHUD showWithStatus:@"Loading"];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if ([self.dbManager queryCountOfTableName:_tableName] <= 20) {
+            for (int i = 0; i < 10; i++) {
+                NewsModel *news = [NewsModel newsWithRandomValues];
+                [self.dbManager insearItemsTableName:_tableName columns:[news dictionaryWithNewsPairs]];
+            }
         }
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSelector:@selector(dismissProcessorAndInitTableData) withObject:nil afterDelay:1];
+
+        });
+    });
 }
 
 - (void) insearItemsToTableData
@@ -125,6 +131,14 @@
     
     [tableData addObjectsFromArray:adding];
     
+}
+
+#pragma Init tableData
+
+- (void) dismissProcessorAndInitTableData
+{
+    [SVProgressHUD dismiss];
+    [self initTableData];
 }
 
 #pragma mark - Refresh Controller

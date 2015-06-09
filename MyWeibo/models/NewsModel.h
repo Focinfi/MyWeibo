@@ -16,6 +16,7 @@
 @property (nonatomic) NSString *weibo;
 @property (nonatomic) NSString *weiboImage;
 
++ (NSString *) stringOfNewsTableName;
 + (NSDictionary *) directoryForAtrributesAndTpyes;
 + (NSDictionary *) directoryForAtrributesAndNames;
 + (NewsModel *) newsWithRandomValues;

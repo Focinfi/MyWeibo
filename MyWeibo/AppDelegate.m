@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "FMDatabase.h"
 #import "MyWeiApp.h"
+#import "SVProgressHUD.h"
+#import "NewsModel.h"
+#import "ImageModel.h"
+#import "CommentModel.h"
 
 @interface AppDelegate ()
 @end
@@ -17,17 +21,34 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self setDBConnection];
+    [self setUIColor];
+    [self setDBInitialization];
+    
     [self setTab];
 
     return YES;
 }
 
+#pragma mark Color Configration
+
+- (void) setUIColor
+{
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.90 alpha:1]];
+}
+
 #pragma mark DB Connection Init
-- (void) setDBConnection
+
+- (void) setDBInitialization
 {
     [MyWeiApp sharedManager].databaseManager = [[DBManager alloc] init];
-    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo"];         
+    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo2"];
+    
+    //create tables 
+    [[MyWeiApp sharedManager].databaseManager createTableName:[NewsModel stringOfNewsTableName] columns:[NewsModel directoryForAtrributesAndTpyes]];
+    
+    [[MyWeiApp sharedManager].databaseManager createTableName:[ImageModel stringOfImageTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
+    
+    [[MyWeiApp sharedManager].databaseManager createTableName:[CommentModel stringOfCommentTableName] columns:[CommentModel directoryOfPropertiesAndTypes]];
 }
 
 
