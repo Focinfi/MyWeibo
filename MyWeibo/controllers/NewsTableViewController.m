@@ -10,20 +10,18 @@
 #import "NewTableViewCell.h"
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
-#import "NewsModel.h"
 #import "MyWeiApp.h"
 #import "SVProgressHUD.h"
+#import "DataWorker.h"
+#import "CommentModel.h"
+#import "ImageModel.h"
 
 @interface NewsTableViewController () {
     NSMutableArray *tableData;
-    NSDictionary *_newsAttributesAndTypes;
-    NSDictionary *_newsAttributesAndNames;
-    NSString *_dbName;
-    NSString *_tableName;
     NSString *_avatar;
     NSString *_name;
     NSString *_description;
-    NSString *_weibo;
+    NSString *_content;
     NSString *_weiboImage;
 }
 
@@ -44,7 +42,6 @@
 }
 
 - (void)viewDidLoad {
-    NSLog(@"Rand: %d", arc4random());
     [self initValues];
     [self initDB];
     [self addRefreshViewControl];
@@ -61,24 +58,17 @@
 
 - (void) initValues
 {
-    _dbName = @"my_weibo_db";
-    _tableName = @"news";
-    
     tableData = [[NSMutableArray alloc] init];
 
     self.dbManager = [MyWeiApp sharedManager].databaseManager;
     self.sizeOfRefresh = 10;
     self.count = 0;
     
-    _newsAttributesAndTypes = [NewsModel directoryForAtrributesAndTpyes];
-    _newsAttributesAndNames = [NewsModel directoryForAtrributesAndNames];
-    self.columns = [_newsAttributesAndTypes allKeys];
-    
-    _avatar = [_newsAttributesAndNames objectForKeyedSubscript:@"avatar"];
-    _name = [_newsAttributesAndNames objectForKeyedSubscript:@"name"];
-    _description = [_newsAttributesAndNames objectForKeyedSubscript:@"desc"];
-    _weibo = [_newsAttributesAndNames objectForKeyedSubscript:@"weibo"];
-    _weiboImage = [_newsAttributesAndNames objectForKey:@"weibo_image"];
+    _avatar = @"avatar";
+    _name = @"name";
+    _description = @"description";
+    _content = @"weibo";
+    _weiboImage = @"weibo_image";
 
 }
 
@@ -105,15 +95,10 @@
     [SVProgressHUD showWithStatus:@"Loading"];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        if ([self.dbManager queryCountOfTableName:_tableName] <= 20) {
-            for (int i = 0; i < 10; i++) {
-                NewsModel *news = [NewsModel newsWithRandomValues];
-                [self.dbManager insearItemsTableName:_tableName columns:[news dictionaryWithNewsPairs]];
-            }
-        }
+        [DataWorker insertBasicDataWihtNumber:20];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self performSelector:@selector(dismissProcessorAndInitTableData) withObject:nil afterDelay:1];
-
         });
     });
 }
@@ -122,14 +107,15 @@
 {
     long to = self.count + self.sizeOfRefresh;
 
-    NSArray *adding = [self.dbManager
-                        arrayBySelect:self.columns
-                        fromTable:_tableName
-                        where:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"仓井优", nil]
-                                                          forKeys:[NSArray arrayWithObjects:@"name", nil]]
-                        from:self.count to:to];
-    
-    [tableData addObjectsFromArray:adding];
+    NSLog(@"Comments Count in countOfItems: %d", [CommentModel countOfComments]);
+    NSArray *comments = [CommentModel arrayOfItemsFrom:self.count to:to];
+//    NSLog(@"Keys : %@", [[comments objectAtIndex:0] allKeys]);
+//    NSLog(@"Images1 : %@", [[comments objectAtIndex:0] objectForKey:@"images"]);
+//    
+//    NSLog(@"Images Count in inserItems: %d", [ImageModel countOfImages]);
+//    NSLog(@"Comments Count in insertItems: %lu", (unsigned long)[comments count]);
+
+    [tableData addObjectsFromArray:comments];
     
 }
 
@@ -221,12 +207,21 @@
     long index = self.count - 1 - r;
         
     NSDictionary *d = (NSDictionary *) [tableData objectAtIndex:index];
-    cell.avatar.image = [UIImage imageNamed:[d objectForKey:_avatar]];
-    cell.name.text = [[d objectForKey:_name] stringByAppendingFormat:@"_%ld", index];
-    cell.description.text = [d objectForKey:_description];
-    cell.weibo.text = [d objectForKey:_weibo];
-    NSLog(@"Weibo Image: %@", [d objectForKey:_weiboImage]);
-    cell.weiboImage.image = [UIImage imageNamed:[d objectForKey:_weiboImage]];
+    NSDictionary *userInfo = [d objectForKey:@"user"];
+    NSArray *images = [d objectForKey:@"images"];
+
+    cell.avatar.image = [UIImage imageNamed:[userInfo objectForKey:_avatar]];
+    cell.name.text = [[userInfo objectForKey:_name] stringByAppendingFormat:@"_%ld", index];
+    cell.description.text = [userInfo objectForKey:_description];
+    cell.weibo.text = [d objectForKey:@"content"];
+    
+    NSString *image_name = @"weibo1";
+    NSLog(@"Images Count in Cell: %lu", [[d objectForKey:@"images"] count]);
+    if ([[d objectForKey:@"images"] count] > 0) {
+         image_name = [[images objectAtIndex:0] objectForKey:@"name"];
+    }
+    
+    cell.weiboImage.image = [UIImage imageNamed:image_name];
     
     return cell;
 }
@@ -242,7 +237,7 @@
     NewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     cell = (NewTableViewCell *)[tableView cellForRowAtIndexPath: indexPath];
-    cell.description.text = [cell.description.text stringByAppendingString:@"X"];
+//    cell.description.text = [cell.description.text stringByAppendingString:@"X"];
 }
 
 @end

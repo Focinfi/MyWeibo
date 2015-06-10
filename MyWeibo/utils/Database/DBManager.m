@@ -64,7 +64,7 @@
 - (BOOL) createTableName:(NSString *)name columns:(NSDictionary *)colums
 {
     if ([self.db open]) {
-        NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, %@)",name,[self makeSqlString: colums]];
+        NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' (%@)",name,[self makeSqlString: colums]];
         
         BOOL res = [self.db executeUpdate:sqlCreateTable];
         NSLog(@"create table");
@@ -82,19 +82,45 @@
 
 #pragma mark - Query
 
-- (NSUInteger) queryCountOfTableName:(NSString *)name
+- (int) countOfItemsNumberInTable:(NSString *)name
 {
     if ([self.db open]) {
-        NSUInteger newsTotalCount = [self.db intForQuery:[NSString stringWithFormat:@"select count(*) from %@", name]];
-        NSLog(@"Count of news: %lu", (unsigned long)newsTotalCount);
+        int newsTotalCount = [self.db intForQuery:[NSString stringWithFormat:@"select count(*) from %@", name]];
+        [self.db close];
         return newsTotalCount;
     }
     
     return 0;
 }
 
+- (NSDictionary *) dictionaryBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
+{
+    NSMutableDictionary *item = [NSMutableDictionary dictionary];
 
-- (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to;
+    if ([self.db open]) {
+        NSString * sql = [NSString stringWithFormat:
+                          @"SELECT * FROM %@ ", name];
+        if (conditions) {
+            sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+        }
+        
+        FMResultSet * rs = [self.db executeQuery:sql];
+        [rs next];
+        for (int i = 0; i < columns.count; i++) {
+            NSString *value = [rs stringForColumn:columns[i]];
+            NSLog(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
+            if (value != nil) {
+                NSLog(@"Count: %d", i);
+                [item setValue:value forKey:columns[i]];
+            }
+        }
+        
+        [self.db close];
+    }
+    return item;
+}
+
+- (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to
 {
     NSLog(@"%@", columns);
     NSMutableArray *data = [NSMutableArray array];
@@ -120,7 +146,7 @@
                         [item setValue:value forKey:columns[i]];
                     }
                 }
-                NSLog(@"RS ID: %@", [rs objectForColumnName:@"id"]);
+//                NSLog(@"RS ID: %@", [rs objectForColumnName:@"id"]);
                 [data addObject:item];
             }
         }

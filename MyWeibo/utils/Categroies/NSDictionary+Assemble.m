@@ -14,7 +14,7 @@
 - (NSString *) stringByJoinEntierWithBoundary:(NSString *)boundary
 {
     NSArray *keys = [self allKeys];
-    NSLog(@"Columns: %@", keys);
+    NSLog(@"Columns1: %@", keys);
     
     NSString *mapString;
     NSMutableArray *pairs = [NSMutableArray array];
@@ -28,10 +28,9 @@
         [pairs addObject:assemble];
     }
     
-    NSLog(@"Pairs count: %lu", (unsigned long)pairs.count);
+    NSLog(@"Pairs1 count: %lu", (unsigned long)pairs.count);
     mapString = [pairs stringByJoinSimpelyWithBoundary:boundary];
-    NSLog(@"Pairs: %@", pairs);
+    NSLog(@"Pairs1: %@", pairs);
     return mapString;
-    return @"";
 }
 @end

@@ -26,9 +26,10 @@
 - (NSString *) stringByJoinEntierWithBoundary:(NSString *) boundary
 {
     NSString *mapString = @"";
+    NSLog(@"Boundary: %@", boundary);
 
     for (int i = 0; i < self.count; i++) {
-        mapString = [mapString stringByAppendingString: [(NSString *)self[i] stringSwapWithBoundary:@"'"]];
+        mapString = [mapString stringByAppendingString:[(NSString *)self[i] stringSwapWithBoundary:@"'"]];
         if (i < self.count - 1) {
             mapString = [mapString stringByAppendingString: boundary];
         }

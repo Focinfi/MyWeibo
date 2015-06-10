@@ -10,9 +10,14 @@
 #import "FMDatabase.h"
 #import "MyWeiApp.h"
 #import "SVProgressHUD.h"
-#import "NewsModel.h"
 #import "ImageModel.h"
 #import "CommentModel.h"
+#import "UserModel.h"
+#import "DBIdentifiers.h"
+#import "Random.h"
+#import "NSString+Format.h"
+#import "NSArray+Assemble.h"
+
 
 @interface AppDelegate ()
 @end
@@ -40,15 +45,31 @@
 
 - (void) setDBInitialization
 {
+    [MyWeiApp sharedManager].usesrDefaults = [NSUserDefaults standardUserDefaults];
+   
     [MyWeiApp sharedManager].databaseManager = [[DBManager alloc] init];
-    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo2"];
+    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db17"];
     
-    //create tables 
-    [[MyWeiApp sharedManager].databaseManager createTableName:[NewsModel stringOfNewsTableName] columns:[NewsModel directoryForAtrributesAndTpyes]];
+    //create tables
+    [[MyWeiApp sharedManager].databaseManager createTableName:[UserModel stringOfTableName] columns:[UserModel directoryOfPropertiesAndTypes]];
     
-    [[MyWeiApp sharedManager].databaseManager createTableName:[ImageModel stringOfImageTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
+    [[MyWeiApp sharedManager].databaseManager createTableName:[ImageModel stringOfTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
     
-    [[MyWeiApp sharedManager].databaseManager createTableName:[CommentModel stringOfCommentTableName] columns:[CommentModel directoryOfPropertiesAndTypes]];
+    [[MyWeiApp sharedManager].databaseManager createTableName:[CommentModel stringOfTableName] columns:[CommentModel directoryOfPropertiesAndTypes]];
+    
+    //test
+    NSString *s = @"A";
+    NSArray *a = [NSArray arrayWithObjects:s, s, s, nil];
+    NSLog([s stringSwapWithBoundary:@"'"]);
+    NSLog([a stringByJoinEntierWithBoundary:@" AND "]);
+    
+    
+//    NSDictionary *d =
+//    [[MyWeiApp sharedManager].databaseManager
+//        dictionaryBySelect:[UserModel arrayOfProperties]
+//                 fromTable:[UserModel stringOfTableName]
+//                     where:nil];
+//    NSLog(@"Dictionary: %@", d);
 }
 
 

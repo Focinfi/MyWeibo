@@ -8,14 +8,21 @@
 
 #import "ImageModel.h"
 #import "Random.h"
+#import "MyWeiApp.h"
 
 @implementation ImageModel
 @synthesize name;
 @synthesize commentID;
 
-+ (NSString *) stringOfImageTableName
++ (NSString *) stringOfTableName
 {
     return @"images";
+}
+
++ (int) countOfImages
+{
+    return [[MyWeiApp sharedManager].databaseManager countOfItemsNumberInTable:[ImageModel stringOfTableName]];
+    
 }
 
 + (NSArray *) arrayOfProperties
@@ -26,7 +33,7 @@
 + (NSDictionary *) directoryOfPropertiesAndTypes
 {
     NSArray *types = [NSArray arrayWithObjects:@"TEXT", @"TEXT", nil];
-    return [NSDictionary dictionaryWithObjects:[ImageModel arrayOfProperties] forKeys:types];
+    return [NSDictionary dictionaryWithObjects:types forKeys:[ImageModel arrayOfProperties]];
 }
 
 + (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID;
@@ -36,23 +43,33 @@
 
     if ([Random possibilityTenOfNum:5]) {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"Aoi1";
+            image.name = @"weibo1";
         } else {
-            image.name = @"Aoi2";
+            image.name = @"weibo2";
         }
     } else {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"Anri1";
+            image.name = @"weibo1";
         } else {
-            image.name = @"Anri2";
+            image.name = @"weibo2";
         }
     }
     return image;
 }
 
+
+
 - (NSDictionary *) dictionaryOfPropertiesAndValues
 {
-    return [NSDictionary dictionaryWithObjects:[ImageModel arrayOfProperties]
-                                       forKeys:[NSArray arrayWithObjects:name, commentID, nil]];
+    return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:name, commentID, nil]
+                                       forKeys:[ImageModel arrayOfProperties]];
 }
+
+- (void) save
+{
+    [[MyWeiApp sharedManager].databaseManager
+     insearItemsTableName:[ImageModel stringOfTableName]
+     columns:[self dictionaryOfPropertiesAndValues]];
+}
+
 @end
