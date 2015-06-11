@@ -13,6 +13,7 @@
 #import "ImageModel.h"
 #import "MyWeiApp.h"
 #import "UserModel.h"
+#import "NSArray+Assemble.h"
 
 @implementation CommentModel
 @synthesize commentID;
@@ -64,7 +65,7 @@
     comment.content = [Random stringOfRandomWeiboSetencesCount:[Random randZeroToNum:3]];
     comment.commentID = [DBIdentifiers stringOfIdentifier:@"comment_id"];
     comment.images = [NSMutableArray array];
-    [comment addImageModelsNumber:[Random randZeroToNum:4] + 2];
+    [comment addImageModelsNumber:[Random randZeroToNum:4] + 1];
 
     return comment;
 }
@@ -85,6 +86,10 @@
                          where:[NSDictionary dictionaryWithObject:commentID forKey:@"comment_id"]
                           from:0
                             to:[ImageModel countOfImages]];
+        images = [images arrayByMap:(id)^(id item) {
+            return [item objectForKey:@"name"];
+        }];
+        
         [item setObject:images forKey:@"images"];
         
         //set user info

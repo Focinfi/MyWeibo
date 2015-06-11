@@ -11,6 +11,7 @@
 @interface NSArray (Assemble)
 
 - (NSString *) stringByJoinEntierWithBoundary:(NSString *) boundary;
-- (NSString *) stringByJoinSimpelyWithBoundary:(NSString *)boundary;
-
+- (NSString *) stringByJoinSimpelyWithBoundary:(NSString *) boundary;
+- (NSArray *) arrayByMap:(id (^)(id)) map;
+- (NSArray *) arrayBySelect:(BOOL (^)(id)) select;
 @end

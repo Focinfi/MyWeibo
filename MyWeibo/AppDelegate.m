@@ -48,7 +48,7 @@
     [MyWeiApp sharedManager].usesrDefaults = [NSUserDefaults standardUserDefaults];
    
     [MyWeiApp sharedManager].databaseManager = [[DBManager alloc] init];
-    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db17"];
+    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db18"];
     
     //create tables
     [[MyWeiApp sharedManager].databaseManager createTableName:[UserModel stringOfTableName] columns:[UserModel directoryOfPropertiesAndTypes]];
@@ -58,10 +58,10 @@
     [[MyWeiApp sharedManager].databaseManager createTableName:[CommentModel stringOfTableName] columns:[CommentModel directoryOfPropertiesAndTypes]];
     
     //test
-    NSString *s = @"A";
-    NSArray *a = [NSArray arrayWithObjects:s, s, s, nil];
-    NSLog([s stringSwapWithBoundary:@"'"]);
-    NSLog([a stringByJoinEntierWithBoundary:@" AND "]);
+//    NSString *s = @"A";
+//    NSArray *a = [NSArray arrayWithObjects:s, s, s, nil];
+//    NSLog([s stringSwapWithBoundary:@"'"]);
+//    NSLog([a stringByJoinEntierWithBoundary:@" AND "]);
     
     
 //    NSDictionary *d =
@@ -69,7 +69,13 @@
 //        dictionaryBySelect:[UserModel arrayOfProperties]
 //                 fromTable:[UserModel stringOfTableName]
 //                     where:nil];
+    
 //    NSLog(@"Dictionary: %@", d);
+//    NSArray *arr = [NSArray arrayWithObjects:@"1", @"2", @"a", nil];
+//    arr = [arr arrayBySelect:(id)^(id item) {
+//        return [item  isEqual: @"2"] ? @"Got" : @"None";
+//    }];
+//    NSLog(@"Arr: %@", arr);
 }
 
 

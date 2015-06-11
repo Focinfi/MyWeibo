@@ -23,6 +23,7 @@
     
     return mapString;
 }
+
 - (NSString *) stringByJoinEntierWithBoundary:(NSString *) boundary
 {
     NSString *mapString = @"";
@@ -37,5 +38,27 @@
     
     return mapString;
 }
+
+- (NSArray *) arrayByMap:(id (^)(id)) map
+{
+    NSMutableArray *res = [NSMutableArray array];
+    for (int i = 0; i < [self count]; i++) {
+        id item = [self objectAtIndex:i];
+        [res addObject: map(item)];
+    }
+    return res;
+}
+
+- (NSArray *) arrayBySelect:(BOOL (^)(id)) select
+{
+    NSMutableArray *res = [NSMutableArray array];
+    for (int i = 0; i < [self count]; i++) {
+        if (select(self[i])) {
+            [res addObject:self[i]];
+        }
+    }
+    return res;
+}
+
 
 @end

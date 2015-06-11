@@ -49,9 +49,9 @@
         }
     } else {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"weibo1";
+            image.name = @"weibo3";
         } else {
-            image.name = @"weibo2";
+            image.name = @"weibo4";
         }
     }
     return image;

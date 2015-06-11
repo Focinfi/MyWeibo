@@ -6,7 +6,8 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import "NewsTableViewController.h"
+#import "CommentTableViewController.h"
+#import "CommentDetailViewController.h"
 #import "NewTableViewCell.h"
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
@@ -16,18 +17,17 @@
 #import "CommentModel.h"
 #import "ImageModel.h"
 
-@interface NewsTableViewController () {
+@interface CommentTableViewController () {
     NSMutableArray *tableData;
     NSString *_avatar;
     NSString *_name;
     NSString *_description;
     NSString *_content;
-    NSString *_weiboImage;
 }
 
 @end
 
-@implementation NewsTableViewController
+@implementation CommentTableViewController
 @synthesize count;
 @synthesize sizeOfRefresh;
 @synthesize dbManager;
@@ -68,8 +68,6 @@
     _name = @"name";
     _description = @"description";
     _content = @"weibo";
-    _weiboImage = @"weibo_image";
-
 }
 
 - (void) initTableData
@@ -109,11 +107,6 @@
 
     NSLog(@"Comments Count in countOfItems: %d", [CommentModel countOfComments]);
     NSArray *comments = [CommentModel arrayOfItemsFrom:self.count to:to];
-//    NSLog(@"Keys : %@", [[comments objectAtIndex:0] allKeys]);
-//    NSLog(@"Images1 : %@", [[comments objectAtIndex:0] objectForKey:@"images"]);
-//    
-//    NSLog(@"Images Count in inserItems: %d", [ImageModel countOfImages]);
-//    NSLog(@"Comments Count in insertItems: %lu", (unsigned long)[comments count]);
 
     [tableData addObjectsFromArray:comments];
     
@@ -215,14 +208,8 @@
     cell.description.text = [userInfo objectForKey:_description];
     cell.weibo.text = [d objectForKey:@"content"];
     
-    NSString *image_name = @"weibo1";
     NSLog(@"Images Count in Cell: %lu", [[d objectForKey:@"images"] count]);
-    if ([[d objectForKey:@"images"] count] > 0) {
-         image_name = [[images objectAtIndex:0] objectForKey:@"name"];
-    }
-    
-    cell.weiboImage.image = [UIImage imageNamed:image_name];
-    
+    [cell setImages:images];
     return cell;
 }
 
@@ -233,11 +220,13 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"NewsCell";
-    NewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    cell = (NewTableViewCell *)[tableView cellForRowAtIndexPath: indexPath];
-//    cell.description.text = [cell.description.text stringByAppendingString:@"X"];
+    long r = (long)indexPath.row;
+    long index = self.count - 1 - r;
+    CommentDetailViewController *detailView = [[CommentDetailViewController alloc] init];
+    self.clickedCellData = [tableData objectAtIndex:index];
+    detailView.commentTableViewController = self;
+    [self.navigationController pushViewController:detailView animated:YES];
 }
+
 
 @end
