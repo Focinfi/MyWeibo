@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MomentTableViewController.h"
 
 @interface AddMomentViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *momentContentTextView;
-
-
+@property (nonatomic) MomentTableViewController *momentTableViewController;
 @end

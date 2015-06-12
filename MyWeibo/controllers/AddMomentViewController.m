@@ -11,6 +11,8 @@
 #import "ImageModel.h"
 #import "Support.h"
 #import "DBIdentifiers.h"
+#import "SVProgressHUD.h"
+#import "MomentTableViewController.h"
 
 @interface AddMomentViewController (){
     int imageWidth;
@@ -100,6 +102,8 @@
         NSLog(@"WillSave moment_id:%@, images:%lu", newMoment.momentID, [newMoment.images count]);
         
         [newMoment save];
+        [SVProgressHUD showSuccessWithStatus:@"创建成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

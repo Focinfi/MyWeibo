@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *userDescription;
 @property (weak, nonatomic) IBOutlet UIScrollView *mommentScrollView;
 
-@property (nonatomic) MomentTableViewController *mommentTableViewController;
 @property (nonatomic) NSDictionary *mommentData;
 
 @end

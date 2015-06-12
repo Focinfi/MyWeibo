@@ -211,7 +211,12 @@
     NSLog(@"Detail Data T%ld%@", index, images);
 
     NSLog(@"Images Count in Cell: %lu", [[d objectForKey:@"images"] count]);
-    [cell setImages:images];
+    if ([images count] == 0) {
+        cell.frame = CGRectMake(0, 0, 350, 100);
+        
+    } else {
+        [cell setImages:images];  
+    }
     return cell;
 }
 
@@ -234,6 +239,7 @@
 
 - (IBAction)AddMommentAction:(id)sender {
     AddMomentViewController *addMommentViewController = [[AddMomentViewController alloc] init];
+    addMommentViewController.momentTableViewController = self;
     [self.navigationController pushViewController:addMommentViewController animated:YES];
 }
 @end

@@ -24,7 +24,6 @@
 
 - (void) setImages:(NSArray *) images
 {
-    
     for (int i = 0; i < [images count] && i < 3; i++) {
         UIImageView * imageView = [weiboImages objectAtIndex:i];
         NSLog(@"Images' File Path: %@", images[i]);
