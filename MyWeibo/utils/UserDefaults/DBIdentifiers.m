@@ -24,7 +24,7 @@
     NSString *number = [[MyWeiApp sharedManager].usesrDefaults stringForKey:identifier];
 
     if (number == nil) {
-        number = @"0";
+        number = @"10";
     }
     return [NSNumber numberWithInteger:[number intValue]];
 }

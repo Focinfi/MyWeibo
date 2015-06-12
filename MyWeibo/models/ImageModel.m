@@ -9,10 +9,11 @@
 #import "ImageModel.h"
 #import "Random.h"
 #import "MyWeiApp.h"
+#import "Support.h"
 
 @implementation ImageModel
 @synthesize name;
-@synthesize commentID;
+@synthesize momentID;
 
 + (NSString *) stringOfTableName
 {
@@ -27,7 +28,7 @@
 
 + (NSArray *) arrayOfProperties
 {
-    return [NSArray arrayWithObjects: @"name", @"comment_id", nil];
+    return [NSArray arrayWithObjects: @"name", @"moment_id", nil];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
@@ -39,7 +40,7 @@
 + (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID;
 {
     ImageModel *image = [[ImageModel alloc] init];
-    image.commentID = commentID;
+    image.momentID = commentID;
 
     if ([Random possibilityTenOfNum:5]) {
         if ([Random possibilityTenOfNum:5]) {
@@ -61,7 +62,7 @@
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues
 {
-    return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:name, commentID, nil]
+    return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:name, momentID, nil]
                                        forKeys:[ImageModel arrayOfProperties]];
 }
 

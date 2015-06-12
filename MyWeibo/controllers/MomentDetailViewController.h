@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CommentTableViewController.h"
-@interface CommentDetailViewController : UIViewController
+#import "MomentTableViewController.h"
+@interface MomentDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userDescription;
-@property (weak, nonatomic) IBOutlet UIScrollView *commentScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *mommentScrollView;
 
-@property (nonatomic) CommentTableViewController *commentTableViewController;
+@property (nonatomic) MomentTableViewController *mommentTableViewController;
+@property (nonatomic) NSDictionary *mommentData;
 
 @end

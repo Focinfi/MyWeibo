@@ -9,18 +9,30 @@
 #import "DataWorker.h"
 #import "MyWeiApp.h"
 #import "DBManager.h"
-#import "CommentModel.h"
+#import "MomentModel.h"
 #import "UserModel.h"
+#import "Support.h"
+#import "DBIdentifiers.h"
 
 @implementation DataWorker
 + (void) insertBasicDataWihtNumber:(int) number
 {
-    if ([CommentModel countOfComments] < number) {
+    if ([MomentModel countOfMoments] < number) {
+        [DataWorker saveBasicImages];
         for (int i = 0; i < number; i++) {
-            [[CommentModel commentWithRandomValues] save];
+            [[MomentModel momentWithRandomValues] save];
         }
     }
 
 }
 
++ (void) saveBasicImages
+{
+    for (int i = 0; i < 4; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"weibo%d", i + 1];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [Support saveImage:image withName:imageName];
+        NSLog(@"UIImage:%@", imageName);
+    }
+}
 @end

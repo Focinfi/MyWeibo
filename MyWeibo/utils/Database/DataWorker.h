@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DataWorker : NSObject
 + (void) insertBasicDataWihtNumber:(int) number;
+
++ (void) saveBasicImages;
 @end

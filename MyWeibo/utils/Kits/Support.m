@@ -13,5 +13,19 @@
 {
     return size.height / size.width;
 }
+
++ (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
+{
+    NSData *imageData = UIImageJPEGRepresentation(currentImage, 0.5);
+    NSString *fullPath = [Support stringOfFilePathForImageName:imageName];
+    [imageData writeToFile:fullPath atomically:YES];
+}
+
++ (NSString *) stringOfFilePathForImageName:(NSString *) imageName
+{
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
+    NSLog(@"Image File Path: %@", fullPath);
+    return fullPath;
+}
 @end
 

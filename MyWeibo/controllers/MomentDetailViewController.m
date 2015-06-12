@@ -6,27 +6,26 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import "CommentDetailViewController.h"
+#import "MomentDetailViewController.h"
 #import "ImageBrowser.h"
 #import "Support.h"
 
-@interface CommentDetailViewController (){
-    NSDictionary *commentData;
+@interface MomentDetailViewController (){
     NSDictionary *userInfo;
     int padding;
-    int commentContentHeight;
-    int commentScrollWidth;
-    int commentScrollHeight;
+    int mommentContentHeight;
+    int mommentScrollWidth;
+    int mommentScrollHeight;
 }
 
 @end
 
-@implementation CommentDetailViewController
+@implementation MomentDetailViewController
 @synthesize avatar;
 @synthesize userName;
 @synthesize userDescription;
-@synthesize commentScrollView;
-@synthesize commentTableViewController;
+@synthesize mommentScrollView;
+@synthesize mommentData;
 
 - (void)viewDidLoad {
     
@@ -42,9 +41,8 @@
 - (void) initValue
 {
     padding = 10;
-    commentScrollWidth = 250;
-    commentData = self.commentTableViewController.clickedCellData;
-    userInfo = [commentData objectForKey:@"user"];
+    mommentScrollWidth = 250;
+    userInfo = [self.mommentData objectForKey:@"user"];
 }
 
 #pragma mark Init UI
@@ -56,6 +54,8 @@
     [self setCommentContent];
     [self setImages];
     [self setCommentScrollView];
+    
+    NSLog(@"Detail Data: %@", [mommentData objectForKey:@"content"]);
 }
 
 - (void) setAvatarAsRound
@@ -67,49 +67,52 @@
 
 - (void) setNameAndDescription
 {
+    self.title = @"Moment";
     self.userName.text = [userInfo objectForKey:@"name"];
     self.userDescription.text = [userInfo objectForKey:@"description"];
 }
 
 - (void) setCommentScrollView
 {
-    self.commentScrollView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.8];
-    self.commentScrollView.contentSize = CGSizeMake(commentScrollWidth, commentScrollHeight);
-    self.commentScrollView.layer.masksToBounds = YES;
-    self.commentScrollView.layer.cornerRadius = 8;
+    self.mommentScrollView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.8];
+    self.mommentScrollView.contentSize = CGSizeMake(mommentScrollWidth, mommentScrollHeight);
+    self.mommentScrollView.layer.masksToBounds = YES;
+    self.mommentScrollView.layer.cornerRadius = 8;
 }
 
 - (void) setCommentContent
 {
-    NSString *contentText = [commentData objectForKey:@"content"];
+    NSString *contentText = [self.mommentData objectForKey:@"content"];
     UILabel *content = [[UILabel alloc] init];
-    content.numberOfLines = [contentText length]/10;
-    commentContentHeight = (int)content.numberOfLines * 16;
-    commentScrollHeight += commentContentHeight + padding;
-    content.frame = CGRectMake(padding, 0, commentScrollWidth - padding, commentContentHeight);
+    content.numberOfLines = [contentText length]/10 + 1;
+    mommentContentHeight = (int)content.numberOfLines * 15 + padding;
+    mommentScrollHeight += mommentContentHeight + padding;
+    content.frame = CGRectMake(padding, 0, mommentScrollWidth - padding, mommentContentHeight);
     content.text = contentText;
-    [self.commentScrollView addSubview:content];
+    [self.mommentScrollView addSubview:content];
 }
 
 - (void) setImages
 {
-    NSArray *images = [commentData objectForKey:@"images"];
+    NSArray *images = [self.mommentData objectForKey:@"images"];
     for (int i = 0; i < [images count]; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.image = [UIImage imageNamed:images[i]];
+        imageView.image = [[UIImage alloc]
+                           initWithContentsOfFile:
+                           [Support stringOfFilePathForImageName:images[i]]];
         
-        float imageHeight = (commentScrollWidth - padding) * [Support proportionOfHeigthToWidth:imageView.image.size];
+        float imageHeight = (mommentScrollWidth - padding) * [Support proportionOfHeigthToWidth:imageView.image.size];
         
-        imageView.frame = CGRectMake(padding, commentScrollHeight, commentScrollWidth - padding, imageHeight);
+        imageView.frame = CGRectMake(padding, mommentScrollHeight, mommentScrollWidth - padding, imageHeight);
         
-        commentScrollHeight += imageHeight + padding;
+        mommentScrollHeight += imageHeight + padding;
 
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
         
         imageView.userInteractionEnabled = YES;
         [imageView addGestureRecognizer:tap];
         
-        [self.commentScrollView addSubview:imageView];
+        [self.mommentScrollView addSubview:imageView];
     }
 }
 

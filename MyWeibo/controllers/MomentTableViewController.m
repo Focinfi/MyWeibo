@@ -6,18 +6,19 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import "CommentTableViewController.h"
-#import "CommentDetailViewController.h"
+#import "MomentTableViewController.h"
+#import "MomentDetailViewController.h"
 #import "NewTableViewCell.h"
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
 #import "MyWeiApp.h"
 #import "SVProgressHUD.h"
 #import "DataWorker.h"
-#import "CommentModel.h"
+#import "MomentModel.h"
 #import "ImageModel.h"
+#import "AddMomentViewController.h"
 
-@interface CommentTableViewController () {
+@interface MomentTableViewController () {
     NSMutableArray *tableData;
     NSString *_avatar;
     NSString *_name;
@@ -27,7 +28,7 @@
 
 @end
 
-@implementation CommentTableViewController
+@implementation MomentTableViewController
 @synthesize count;
 @synthesize sizeOfRefresh;
 @synthesize dbManager;
@@ -43,7 +44,7 @@
 
 - (void)viewDidLoad {
     [self initValues];
-    [self initDB];
+    [self initBasicData];
     [self addRefreshViewControl];
     [self setUpForTableView];
     [super viewDidLoad];
@@ -88,7 +89,7 @@
 
 #pragma mark - News Database operation
 
-- (void) initDB
+- (void) initBasicData
 {
     [SVProgressHUD showWithStatus:@"Loading"];
 
@@ -105,8 +106,8 @@
 {
     long to = self.count + self.sizeOfRefresh;
 
-    NSLog(@"Comments Count in countOfItems: %d", [CommentModel countOfComments]);
-    NSArray *comments = [CommentModel arrayOfItemsFrom:self.count to:to];
+    NSLog(@"Comments Count in countOfItems: %d", [MomentModel countOfMoments]);
+    NSArray *comments = [MomentModel arrayOfItemsFrom:self.count to:to];
 
     [tableData addObjectsFromArray:comments];
     
@@ -191,11 +192,11 @@
     static NSString *CellIdentifier = @"NewsCell";    
     NewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:self options:nil] lastObject];
-        [cell setAvatarAsRound];
-    }
-    
+//    if (cell == nil) {
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:self options:nil] lastObject];
+//    }
+    cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:self options:nil] lastObject];
+    [cell setAvatarAsRound];
     long r = (long)indexPath.row;
     long index = self.count - 1 - r;
         
@@ -207,7 +208,8 @@
     cell.name.text = [[userInfo objectForKey:_name] stringByAppendingFormat:@"_%ld", index];
     cell.description.text = [userInfo objectForKey:_description];
     cell.weibo.text = [d objectForKey:@"content"];
-    
+    NSLog(@"Detail Data T%ld%@", index, images);
+
     NSLog(@"Images Count in Cell: %lu", [[d objectForKey:@"images"] count]);
     [cell setImages:images];
     return cell;
@@ -222,11 +224,16 @@
 {
     long r = (long)indexPath.row;
     long index = self.count - 1 - r;
-    CommentDetailViewController *detailView = [[CommentDetailViewController alloc] init];
-    self.clickedCellData = [tableData objectAtIndex:index];
-    detailView.commentTableViewController = self;
+    MomentDetailViewController *detailView = [[MomentDetailViewController alloc] init];
+    NSLog(@"Detail Data T%@", [tableData[index] objectForKey:@"images"]);
+
+    detailView.mommentData = tableData[index];
     [self.navigationController pushViewController:detailView animated:YES];
 }
 
 
+- (IBAction)AddMommentAction:(id)sender {
+    AddMomentViewController *addMommentViewController = [[AddMomentViewController alloc] init];
+    [self.navigationController pushViewController:addMommentViewController animated:YES];
+}
 @end

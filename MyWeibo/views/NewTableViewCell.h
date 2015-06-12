@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *description;
 @property (weak, nonatomic) IBOutlet UILabel *weibo;
-@property (weak, nonatomic) IBOutlet UIImageView *weiboImage;
 
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *weiboImages;
 

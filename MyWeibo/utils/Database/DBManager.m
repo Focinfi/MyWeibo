@@ -120,6 +120,38 @@
     return item;
 }
 
+- (NSArray *) arrayOfAllBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
+{
+    NSMutableArray *data = [NSMutableArray array];
+    
+    if ([self.db open]) {
+        NSString * sql = [NSString stringWithFormat:
+                          @"SELECT * FROM %@ ", name];
+        if (conditions) {
+            sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+            //            sql = [sql stringByAppendingString:@"WHERE name = '仓井优'"];
+        }
+        FMResultSet * rs = [self.db executeQuery:sql];
+        
+        while ([rs next]) {
+            NSMutableDictionary *item = [NSMutableDictionary dictionary];
+            for (int i = 0; i < columns.count; i++) {
+                NSString *value = [rs stringForColumn:columns[i]];
+                NSLog(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
+                if (value != nil) {
+                    NSLog(@"Count: %d", i);
+                    [item setValue:value forKey:columns[i]];
+                }
+            }
+                //                NSLog(@"RS ID: %@", [rs objectForColumnName:@"id"]);
+            [data addObject:item];
+        }
+        [self.db close];
+    }
+    
+    return data;
+}
+
 - (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to
 {
     NSLog(@"%@", columns);

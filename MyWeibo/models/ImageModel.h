@@ -11,7 +11,7 @@
 
 @interface ImageModel : NSObject<Model>
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *commentID;
+@property (nonatomic) NSString *momentID;
 
 + (NSString *) stringOfTableName;
 + (int) countOfImages;

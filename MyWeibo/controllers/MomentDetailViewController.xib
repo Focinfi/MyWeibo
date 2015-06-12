@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentDetailViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MomentDetailViewController">
             <connections>
                 <outlet property="avatar" destination="etj-pI-Y7S" id="wnz-6P-XPf"/>
-                <outlet property="commentScrollView" destination="7bL-uc-cnS" id="cJX-AE-ObM"/>
+                <outlet property="mommentScrollView" destination="7bL-uc-cnS" id="vhm-3E-uB5"/>
                 <outlet property="userDescription" destination="46n-mr-Ayo" id="pU1-9M-Rzs"/>
                 <outlet property="userName" destination="wiS-ke-j0K" id="DJ7-hD-gBg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

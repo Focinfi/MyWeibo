@@ -45,7 +45,7 @@
         <!--新鲜事-->
         <scene sceneID="alJ-N8-ZQK">
             <objects>
-                <tableViewController id="z83-zQ-vTD" customClass="CommentTableViewController" sceneMemberID="viewController">
+                <tableViewController id="z83-zQ-vTD" customClass="MomentTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="63n-Lb-9cO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,13 @@
                             <outlet property="delegate" destination="z83-zQ-vTD" id="aWc-bC-PRQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="新鲜事" id="x9N-bL-JWv"/>
+                    <navigationItem key="navigationItem" title="新鲜事" id="x9N-bL-JWv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Gs-KF-5NK">
+                            <connections>
+                                <action selector="AddMommentAction:" destination="z83-zQ-vTD" id="9rq-Bv-a6I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8T9-hd-dY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

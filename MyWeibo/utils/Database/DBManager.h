@@ -15,6 +15,7 @@
 - (void) connectDBName: (NSString *)name;
 - (BOOL) createTableName:(NSString *)name columns:(NSDictionary *)colums;
 - (BOOL) insearItemsTableName:(NSString *)name columns:(NSDictionary *)columns;
+- (NSArray *) arrayOfAllBySelect:(NSArray *) colums fromTable:(NSString *) name where:(NSDictionary *) conditions;
 - (NSArray *) arrayBySelect:(NSArray *) colums fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to;
 - (int) countOfItemsNumberInTable:(NSString *)name;
 - (NSDictionary *) dictionaryBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions;

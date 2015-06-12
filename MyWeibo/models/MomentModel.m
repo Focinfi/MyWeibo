@@ -7,7 +7,7 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import "CommentModel.h"
+#import "MomentModel.h"
 #import "Random.h"
 #import "DBIdentifiers.h"
 #import "ImageModel.h"
@@ -15,36 +15,36 @@
 #import "UserModel.h"
 #import "NSArray+Assemble.h"
 
-@implementation CommentModel
-@synthesize commentID;
+@implementation MomentModel
+@synthesize momentID;
 @synthesize userID;
 @synthesize content;
 
 + (NSString *) stringOfTableName
 {
-    return @"comments";
+    return @"moments";
 }
 
-+ (int) countOfComments
++ (int) countOfMoments
 {
-    return [[MyWeiApp sharedManager].databaseManager countOfItemsNumberInTable:[CommentModel stringOfTableName]];
+    return [[MyWeiApp sharedManager].databaseManager countOfItemsNumberInTable:[MomentModel stringOfTableName]];
     
 }
 
 + (NSArray *) arrayOfProperties
 {
-    return [NSArray arrayWithObjects:@"comment_id", @"user_id", @"content", nil];
+    return [NSArray arrayWithObjects:@"moment_id", @"user_id", @"content", nil];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
 {
     NSArray *types = [NSArray arrayWithObjects:@"TEXT", @"TEXT", @"TEXT", nil];
-    return [NSDictionary dictionaryWithObjects:types forKeys:[CommentModel arrayOfProperties]];
+    return [NSDictionary dictionaryWithObjects:types forKeys:[MomentModel arrayOfProperties]];
 }
 
-+ (CommentModel *) commentWithRandomValues
++ (MomentModel *) momentWithRandomValues
 {
-    CommentModel *comment = [[CommentModel alloc] init];
+    MomentModel *comment = [[MomentModel alloc] init];
 
 //    NSArray *userIDs =
 //        [[MyWeiApp sharedManager].databaseManager
@@ -63,7 +63,7 @@
     
     comment.userID = @"1";
     comment.content = [Random stringOfRandomWeiboSetencesCount:[Random randZeroToNum:3]];
-    comment.commentID = [DBIdentifiers stringOfIdentifier:@"comment_id"];
+    comment.momentID = [DBIdentifiers stringOfIdentifier:@"moment_id"];
     comment.images = [NSMutableArray array];
     [comment addImageModelsNumber:[Random randZeroToNum:4] + 1];
 
@@ -74,18 +74,17 @@
 {
     NSMutableArray *data = [NSMutableArray array];
     
-    NSArray *comments = [[MyWeiApp sharedManager].databaseManager arrayBySelect:[CommentModel arrayOfProperties] fromTable:[CommentModel stringOfTableName] where:nil from:from to:to];
+    NSArray *comments = [[MyWeiApp sharedManager].databaseManager arrayBySelect:[MomentModel arrayOfProperties] fromTable:[MomentModel stringOfTableName] where:nil from:from to:to];
     for (int i; i < [comments count]; i++) {
         NSMutableDictionary *item = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *) comments[i]];
         //set images
-        NSString *commentID = [item objectForKey:@"comment_id"];
+        NSString *commentID = [item objectForKey:@"moment_id"];
         NSArray *images =
             [[MyWeiApp sharedManager].databaseManager
-                 arrayBySelect:[NSArray arrayWithObject:@"name"]
+                 arrayOfAllBySelect:[NSArray arrayWithObject:@"name"]
                      fromTable:[ImageModel stringOfTableName]
-                         where:[NSDictionary dictionaryWithObject:commentID forKey:@"comment_id"]
-                          from:0
-                            to:[ImageModel countOfImages]];
+                         where:[NSDictionary dictionaryWithObject:commentID forKey:@"moment_id"]];
+             
         images = [images arrayByMap:(id)^(id item) {
             return [item objectForKey:@"name"];
         }];
@@ -112,21 +111,21 @@
 - (void) addImageModelsNumber:(int) number
 {
     for (int i = 0; i < number; i++) {
-        ImageModel *image = [ImageModel imageWithRandomValuesForCommentID:self.commentID];
+        ImageModel *image = [ImageModel imageWithRandomValuesForCommentID:self.momentID];
         [self.images addObject:image];
     }
 }
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues
 {
-    return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:commentID, userID, content, nil]
-                                       forKeys:[CommentModel arrayOfProperties]];
+    return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:momentID, userID, content, nil]
+                                       forKeys:[MomentModel arrayOfProperties]];
 }
 
 - (void) save
 {
     [[MyWeiApp sharedManager].databaseManager
-     insearItemsTableName:[CommentModel stringOfTableName]
+     insearItemsTableName:[MomentModel stringOfTableName]
      columns:[self dictionaryOfPropertiesAndValues]];
     
     for (int i; i < [self.images count]; i++) {

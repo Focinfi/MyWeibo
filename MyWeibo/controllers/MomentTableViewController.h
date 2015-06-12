@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "DBManager.h"
 
-@interface CommentTableViewController : UITableViewController
+@interface MomentTableViewController : UITableViewController
 @property (nonatomic) NSInteger count;
 @property (nonatomic) NSInteger sizeOfRefresh;
 @property (nonatomic) DBManager *dbManager;
 @property (nonatomic) NSArray *columns;
 @property (nonatomic) NSDictionary *clickedCellData;
+- (IBAction)AddMommentAction:(id)sender;
 @end

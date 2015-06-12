@@ -7,6 +7,7 @@
 //
 
 #import "NewTableViewCell.h"
+#import "Support.h"
 
 @implementation NewTableViewCell
 
@@ -14,7 +15,6 @@
 @synthesize name;
 @synthesize description;
 @synthesize weibo;
-@synthesize weiboImage;
 @synthesize weiboImages;
 - (void) setAvatarAsRound
 {
@@ -24,9 +24,13 @@
 
 - (void) setImages:(NSArray *) images
 {
+    
     for (int i = 0; i < [images count] && i < 3; i++) {
         UIImageView * imageView = [weiboImages objectAtIndex:i];
-        imageView.image = [UIImage imageNamed:images[i]];
+        NSLog(@"Images' File Path: %@", images[i]);
+        imageView.image = [[UIImage alloc]
+                           initWithContentsOfFile:
+                           [Support stringOfFilePathForImageName:images[i]]];
     }
 }
 

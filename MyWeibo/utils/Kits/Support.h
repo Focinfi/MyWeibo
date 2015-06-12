@@ -10,4 +10,6 @@
 
 @interface Support : NSObject
 + (float) proportionOfHeigthToWidth:(CGSize) size;
++ (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName;
++ (NSString *) stringOfFilePathForImageName:(NSString *) imageName;
 @end

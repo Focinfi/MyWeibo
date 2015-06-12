@@ -11,13 +11,12 @@
 #import "MyWeiApp.h"
 #import "SVProgressHUD.h"
 #import "ImageModel.h"
-#import "CommentModel.h"
+#import "MomentModel.h"
 #import "UserModel.h"
 #import "DBIdentifiers.h"
 #import "Random.h"
 #import "NSString+Format.h"
 #import "NSArray+Assemble.h"
-
 
 @interface AppDelegate ()
 @end
@@ -27,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setUIColor];
-    [self setDBInitialization];
+    [self setBasicDataInitialization];
     
     [self setTab];
 
@@ -43,19 +42,21 @@
 
 #pragma mark DB Connection Init
 
-- (void) setDBInitialization
+- (void) setBasicDataInitialization
 {
+
+    
     [MyWeiApp sharedManager].usesrDefaults = [NSUserDefaults standardUserDefaults];
    
     [MyWeiApp sharedManager].databaseManager = [[DBManager alloc] init];
-    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db18"];
+    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db31"];
     
     //create tables
     [[MyWeiApp sharedManager].databaseManager createTableName:[UserModel stringOfTableName] columns:[UserModel directoryOfPropertiesAndTypes]];
     
     [[MyWeiApp sharedManager].databaseManager createTableName:[ImageModel stringOfTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
     
-    [[MyWeiApp sharedManager].databaseManager createTableName:[CommentModel stringOfTableName] columns:[CommentModel directoryOfPropertiesAndTypes]];
+    [[MyWeiApp sharedManager].databaseManager createTableName:[MomentModel stringOfTableName] columns:[MomentModel directoryOfPropertiesAndTypes]];
     
     //test
 //    NSString *s = @"A";

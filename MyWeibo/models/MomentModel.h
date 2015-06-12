@@ -9,17 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "Model.h"
 
-@interface CommentModel : NSObject<Model>
-@property (nonatomic) NSString *commentID;
+@interface MomentModel : NSObject<Model>
+@property (nonatomic) NSString *momentID;
 @property (nonatomic) NSString *userID;
 @property (nonatomic) NSString *content;
 @property (nonatomic) NSMutableArray *images;
 
 + (NSString *) stringOfTableName;
-+ (int) countOfComments;
++ (int) countOfMoments;
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;
-+ (CommentModel *) commentWithRandomValues;
++ (MomentModel *) momentWithRandomValues;
 + (NSArray *) arrayOfItemsFrom:(long) from to:(long) to;
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
