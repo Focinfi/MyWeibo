@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Model.h"
 
 @interface ImageModel : NSObject<Model>
@@ -18,6 +18,7 @@
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;
 + (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID;
++ (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSString *) commentID;
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
 - (void) save;

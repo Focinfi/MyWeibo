@@ -95,6 +95,8 @@
 - (void) setImages
 {
     NSArray *images = [self.mommentData objectForKey:@"images"];
+    NSLog(@"Images Count: %lu", (unsigned long)[images count]);
+    NSLog(@"Image:%@", images);
     for (int i = 0; i < [images count]; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.image = [[UIImage alloc]

@@ -8,7 +8,7 @@
 
 #import "MomentTableViewController.h"
 #import "MomentDetailViewController.h"
-#import "NewTableViewCell.h"
+#import "MomentTableViewCell.h"
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
 #import "MyWeiApp.h"
@@ -17,6 +17,8 @@
 #import "MomentModel.h"
 #import "ImageModel.h"
 #import "AddMomentViewController.h"
+#import "Random.h"
+#import "AVOSCloud.h"
 
 @interface MomentTableViewController () {
     NSMutableArray *tableData;
@@ -69,6 +71,12 @@
     _name = @"name";
     _description = @"description";
     _content = @"weibo";
+    
+    [self initAVOS];
+}
+
+- (void) initAVOS
+{
 }
 
 - (void) initTableData
@@ -135,7 +143,6 @@
 {
     
     if (self.refreshControl.refreshing) {
-        NSLog(@"refreshing");
         self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新中"];
         
         [self performSelector:@selector(handleData) withObject:nil afterDelay:0.5];
@@ -145,7 +152,6 @@
 
 - (void) handleData
 {
-    NSLog(@"refreshed");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self insearItemsToTableData];
         if (tableData.count > self.count) {
@@ -189,34 +195,22 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"NewsCell";    
-    NewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-//    if (cell == nil) {
-//        cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:self options:nil] lastObject];
-//    }
-    cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:self options:nil] lastObject];
+    static NSString *CellIdentifier = @"MomentCell";    
+    MomentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell = [[[NSBundle mainBundle] loadNibNamed:@"MomentCell" owner:self options:nil] lastObject];
     [cell setAvatarAsRound];
     long r = (long)indexPath.row;
     long index = self.count - 1 - r;
         
     NSDictionary *d = (NSDictionary *) [tableData objectAtIndex:index];
     NSDictionary *userInfo = [d objectForKey:@"user"];
-    NSArray *images = [d objectForKey:@"images"];
-
+    NSMutableArray *images = [d objectForKey:@"images"];
     cell.avatar.image = [UIImage imageNamed:[userInfo objectForKey:_avatar]];
     cell.name.text = [[userInfo objectForKey:_name] stringByAppendingFormat:@"_%ld", index];
     cell.description.text = [userInfo objectForKey:_description];
     cell.weibo.text = [d objectForKey:@"content"];
-    NSLog(@"Detail Data T%ld%@", index, images);
 
-    NSLog(@"Images Count in Cell: %lu", [[d objectForKey:@"images"] count]);
-    if ([images count] == 0) {
-        cell.frame = CGRectMake(0, 0, 350, 100);
-        
-    } else {
-        [cell setImages:images];  
-    }
+    [cell setImages:images];
     return cell;
 }
 
@@ -230,8 +224,6 @@
     long r = (long)indexPath.row;
     long index = self.count - 1 - r;
     MomentDetailViewController *detailView = [[MomentDetailViewController alloc] init];
-    NSLog(@"Detail Data T%@", [tableData[index] objectForKey:@"images"]);
-
     detailView.mommentData = tableData[index];
     [self.navigationController pushViewController:detailView animated:YES];
 }

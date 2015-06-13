@@ -29,7 +29,7 @@
 + (void) saveBasicImages
 {
     for (int i = 0; i < 4; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"weibo%d", i + 1];
+        NSString *imageName = [NSString stringWithFormat:@"moment_id_%d", i + 1];
         UIImage *image = [UIImage imageNamed:imageName];
         [Support saveImage:image withName:imageName];
         NSLog(@"UIImage:%@", imageName);

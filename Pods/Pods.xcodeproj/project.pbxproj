@@ -1,0 +1,1559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		006EAF1A3472DA38999AB165 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2A0D9C733366F43646E5AD /* DDMultiFormatter.h */; };
+		03BCFEDF9079DB44D88C63B6 /* AVFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 78A1DF5D964A6A5A0A975FE2 /* AVFile.h */; };
+		0412349C916C9127C7627205 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 9165FFC81BAC7059C406D65C /* UIProgressView+AFNetworking.h */; };
+		09F1EDB1DDD87F1BF496F582 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAAD8E3B2E82058A45BEAA /* QuartzCore.framework */; };
+		0A29710C8449749F96A85A61 /* AVStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DB780DC6613333369B011E /* AVStatus.h */; };
+		14E891B8DC8857F92BFECC95 /* AVObject+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 22C535E407469B1CD00B1113 /* AVObject+Subclass.h */; };
+		181330FCE6CB25AE23FEF4E4 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = AED133A2148C3FBF264F9F9B /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		192A8CE527751EDDE9E2B9FD /* Pods-MyWeibo-AVOSCloud-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FBCF2DAE457F89EA3BEA5A /* Pods-MyWeibo-AVOSCloud-dummy.m */; };
+		1CD89F3FE01966790432A737 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3335B6475AF40F5A7DE0E161 /* UIActivityIndicatorView+AFNetworking.m */; };
+		1D1CBDA5DF2E675CF0CE7C55 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EE752E92FF462126749A7834 /* AFHTTPSessionManager.h */; };
+		1E13293E5E4E0114FF69584C /* AVFileHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E3F944B625FB122630275C36 /* AVFileHTTPRequestOperation.h */; };
+		1EDF7DBD6B8A54087980ACF4 /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7856E45B0283BC3BA86450 /* DDASLLogCapture.h */; };
+		213563489B30D794F5305666 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A661A153A87855CC5D64D3 /* AFSecurityPolicy.m */; };
+		2411ACC1810E9AF6F5B6C5B5 /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 164DDDC3954C39F3F6BEE980 /* DDDispatchQueueLogFormatter.h */; };
+		24FB1AB56D36C46CF42BEC7F /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1BFF8CFFE44E4B9C00FC76 /* DDContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2BFCCF61479061F16F9C3A89 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A4629515F199B7697F1602 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3192414A225A372837B72594 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 670C968AD3E83DF16D9249E0 /* AFHTTPRequestOperationManager.m */; };
+		324587B0F12FD223C272CA39 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3B521D2810EAC28BD01A76 /* FMDatabaseQueue.h */; };
+		347C5716921EE9A4BF468F8E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B536EA914DAB7B151FB56F02 /* CoreTelephony.framework */; };
+		36490D57C8757E0BBE522AC8 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC09E2722923A4156DF5E01 /* AFURLResponseSerialization.m */; };
+		37BF80BDBDF0470BD20FC49B /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = B859B76DE71D4C223EC03729 /* AFHTTPRequestOperation.h */; };
+		384BD997EA9874D6931F848B /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = AC1E564CB47DCCB7533D5D7E /* UIImageView+AFNetworking.h */; };
+		3A8E16904591D65DD74CECEC /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A30A3BDF655CB691C57072 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3A9AA19C39300C309407714C /* AVUserFeedbackAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = B69812A74D7B0AC244847484 /* AVUserFeedbackAgent.h */; };
+		3BA867AAE78BDB5B6B0D7618 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E83DBB9F76C6F2357D8CC99 /* AFNetworkReachabilityManager.m */; };
+		3E15E8B60D9BFCBB263FC1DB /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E14437C5EE66E9839520E466 /* UIActivityIndicatorView+AFNetworking.h */; };
+		416777E60DB83A01C7DD788E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAAD8E3B2E82058A45BEAA /* QuartzCore.framework */; };
+		4170F036311A8189F0B7D791 /* AVURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2824DE9B916E79560B8C7320 /* AVURLConnectionOperation.h */; };
+		438FADF596484461B3B7E0D8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB853BC2A8F3402420235869 /* AFHTTPRequestOperation.m */; };
+		4397484B268AC35EC17A1359 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D5C585FB9ED0EE1F73C369 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		43D4F93BA12794E355B705E8 /* AVGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = AB80CA67A0C8C798F956C877 /* AVGroup.h */; };
+		4512ABAAF8BD1C67864C67A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3951C048EAFCCC333EB2920A /* Foundation.framework */; };
+		486E1D4B835FCA25775B3643 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B95B953E2E96FD6A7FC588E /* FMDatabasePool.h */; };
+		4B71ECE2ED2428AB6DE02531 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B637B9D0F74D1EEAD37F1C27 /* UIAlertView+AFNetworking.h */; };
+		4E5A430B4D882521F932509C /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 389C6BFA318128DD28EF00B7 /* SVIndefiniteAnimatedView.h */; };
+		4F0A00D29DD8AAF22CFB68AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D7F935859F5973178C4176 /* CoreLocation.framework */; };
+		509685AB8AD35A9086571B5C /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = D00BAFAC2BD9A86A1C37265B /* DDLog+LOGV.h */; };
+		5169ECF788B231869A98FE1F /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F2D355777E931326F0728C /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5193BD6EE55C49BFEE71E2E3 /* AVQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 78499B58FDF35168232A72F8 /* AVQuery.h */; };
+		51F7D139233CC4BA26B1E1FE /* AVSubclassing.h in Headers */ = {isa = PBXBuildFile; fileRef = AFFAEC24A4D458C140BBEA7A /* AVSubclassing.h */; };
+		52878726053516822C0F9533 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB751D02F67885FD97CB0386 /* AFHTTPSessionManager.m */; };
+		53D1003324462709A0DE3288 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = A8356868B54B3517C7A097A0 /* AFURLResponseSerialization.h */; };
+		54CB850F8ACB1CB96755792F /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D18905766C047982956A38E /* UIButton+AFNetworking.h */; };
+		569FBD908CB3C39D25E80CEB /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6762B341B60A6C39F996B3E /* AFHTTPRequestOperationManager.h */; };
+		5FB79DB3FBF2F2075949C80F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3951C048EAFCCC333EB2920A /* Foundation.framework */; };
+		5FF2AFF0AFBC1D0462D4FFE8 /* AVSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D9C7B59FA31CC19BF5C05D2 /* AVSearchQuery.h */; };
+		5FFCD9F072B70A1FEDD70F29 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D061B66517EC740B3006E513 /* UIImageView+AFNetworking.m */; };
+		62EE2CB3DCBEB06842790D2A /* AVAmazonS3Client.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E04976BE2A3C9BFED96C3D2 /* AVAmazonS3Client.h */; };
+		639C7D6FDE4D651396D2E1D4 /* Pods-MyWeibo-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 418960B7CE403FEE037D545F /* Pods-MyWeibo-AFNetworking-dummy.m */; };
+		65EA5DD909CD1CA6DE00075B /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1A6AE4C0A5651807D8D6A2 /* DDMultiFormatter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		662D0CFCEAB884F9BD838793 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 763D50A29C6F42B3110AE36D /* UIRefreshControl+AFNetworking.h */; };
+		6694D3FE4BAE64D803DBB3B5 /* AVUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DF30B85BE20ED1006AF8CFB /* AVUser.h */; };
+		6696D946F957333686EFD930 /* AVACL.h in Headers */ = {isa = PBXBuildFile; fileRef = 31EA43DF20114C55A5F8DFE1 /* AVACL.h */; };
+		67F461C457EDECA0E4FA4E43 /* AVImageRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2D51E58FA21145CA1B50C9 /* AVImageRequestOperation.h */; };
+		6AB19A0089D6A4BF8AFA660D /* AVAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE7A84956FCECEAC07BB6EF /* AVAnalytics.h */; };
+		6D33FDFACA79674910C3097D /* AVCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 46FB176EB55ADA9805A1FF0E /* AVCloud.h */; };
+		6D54A647A0F7E324B8D52098 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3951C048EAFCCC333EB2920A /* Foundation.framework */; };
+		6DAD1778EC1D53800E5645B5 /* AVConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 87E6D1404522C121942C2944 /* AVConstants.h */; };
+		6E86678E165DB08AFDB0D9B4 /* AVJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 659D06BA4ED1C132551531BF /* AVJSONRequestOperation.h */; };
+		710093E48AFBCA2FED21869C /* AVMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 07EE76DC8BA45DC662C47833 /* AVMessage.h */; };
+		7194DE405916752403E9D49A /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BD8952D9B957103C5718EF64 /* AFNetworkReachabilityManager.h */; };
+		72C772C61261EF3201ACF05C /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C045B2FBF9D17C5091E45B /* AFURLRequestSerialization.h */; };
+		74AD656D3C3989F615017D2B /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 536B57AF8B997632190AADE3 /* DDFileLogger.h */; };
+		754C06200D7E338381056933 /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DBA9FD6421B984D88AE4C12 /* DDASLLogger.h */; };
+		7734FE7F87017310A359AA92 /* AVLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F7AFB80DBED68AF7F321AAC8 /* AVLocationManager.h */; };
+		7815A4AFB5067153ED4313B3 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DED328FAF62325156B7F0D8 /* FMDatabaseAdditions.h */; };
+		784F2EDFEE58CD56E4F86604 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 901E0663F7816543BC903D25 /* UIWebView+AFNetworking.h */; };
+		78D13F08ED982C6C9D663DD6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED63118F7C455A8EC4F445 /* Security.framework */; };
+		7FE777D20E7D2631D230CC96 /* LCDummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECEA3544AF17A1A4C9D7256 /* LCDummy.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7FFED939DA6D510415328902 /* AVUserFeedback.h in Headers */ = {isa = PBXBuildFile; fileRef = E0260C69407115AAC949B806 /* AVUserFeedback.h */; };
+		80B13A641137CF7CB85E70DD /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A89B637B91B94771389A7B /* SVProgressHUD.m */; };
+		80CC6A00C4553CB404B77379 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3951C048EAFCCC333EB2920A /* Foundation.framework */; };
+		817AD8A96913A3FDB1840A6E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1EC3215D77395A55686EF6 /* CFNetwork.framework */; };
+		83A34B9FAB9794AC04BB8777 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01DBF6D9B8C98DCD00E6A70 /* MobileCoreServices.framework */; };
+		8548C7DA609195764959CA3A /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EA31F38A7329F53E4F2D19 /* DDDispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		86747AB22D027736B5EF1840 /* AVHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF0DF566AE387ECA56061D0 /* AVHelpers.h */; };
+		86D17E501960375582751F96 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E23B2EF306D931ACFE3C4DC /* SystemConfiguration.framework */; };
+		86F24664454BEE054B2DB88C /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A36B98D9BD48C73A3DAA99D /* AFNetworking.h */; };
+		885EBEAE32018CD6E9372DED /* AVNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D262F67DEF6CF59F911A86 /* AVNetworkActivityIndicatorManager.h */; };
+		893B24C9D976DBD71CB264B5 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E66C07A07AE85874C617DD2B /* UIProgressView+AFNetworking.m */; };
+		8C3E28BBDD64861E706CEDFD /* AVHistoryMessageQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 465C8A4D4F708645FFA705C6 /* AVHistoryMessageQuery.h */; };
+		8CE1E7BDBC31CAB7A05CE669 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FB23292069D03E2AAB936 /* UIAlertView+AFNetworking.m */; };
+		8D03076601732070AFE1733D /* Pods-MyWeibo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D92E260E0E0887631CB75007 /* Pods-MyWeibo-dummy.m */; };
+		8EB62DFE96616464A308B5E0 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F2EE36802016F7414CAB46 /* UIKit+AFNetworking.h */; };
+		8FE4A6A1D53E1CDC318950A2 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3258A9350FC1B4007655D588 /* AFSecurityPolicy.h */; };
+		90B662F40A909B08D8A15233 /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9748A50919E48BA847FCBDDD /* DDASLLogCapture.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		917CFB357FDEA6EBF171A635 /* DDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEDB55BC2FE605EB5F363BF /* DDLogMacros.h */; };
+		940A77B0BBF3BEE487BC06C8 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DD0AE02632ED2F95AA88C /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		947EBA5AE424E58AA034788F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55107B9A140ABF338EA64CA7 /* CoreGraphics.framework */; };
+		993E8E017D6C602A5AADF6F1 /* AVPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F7FE0752B58F893FE8E5B30 /* AVPush.h */; };
+		9B4CD3EDA6F4AA56911B5CF2 /* AVNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 51C1644690AF2F8ED654E659 /* AVNetworking.h */; };
+		9EA55C3D304C9E662B7B892E /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AC3823E00C2DED05CB046A /* UIWebView+AFNetworking.m */; };
+		9F95825465C1F0539C56476D /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F5DC5F95E23EB4BB3DA50D /* DDLog.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A1E23AEF00B7E81F304D1124 /* AVOSCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 5360CD833E892DECF9A5E2A7 /* AVOSCloud.h */; };
+		A44B00F11ACF9FCFE3F5DBAB /* AVSession.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE2E02BE325A6CF1AB730DE /* AVSession.h */; };
+		A470C97AE2F9805280992F83 /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = C813C146799714BD9C80C05A /* DDContextFilterLogFormatter.h */; };
+		A8084A88D85C679CB44B1404 /* AVRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 547A238E0B4FBA3FFCD34A16 /* AVRole.h */; };
+		A864836FEA9F8F200516B258 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A268B55986089B10AA9B0B /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A93E62E97DD21DA02D95C0BC /* AVUserFeedbackThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 6118864112ADA8B85F2FB0FE /* AVUserFeedbackThread.h */; };
+		A973C66B8EB3153B27AEA9ED /* AVInstallation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D00EF329E6D28BFE1A34446 /* AVInstallation.h */; };
+		AADD5F34B5EAF66868CD94BC /* AVGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = 40660935D25A4AAB455DD1FD /* AVGlobal.h */; };
+		ACCCECC7BC40B79E05C1A745 /* AVObject.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3264DA1C6ACE2750528B12 /* AVObject.h */; };
+		ACD0ABAAE822A6EA2970D39B /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = 52CBEFA27AD7700AA23B19A6 /* CocoaLumberjack.h */; };
+		AE68D147C9CB6D33AA58952A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3951C048EAFCCC333EB2920A /* Foundation.framework */; };
+		AF3A642C298C0CA2B61C9452 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3951C048EAFCCC333EB2920A /* Foundation.framework */; };
+		B11B67596637665D4A64BEB1 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0F5984CEBE7C5CAACB29F /* UIRefreshControl+AFNetworking.m */; };
+		B2BA2E201A197150509796FB /* Pods-MyWeibo-CocoaLumberjack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7F97F7BF0ED4D0B5F683F7 /* Pods-MyWeibo-CocoaLumberjack-dummy.m */; };
+		B310386254F6379BC61733B4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED63118F7C455A8EC4F445 /* Security.framework */; };
+		B3CCF1B7897F6A9537A07D07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55107B9A140ABF338EA64CA7 /* CoreGraphics.framework */; };
+		B4C6EF08366674E9ED596BB5 /* AVCloudQueryResult.h in Headers */ = {isa = PBXBuildFile; fileRef = A2CD15298C9862CEBC5F5D4B /* AVCloudQueryResult.h */; };
+		B63A57A0875356FE7B6C1236 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC62E113C5B22C71575D0F7C /* AFURLConnectionOperation.m */; };
+		B92CD89A3C122CCB9D2750FF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 644ACBC41652622970528402 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BAC273459A893D76878C5458 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E23B2EF306D931ACFE3C4DC /* SystemConfiguration.framework */; };
+		BDB7C5800991B6E24D3DFE32 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12937577AC04A57EDD689192 /* AFNetworkActivityIndicatorManager.m */; };
+		BE157271643F09D73BB328D1 /* AVXMLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD41DED1A36C21087E5160D /* AVXMLRequestOperation.h */; };
+		BEF7ABCF80826EB305581852 /* AVRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0E4A3B6F47E9EF51F1F575 /* AVRelation.h */; };
+		BF56D0734E1212EAE51AB416 /* AVAnonymousUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A5303A9002E4141F249D1A5E /* AVAnonymousUtils.h */; };
+		C057203090A674E10F771E90 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 28EFDC102A5DC4ECC246A4F1 /* FMDB.h */; };
+		C1F428540EB52ED961352ECD /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A45A1A10914858DBD7EFFEE /* FMResultSet.h */; };
+		C44AF75B13319CD52FE01EEB /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C1CED9A1000C66108F522176 /* FMDatabase.h */; };
+		C5E787C000A825A6CF3562A7 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = D40C4C2128922C1C3D993BAF /* AFURLConnectionOperation.h */; };
+		C7F274F05439FFD158F160D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01DBF6D9B8C98DCD00E6A70 /* MobileCoreServices.framework */; };
+		CA9B95A475E8CEEE42B04F86 /* AVHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E47866432D5B5F222FA34FB /* AVHTTPClient.h */; };
+		CB81BCB0FBB1666AD3333567 /* AVLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C805ED97B0E239C9D4846A71 /* AVLogger.h */; };
+		D46B83F6F155893F3C8510A1 /* Pods-MyWeibo-FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E395FEA0F691570C9AEB8 /* Pods-MyWeibo-FMDB-dummy.m */; };
+		D4AE7826AEF6ABC1F6651123 /* Pods-MyWeibo-SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57521EC3BA91C6788929BD9D /* Pods-MyWeibo-SVProgressHUD-dummy.m */; };
+		D54CB531CFF7CCA8788F0FB7 /* AVGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 12F5C463EDBB352FDBC83364 /* AVGeoPoint.h */; };
+		DB14189FDCCE960EFE2F6B0B /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 989A97F0CF8AFF77ECB760D0 /* DDLog.h */; };
+		DB26D7638B2D3A173647E08F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CB74E897F2C56273C8852809 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DEDB3C7A5272FB4FC957766E /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 6316367D792981C90183D243 /* DDAssertMacros.h */; };
+		DF03D9C07DD3938B35169213 /* AFNetworkingFix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2472DF28BD64A10DCFE17E45 /* AFNetworkingFix.h */; };
+		E0DD1B63C2C042A907A10322 /* AVSearchSortBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = DB1EB4A894A23A2B4B8234BF /* AVSearchSortBuilder.h */; };
+		E34392E1A526CB1E6DDC27C5 /* DDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 3908E30780F71D0BC0C027DE /* DDLegacyMacros.h */; };
+		E6A256C3B93E072349C609B5 /* AVHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F295DFD238CA6039CDBAA27C /* AVHTTPRequestOperation.h */; };
+		E7659440D1FB40551018C376 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCAEF3ED0A75FE115B2789C /* AFURLSessionManager.m */; };
+		E81A09B49FC74725868ABDFB /* AVPropertyListRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = BB369C652853C4C15773925B /* AVPropertyListRequestOperation.h */; };
+		E8A9953E460AAC2153F2FD1B /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DF169EC6435B4B83E842C2A1 /* AFURLSessionManager.h */; };
+		E8E60177F8F110817720D166 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 58545B388ED9F82B23CF7E70 /* AFNetworkActivityIndicatorManager.h */; };
+		EF097599466270F1F93DAF02 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = FA7C1D94C5F98087CD1608D5 /* DDTTYLogger.h */; };
+		EFBED9EE5E06EF3C470DBC4C /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A434E86C15442155E77CDC8A /* AFURLRequestSerialization.m */; };
+		F50F8B28FA7DB99F2FC401F4 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FD34B1B059767958E74B8 /* SVIndefiniteAnimatedView.m */; };
+		F74620F593F571BF48E8D391 /* AVHistoryMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0435CEE7D36E9D56C4AA9904 /* AVHistoryMessage.h */; };
+		FA362D5B29F933171D00B324 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E3754057E40F1CD72C884 /* UIButton+AFNetworking.m */; };
+		FB4A061B84F2F4F93E9ED0A3 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 03936422B5A0FDE12B7C5092 /* SVProgressHUD.h */; };
+		FBD11A8C3B9CF8ED6E865916 /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 8306322F47311EEDE0455E54 /* DDAbstractDatabaseLogger.h */; };
+		FF089B6AE0BC45E9F1472D09 /* AVSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE0FDAA270A677BF65E29B6 /* AVSignature.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D7168BE12FE34FA43F43543 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432C5646F53FD703F1CDA24E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A123A36FB895D374711C174;
+			remoteInfo = "Pods-MyWeibo-FMDB";
+		};
+		2FC8192DCF0A7A76B60485E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432C5646F53FD703F1CDA24E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB7B51A5E93B06644442B65D;
+			remoteInfo = "Pods-MyWeibo-CocoaLumberjack";
+		};
+		5207AE2CE9C27BCF30A4C066 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432C5646F53FD703F1CDA24E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A693EAFD6B0F724B5A2AE06A;
+			remoteInfo = "Pods-MyWeibo-AVOSCloud";
+		};
+		8769BAF5CE7C1FF5798B3738 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432C5646F53FD703F1CDA24E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFDB5BFD458A2A7B43D25BA9;
+			remoteInfo = "Pods-MyWeibo-SVProgressHUD";
+		};
+		B51A6E95F168ACAC19676FDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432C5646F53FD703F1CDA24E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1B27AEDAEA25653CD03058C;
+			remoteInfo = "Pods-MyWeibo-AFNetworking";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01FBCF2DAE457F89EA3BEA5A /* Pods-MyWeibo-AVOSCloud-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyWeibo-AVOSCloud-dummy.m"; sourceTree = "<group>"; };
+		03936422B5A0FDE12B7C5092 /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		0435CEE7D36E9D56C4AA9904 /* AVHistoryMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVHistoryMessage.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVHistoryMessage.h"; sourceTree = "<group>"; };
+		07D5C585FB9ED0EE1F73C369 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		07EE76DC8BA45DC662C47833 /* AVMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVMessage.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVMessage.h"; sourceTree = "<group>"; };
+		081D6F1DCC6609EC56AF1B55 /* libPods-MyWeibo-AVOSCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyWeibo-AVOSCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A45A1A10914858DBD7EFFEE /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		0C1EC3215D77395A55686EF6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		0D18905766C047982956A38E /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		0DBA9FD6421B984D88AE4C12 /* DDASLLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = Classes/DDASLLogger.h; sourceTree = "<group>"; };
+		0ECEA3544AF17A1A4C9D7256 /* LCDummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LCDummy.m; sourceTree = "<group>"; };
+		12937577AC04A57EDD689192 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
+		12C57AB3618DC42624E0E0B1 /* Pods-MyWeibo-AVOSCloud-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyWeibo-AVOSCloud-prefix.pch"; sourceTree = "<group>"; };
+		12F5C463EDBB352FDBC83364 /* AVGeoPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVGeoPoint.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVGeoPoint.h"; sourceTree = "<group>"; };
+		164DDDC3954C39F3F6BEE980 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDDispatchQueueLogFormatter.h; path = Classes/Extensions/DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		1B95B953E2E96FD6A7FC588E /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		1DEEAE50F9552E7485FE55CD /* Pods-MyWeibo-FMDB-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-FMDB-Private.xcconfig"; sourceTree = "<group>"; };
+		1F1FB23292069D03E2AAB936 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		22C535E407469B1CD00B1113 /* AVObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AVObject+Subclass.h"; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVObject+Subclass.h"; sourceTree = "<group>"; };
+		2472DF28BD64A10DCFE17E45 /* AFNetworkingFix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkingFix.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AFNetworkingFix.h"; sourceTree = "<group>"; };
+		25F2D355777E931326F0728C /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDAbstractDatabaseLogger.m; path = Classes/DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		281E3754057E40F1CD72C884 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		2824DE9B916E79560B8C7320 /* AVURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVURLConnectionOperation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVURLConnectionOperation.h"; sourceTree = "<group>"; };
+		28EFDC102A5DC4ECC246A4F1 /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		31EA43DF20114C55A5F8DFE1 /* AVACL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVACL.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVACL.h"; sourceTree = "<group>"; };
+		32211D2542E02019717AE9F6 /* libPods-MyWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3258A9350FC1B4007655D588 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		32F2EE36802016F7414CAB46 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		3335B6475AF40F5A7DE0E161 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		34CDA7F9FAD537F1BE2078E0 /* libAVOSCloud.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libAVOSCloud.a; sourceTree = "<group>"; };
+		36AC3823E00C2DED05CB046A /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		389C6BFA318128DD28EF00B7 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		3908E30780F71D0BC0C027DE /* DDLegacyMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLegacyMacros.h; path = Classes/DDLegacyMacros.h; sourceTree = "<group>"; };
+		3951C048EAFCCC333EB2920A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		39D7F935859F5973178C4176 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		3A0FD34B1B059767958E74B8 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		3A36B98D9BD48C73A3DAA99D /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		3AEDB55BC2FE605EB5F363BF /* DDLogMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogMacros.h; path = Classes/DDLogMacros.h; sourceTree = "<group>"; };
+		3D00EF329E6D28BFE1A34446 /* AVInstallation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVInstallation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVInstallation.h"; sourceTree = "<group>"; };
+		3DF30B85BE20ED1006AF8CFB /* AVUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVUser.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVUser.h"; sourceTree = "<group>"; };
+		3F25233D307B3545AFBC2B7C /* Pods-MyWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo.debug.xcconfig"; sourceTree = "<group>"; };
+		3F2C8BF791F88289C743AB92 /* AVOSCloud.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AVOSCloud.bundle; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/AVOSCloud.bundle"; sourceTree = "<group>"; };
+		40660935D25A4AAB455DD1FD /* AVGlobal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVGlobal.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVGlobal.h"; sourceTree = "<group>"; };
+		418960B7CE403FEE037D545F /* Pods-MyWeibo-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyWeibo-AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		41A268B55986089B10AA9B0B /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		4546647B48D48E18F2F52094 /* Pods-MyWeibo-FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-FMDB.xcconfig"; sourceTree = "<group>"; };
+		465C8A4D4F708645FFA705C6 /* AVHistoryMessageQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVHistoryMessageQuery.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVHistoryMessageQuery.h"; sourceTree = "<group>"; };
+		46FB176EB55ADA9805A1FF0E /* AVCloud.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVCloud.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVCloud.h"; sourceTree = "<group>"; };
+		4E0E4A3B6F47E9EF51F1F575 /* AVRelation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVRelation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVRelation.h"; sourceTree = "<group>"; };
+		4E2A0D9C733366F43646E5AD /* DDMultiFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDMultiFormatter.h; path = Classes/Extensions/DDMultiFormatter.h; sourceTree = "<group>"; };
+		4F29D66166BA445E884BB2E4 /* libPods-MyWeibo-FMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyWeibo-FMDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C1644690AF2F8ED654E659 /* AVNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVNetworking.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVNetworking.h"; sourceTree = "<group>"; };
+		52CBEFA27AD7700AA23B19A6 /* CocoaLumberjack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = Classes/CocoaLumberjack.h; sourceTree = "<group>"; };
+		5360CD833E892DECF9A5E2A7 /* AVOSCloud.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVOSCloud.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVOSCloud.h"; sourceTree = "<group>"; };
+		536B57AF8B997632190AADE3 /* DDFileLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDFileLogger.h; path = Classes/DDFileLogger.h; sourceTree = "<group>"; };
+		547A238E0B4FBA3FFCD34A16 /* AVRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVRole.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVRole.h"; sourceTree = "<group>"; };
+		55107B9A140ABF338EA64CA7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		57521EC3BA91C6788929BD9D /* Pods-MyWeibo-SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyWeibo-SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		57ED63118F7C455A8EC4F445 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		58545B388ED9F82B23CF7E70 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		58C0241D34C65E5AA4524B58 /* Pods-MyWeibo-AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyWeibo-AFNetworking-prefix.pch"; sourceTree = "<group>"; };
+		5B6F06DD79D167A59454274E /* Pods-MyWeibo-AVOSCloud-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-AVOSCloud-Private.xcconfig"; sourceTree = "<group>"; };
+		5D9C7B59FA31CC19BF5C05D2 /* AVSearchQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVSearchQuery.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVSearchQuery.h"; sourceTree = "<group>"; };
+		5DED328FAF62325156B7F0D8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5DF0DF566AE387ECA56061D0 /* AVHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVHelpers.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVHelpers.h"; sourceTree = "<group>"; };
+		5E04976BE2A3C9BFED96C3D2 /* AVAmazonS3Client.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVAmazonS3Client.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVAmazonS3Client.h"; sourceTree = "<group>"; };
+		6118864112ADA8B85F2FB0FE /* AVUserFeedbackThread.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVUserFeedbackThread.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVUserFeedbackThread.h"; sourceTree = "<group>"; };
+		6316367D792981C90183D243 /* DDAssertMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAssertMacros.h; path = Classes/DDAssertMacros.h; sourceTree = "<group>"; };
+		644ACBC41652622970528402 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		659D06BA4ED1C132551531BF /* AVJSONRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVJSONRequestOperation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVJSONRequestOperation.h"; sourceTree = "<group>"; };
+		670C968AD3E83DF16D9249E0 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		6E47866432D5B5F222FA34FB /* AVHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVHTTPClient.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVHTTPClient.h"; sourceTree = "<group>"; };
+		7157857ABF68D4597A95A8DE /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		72F5DC5F95E23EB4BB3DA50D /* DDLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = Classes/DDLog.m; sourceTree = "<group>"; };
+		73DAAD8E3B2E82058A45BEAA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		74C07E7E158C747B6FF459CD /* Pods-MyWeibo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyWeibo-resources.sh"; sourceTree = "<group>"; };
+		763D50A29C6F42B3110AE36D /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		78499B58FDF35168232A72F8 /* AVQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVQuery.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVQuery.h"; sourceTree = "<group>"; };
+		78A1DF5D964A6A5A0A975FE2 /* AVFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVFile.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVFile.h"; sourceTree = "<group>"; };
+		7A2DD0AE02632ED2F95AA88C /* DDFileLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDFileLogger.m; path = Classes/DDFileLogger.m; sourceTree = "<group>"; };
+		7BD924B28700D03B44EC866F /* Pods-MyWeibo-AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-AFNetworking.xcconfig"; sourceTree = "<group>"; };
+		7E23B2EF306D931ACFE3C4DC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		8179795CD8B197B6BF4353D9 /* Pods-MyWeibo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyWeibo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8300380D0289A6E702474DD6 /* Pods-MyWeibo-SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyWeibo-SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		8306322F47311EEDE0455E54 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAbstractDatabaseLogger.h; path = Classes/DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		84DB780DC6613333369B011E /* AVStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVStatus.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVStatus.h"; sourceTree = "<group>"; };
+		87E6D1404522C121942C2944 /* AVConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVConstants.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVConstants.h"; sourceTree = "<group>"; };
+		8A5B96276C071E1D53DFCA76 /* libPods-MyWeibo-AFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyWeibo-AFNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD41DED1A36C21087E5160D /* AVXMLRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVXMLRequestOperation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVXMLRequestOperation.h"; sourceTree = "<group>"; };
+		8E83DBB9F76C6F2357D8CC99 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		901E0663F7816543BC903D25 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		9165FFC81BAC7059C406D65C /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		93D262F67DEF6CF59F911A86 /* AVNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVNetworkActivityIndicatorManager.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		94A30A3BDF655CB691C57072 /* DDTTYLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = Classes/DDTTYLogger.m; sourceTree = "<group>"; };
+		962A6290431F58FE67AE0503 /* Pods-MyWeibo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyWeibo-acknowledgements.plist"; sourceTree = "<group>"; };
+		9748A50919E48BA847FCBDDD /* DDASLLogCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogCapture.m; path = Classes/DDASLLogCapture.m; sourceTree = "<group>"; };
+		989A97F0CF8AFF77ECB760D0 /* DDLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = Classes/DDLog.h; sourceTree = "<group>"; };
+		9A41019DD47AA14E374A7AB4 /* Pods-MyWeibo-AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
+		9F7FE0752B58F893FE8E5B30 /* AVPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVPush.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVPush.h"; sourceTree = "<group>"; };
+		A2CD15298C9862CEBC5F5D4B /* AVCloudQueryResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVCloudQueryResult.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVCloudQueryResult.h"; sourceTree = "<group>"; };
+		A434E86C15442155E77CDC8A /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		A44BB36ACF453C9748B77B56 /* Pods-MyWeibo-AVOSCloud.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-AVOSCloud.xcconfig"; sourceTree = "<group>"; };
+		A5303A9002E4141F249D1A5E /* AVAnonymousUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVAnonymousUtils.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVAnonymousUtils.h"; sourceTree = "<group>"; };
+		A5A89B637B91B94771389A7B /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		A7259102057C1373A4209E15 /* Pods-MyWeibo-CocoaLumberjack-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-CocoaLumberjack-Private.xcconfig"; sourceTree = "<group>"; };
+		A8356868B54B3517C7A097A0 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		A8A661A153A87855CC5D64D3 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		AB3264DA1C6ACE2750528B12 /* AVObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVObject.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVObject.h"; sourceTree = "<group>"; };
+		AB80CA67A0C8C798F956C877 /* AVGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVGroup.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVGroup.h"; sourceTree = "<group>"; };
+		AC1E564CB47DCCB7533D5D7E /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		AED133A2148C3FBF264F9F9B /* DDASLLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = Classes/DDASLLogger.m; sourceTree = "<group>"; };
+		AFFAEC24A4D458C140BBEA7A /* AVSubclassing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVSubclassing.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVSubclassing.h"; sourceTree = "<group>"; };
+		B01DBF6D9B8C98DCD00E6A70 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		B536EA914DAB7B151FB56F02 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		B637B9D0F74D1EEAD37F1C27 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		B69812A74D7B0AC244847484 /* AVUserFeedbackAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVUserFeedbackAgent.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVUserFeedbackAgent.h"; sourceTree = "<group>"; };
+		B83E395FEA0F691570C9AEB8 /* Pods-MyWeibo-FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyWeibo-FMDB-dummy.m"; sourceTree = "<group>"; };
+		B859B76DE71D4C223EC03729 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		BA744E0A78E351B19B0C59F1 /* Pods-MyWeibo-CocoaLumberjack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyWeibo-CocoaLumberjack-prefix.pch"; sourceTree = "<group>"; };
+		BB369C652853C4C15773925B /* AVPropertyListRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVPropertyListRequestOperation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVPropertyListRequestOperation.h"; sourceTree = "<group>"; };
+		BB751D02F67885FD97CB0386 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		BC7F97F7BF0ED4D0B5F683F7 /* Pods-MyWeibo-CocoaLumberjack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyWeibo-CocoaLumberjack-dummy.m"; sourceTree = "<group>"; };
+		BD8952D9B957103C5718EF64 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		C1CED9A1000C66108F522176 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		C3C045B2FBF9D17C5091E45B /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		C6D0F5984CEBE7C5CAACB29F /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		C805ED97B0E239C9D4846A71 /* AVLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVLogger.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVLogger.h"; sourceTree = "<group>"; };
+		C813C146799714BD9C80C05A /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDContextFilterLogFormatter.h; path = Classes/Extensions/DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		C9EE499BF11035B15F9520F5 /* Pods-MyWeibo-CocoaLumberjack.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-CocoaLumberjack.xcconfig"; sourceTree = "<group>"; };
+		CADCAF7A78077B94BE7C5D7F /* Pods-MyWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo.release.xcconfig"; sourceTree = "<group>"; };
+		CB74E897F2C56273C8852809 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		CC62E113C5B22C71575D0F7C /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		CDCAEF3ED0A75FE115B2789C /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		CE6DBC76CFA77658B800DD28 /* Pods-MyWeibo-FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyWeibo-FMDB-prefix.pch"; sourceTree = "<group>"; };
+		D00BAFAC2BD9A86A1C37265B /* DDLog+LOGV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDLog+LOGV.h"; path = "Classes/DDLog+LOGV.h"; sourceTree = "<group>"; };
+		D061B66517EC740B3006E513 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D297AC40534D06E5034CD879 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		D40C4C2128922C1C3D993BAF /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		D92E260E0E0887631CB75007 /* Pods-MyWeibo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyWeibo-dummy.m"; sourceTree = "<group>"; };
+		D98990B2732EAF87252F42E1 /* Pods-MyWeibo-SVProgressHUD-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-SVProgressHUD-Private.xcconfig"; sourceTree = "<group>"; };
+		D9C04980B5B335EF53907776 /* libPods-MyWeibo-CocoaLumberjack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyWeibo-CocoaLumberjack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B521D2810EAC28BD01A76 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		DB1EB4A894A23A2B4B8234BF /* AVSearchSortBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVSearchSortBuilder.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVSearchSortBuilder.h"; sourceTree = "<group>"; };
+		DE7856E45B0283BC3BA86450 /* DDASLLogCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogCapture.h; path = Classes/DDASLLogCapture.h; sourceTree = "<group>"; };
+		DF169EC6435B4B83E842C2A1 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		E0260C69407115AAC949B806 /* AVUserFeedback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVUserFeedback.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVUserFeedback.h"; sourceTree = "<group>"; };
+		E14437C5EE66E9839520E466 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		E1EA31F38A7329F53E4F2D19 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDDispatchQueueLogFormatter.m; path = Classes/Extensions/DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		E3F944B625FB122630275C36 /* AVFileHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVFileHTTPRequestOperation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVFileHTTPRequestOperation.h"; sourceTree = "<group>"; };
+		E4132D8514FBA1A74E13EB40 /* Pods-MyWeibo-SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyWeibo-SVProgressHUD.xcconfig"; sourceTree = "<group>"; };
+		E66C07A07AE85874C617DD2B /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		EAE0FDAA270A677BF65E29B6 /* AVSignature.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVSignature.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVSignature.h"; sourceTree = "<group>"; };
+		EAE2E02BE325A6CF1AB730DE /* AVSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVSession.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVSession.h"; sourceTree = "<group>"; };
+		EBC09E2722923A4156DF5E01 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		EC1A6AE4C0A5651807D8D6A2 /* DDMultiFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDMultiFormatter.m; path = Classes/Extensions/DDMultiFormatter.m; sourceTree = "<group>"; };
+		ED2179A66A0715B445807DD1 /* libPods-MyWeibo-SVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyWeibo-SVProgressHUD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE752E92FF462126749A7834 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		F0A4629515F199B7697F1602 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		F295DFD238CA6039CDBAA27C /* AVHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVHTTPRequestOperation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVHTTPRequestOperation.h"; sourceTree = "<group>"; };
+		F5172CEFF87CCD1EEAAD2478 /* Pods-MyWeibo-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyWeibo-environment.h"; sourceTree = "<group>"; };
+		F6762B341B60A6C39F996B3E /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		F7AFB80DBED68AF7F321AAC8 /* AVLocationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVLocationManager.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVLocationManager.h"; sourceTree = "<group>"; };
+		FA7C1D94C5F98087CD1608D5 /* DDTTYLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDTTYLogger.h; path = Classes/DDTTYLogger.h; sourceTree = "<group>"; };
+		FB853BC2A8F3402420235869 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		FC2D51E58FA21145CA1B50C9 /* AVImageRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVImageRequestOperation.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/PrivateHeaders/AVImageRequestOperation.h"; sourceTree = "<group>"; };
+		FD1BFF8CFFE44E4B9C00FC76 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDContextFilterLogFormatter.m; path = Classes/Extensions/DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		FEE7A84956FCECEAC07BB6EF /* AVAnalytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVAnalytics.h; path = "iOS/release-v3.1.2.4/AVOSCloud.framework/Headers/AVAnalytics.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84B6A6BDE22D229317D34726 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF3A642C298C0CA2B61C9452 /* Foundation.framework in Frameworks */,
+				09F1EDB1DDD87F1BF496F582 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC08B7B2148FAE76307C1C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3CCF1B7897F6A9537A07D07 /* CoreGraphics.framework in Frameworks */,
+				5FB79DB3FBF2F2075949C80F /* Foundation.framework in Frameworks */,
+				83A34B9FAB9794AC04BB8777 /* MobileCoreServices.framework in Frameworks */,
+				B310386254F6379BC61733B4 /* Security.framework in Frameworks */,
+				BAC273459A893D76878C5458 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7D9980F2D2DCF17381428BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CC6A00C4553CB404B77379 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D034CC09ED9BA5D7422D5579 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4512ABAAF8BD1C67864C67A6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8EC1AA5E75CAFA0FD7BE9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				817AD8A96913A3FDB1840A6E /* CFNetwork.framework in Frameworks */,
+				947EBA5AE424E58AA034788F /* CoreGraphics.framework in Frameworks */,
+				4F0A00D29DD8AAF22CFB68AF /* CoreLocation.framework in Frameworks */,
+				347C5716921EE9A4BF468F8E /* CoreTelephony.framework in Frameworks */,
+				AE68D147C9CB6D33AA58952A /* Foundation.framework in Frameworks */,
+				C7F274F05439FFD158F160D8 /* MobileCoreServices.framework in Frameworks */,
+				416777E60DB83A01C7DD788E /* QuartzCore.framework in Frameworks */,
+				78D13F08ED982C6C9D663DD6 /* Security.framework in Frameworks */,
+				86D17E501960375582751F96 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82B969BE557A5EC71B56ABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D54A647A0F7E324B8D52098 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07486FA2975F1B5F74E15454 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D297AC40534D06E5034CD879 /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0BCBC55E513F6546300469D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E3C9BF6E3059CB736E37D14 /* AFNetworking */,
+				5814F84B1B4A0971561CA55C /* AVOSCloud */,
+				DF1FDB206E95B7ABBA095153 /* CocoaLumberjack */,
+				838DB54EE83733E30D01BED3 /* FMDB */,
+				2066D234E75724D798097763 /* SVProgressHUD */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0E3F783271E67280A00306A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F2C8BF791F88289C743AB92 /* AVOSCloud.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		13B078EEF519F1815BECE6D9 = {
+			isa = PBXGroup;
+			children = (
+				7157857ABF68D4597A95A8DE /* Podfile */,
+				B56488A506A0BA65C32A25B8 /* Frameworks */,
+				0BCBC55E513F6546300469D0 /* Pods */,
+				58985A4EA63A685895E7E5E4 /* Products */,
+				303B0AC650528F257076CFCF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		1569AC39AA89C0F1913214C0 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				C3C045B2FBF9D17C5091E45B /* AFURLRequestSerialization.h */,
+				A434E86C15442155E77CDC8A /* AFURLRequestSerialization.m */,
+				A8356868B54B3517C7A097A0 /* AFURLResponseSerialization.h */,
+				EBC09E2722923A4156DF5E01 /* AFURLResponseSerialization.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		163D3396E1C7E717D2371964 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				28EFDC102A5DC4ECC246A4F1 /* FMDB.h */,
+				C1CED9A1000C66108F522176 /* FMDatabase.h */,
+				41A268B55986089B10AA9B0B /* FMDatabase.m */,
+				5DED328FAF62325156B7F0D8 /* FMDatabaseAdditions.h */,
+				644ACBC41652622970528402 /* FMDatabaseAdditions.m */,
+				1B95B953E2E96FD6A7FC588E /* FMDatabasePool.h */,
+				07D5C585FB9ED0EE1F73C369 /* FMDatabasePool.m */,
+				DA3B521D2810EAC28BD01A76 /* FMDatabaseQueue.h */,
+				CB74E897F2C56273C8852809 /* FMDatabaseQueue.m */,
+				0A45A1A10914858DBD7EFFEE /* FMResultSet.h */,
+				F0A4629515F199B7697F1602 /* FMResultSet.m */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		1F01C42825945040BA717AA9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DE7856E45B0283BC3BA86450 /* DDASLLogCapture.h */,
+				9748A50919E48BA847FCBDDD /* DDASLLogCapture.m */,
+				0DBA9FD6421B984D88AE4C12 /* DDASLLogger.h */,
+				AED133A2148C3FBF264F9F9B /* DDASLLogger.m */,
+				8306322F47311EEDE0455E54 /* DDAbstractDatabaseLogger.h */,
+				25F2D355777E931326F0728C /* DDAbstractDatabaseLogger.m */,
+				6316367D792981C90183D243 /* DDAssertMacros.h */,
+				536B57AF8B997632190AADE3 /* DDFileLogger.h */,
+				7A2DD0AE02632ED2F95AA88C /* DDFileLogger.m */,
+				3908E30780F71D0BC0C027DE /* DDLegacyMacros.h */,
+				989A97F0CF8AFF77ECB760D0 /* DDLog.h */,
+				72F5DC5F95E23EB4BB3DA50D /* DDLog.m */,
+				D00BAFAC2BD9A86A1C37265B /* DDLog+LOGV.h */,
+				3AEDB55BC2FE605EB5F363BF /* DDLogMacros.h */,
+				FA7C1D94C5F98087CD1608D5 /* DDTTYLogger.h */,
+				94A30A3BDF655CB691C57072 /* DDTTYLogger.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		2066D234E75724D798097763 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				389C6BFA318128DD28EF00B7 /* SVIndefiniteAnimatedView.h */,
+				3A0FD34B1B059767958E74B8 /* SVIndefiniteAnimatedView.m */,
+				03936422B5A0FDE12B7C5092 /* SVProgressHUD.h */,
+				A5A89B637B91B94771389A7B /* SVProgressHUD.m */,
+				07486FA2975F1B5F74E15454 /* Resources */,
+				E4CEB96A9CDE4372F1A06E1B /* Support Files */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		2899CF74BE4B20437D695BE7 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				58545B388ED9F82B23CF7E70 /* AFNetworkActivityIndicatorManager.h */,
+				12937577AC04A57EDD689192 /* AFNetworkActivityIndicatorManager.m */,
+				E14437C5EE66E9839520E466 /* UIActivityIndicatorView+AFNetworking.h */,
+				3335B6475AF40F5A7DE0E161 /* UIActivityIndicatorView+AFNetworking.m */,
+				B637B9D0F74D1EEAD37F1C27 /* UIAlertView+AFNetworking.h */,
+				1F1FB23292069D03E2AAB936 /* UIAlertView+AFNetworking.m */,
+				0D18905766C047982956A38E /* UIButton+AFNetworking.h */,
+				281E3754057E40F1CD72C884 /* UIButton+AFNetworking.m */,
+				AC1E564CB47DCCB7533D5D7E /* UIImageView+AFNetworking.h */,
+				D061B66517EC740B3006E513 /* UIImageView+AFNetworking.m */,
+				32F2EE36802016F7414CAB46 /* UIKit+AFNetworking.h */,
+				9165FFC81BAC7059C406D65C /* UIProgressView+AFNetworking.h */,
+				E66C07A07AE85874C617DD2B /* UIProgressView+AFNetworking.m */,
+				763D50A29C6F42B3110AE36D /* UIRefreshControl+AFNetworking.h */,
+				C6D0F5984CEBE7C5CAACB29F /* UIRefreshControl+AFNetworking.m */,
+				901E0663F7816543BC903D25 /* UIWebView+AFNetworking.h */,
+				36AC3823E00C2DED05CB046A /* UIWebView+AFNetworking.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		303B0AC650528F257076CFCF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				94CFF1D10956157DF3CE58FE /* Pods-MyWeibo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3E3C9BF6E3059CB736E37D14 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				3A36B98D9BD48C73A3DAA99D /* AFNetworking.h */,
+				BBA12B2DCFC7C7D358880E11 /* NSURLConnection */,
+				74000E5D2C3C5EA2392460C5 /* NSURLSession */,
+				DCE142C5AFA3BDDF7CDCA1E4 /* Reachability */,
+				F5B2108865E62884525F05A4 /* Security */,
+				1569AC39AA89C0F1913214C0 /* Serialization */,
+				8253DB1D7A4FD99A1E2FCE94 /* Support Files */,
+				2899CF74BE4B20437D695BE7 /* UIKit */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		56EB2EDF43C193E3C0479AB7 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				0C1EC3215D77395A55686EF6 /* CFNetwork.framework */,
+				55107B9A140ABF338EA64CA7 /* CoreGraphics.framework */,
+				39D7F935859F5973178C4176 /* CoreLocation.framework */,
+				B536EA914DAB7B151FB56F02 /* CoreTelephony.framework */,
+				3951C048EAFCCC333EB2920A /* Foundation.framework */,
+				B01DBF6D9B8C98DCD00E6A70 /* MobileCoreServices.framework */,
+				73DAAD8E3B2E82058A45BEAA /* QuartzCore.framework */,
+				57ED63118F7C455A8EC4F445 /* Security.framework */,
+				7E23B2EF306D931ACFE3C4DC /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5814F84B1B4A0971561CA55C /* AVOSCloud */ = {
+			isa = PBXGroup;
+			children = (
+				2472DF28BD64A10DCFE17E45 /* AFNetworkingFix.h */,
+				31EA43DF20114C55A5F8DFE1 /* AVACL.h */,
+				5E04976BE2A3C9BFED96C3D2 /* AVAmazonS3Client.h */,
+				FEE7A84956FCECEAC07BB6EF /* AVAnalytics.h */,
+				A5303A9002E4141F249D1A5E /* AVAnonymousUtils.h */,
+				46FB176EB55ADA9805A1FF0E /* AVCloud.h */,
+				A2CD15298C9862CEBC5F5D4B /* AVCloudQueryResult.h */,
+				87E6D1404522C121942C2944 /* AVConstants.h */,
+				78A1DF5D964A6A5A0A975FE2 /* AVFile.h */,
+				E3F944B625FB122630275C36 /* AVFileHTTPRequestOperation.h */,
+				12F5C463EDBB352FDBC83364 /* AVGeoPoint.h */,
+				40660935D25A4AAB455DD1FD /* AVGlobal.h */,
+				AB80CA67A0C8C798F956C877 /* AVGroup.h */,
+				6E47866432D5B5F222FA34FB /* AVHTTPClient.h */,
+				F295DFD238CA6039CDBAA27C /* AVHTTPRequestOperation.h */,
+				5DF0DF566AE387ECA56061D0 /* AVHelpers.h */,
+				0435CEE7D36E9D56C4AA9904 /* AVHistoryMessage.h */,
+				465C8A4D4F708645FFA705C6 /* AVHistoryMessageQuery.h */,
+				FC2D51E58FA21145CA1B50C9 /* AVImageRequestOperation.h */,
+				3D00EF329E6D28BFE1A34446 /* AVInstallation.h */,
+				659D06BA4ED1C132551531BF /* AVJSONRequestOperation.h */,
+				F7AFB80DBED68AF7F321AAC8 /* AVLocationManager.h */,
+				C805ED97B0E239C9D4846A71 /* AVLogger.h */,
+				07EE76DC8BA45DC662C47833 /* AVMessage.h */,
+				93D262F67DEF6CF59F911A86 /* AVNetworkActivityIndicatorManager.h */,
+				51C1644690AF2F8ED654E659 /* AVNetworking.h */,
+				5360CD833E892DECF9A5E2A7 /* AVOSCloud.h */,
+				AB3264DA1C6ACE2750528B12 /* AVObject.h */,
+				22C535E407469B1CD00B1113 /* AVObject+Subclass.h */,
+				BB369C652853C4C15773925B /* AVPropertyListRequestOperation.h */,
+				9F7FE0752B58F893FE8E5B30 /* AVPush.h */,
+				78499B58FDF35168232A72F8 /* AVQuery.h */,
+				4E0E4A3B6F47E9EF51F1F575 /* AVRelation.h */,
+				547A238E0B4FBA3FFCD34A16 /* AVRole.h */,
+				5D9C7B59FA31CC19BF5C05D2 /* AVSearchQuery.h */,
+				DB1EB4A894A23A2B4B8234BF /* AVSearchSortBuilder.h */,
+				EAE2E02BE325A6CF1AB730DE /* AVSession.h */,
+				EAE0FDAA270A677BF65E29B6 /* AVSignature.h */,
+				84DB780DC6613333369B011E /* AVStatus.h */,
+				AFFAEC24A4D458C140BBEA7A /* AVSubclassing.h */,
+				2824DE9B916E79560B8C7320 /* AVURLConnectionOperation.h */,
+				3DF30B85BE20ED1006AF8CFB /* AVUser.h */,
+				E0260C69407115AAC949B806 /* AVUserFeedback.h */,
+				B69812A74D7B0AC244847484 /* AVUserFeedbackAgent.h */,
+				6118864112ADA8B85F2FB0FE /* AVUserFeedbackThread.h */,
+				8AD41DED1A36C21087E5160D /* AVXMLRequestOperation.h */,
+				0ECEA3544AF17A1A4C9D7256 /* LCDummy.m */,
+				9A805EFBF5117C33ECDC2A65 /* Frameworks */,
+				0E3F783271E67280A00306A8 /* Resources */,
+				74CD8C2D9B81B6F558829FFD /* Support Files */,
+			);
+			path = AVOSCloud;
+			sourceTree = "<group>";
+		};
+		58985A4EA63A685895E7E5E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32211D2542E02019717AE9F6 /* libPods-MyWeibo.a */,
+				8A5B96276C071E1D53DFCA76 /* libPods-MyWeibo-AFNetworking.a */,
+				081D6F1DCC6609EC56AF1B55 /* libPods-MyWeibo-AVOSCloud.a */,
+				D9C04980B5B335EF53907776 /* libPods-MyWeibo-CocoaLumberjack.a */,
+				4F29D66166BA445E884BB2E4 /* libPods-MyWeibo-FMDB.a */,
+				ED2179A66A0715B445807DD1 /* libPods-MyWeibo-SVProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74000E5D2C3C5EA2392460C5 /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				EE752E92FF462126749A7834 /* AFHTTPSessionManager.h */,
+				BB751D02F67885FD97CB0386 /* AFHTTPSessionManager.m */,
+				DF169EC6435B4B83E842C2A1 /* AFURLSessionManager.h */,
+				CDCAEF3ED0A75FE115B2789C /* AFURLSessionManager.m */,
+			);
+			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+		74CD8C2D9B81B6F558829FFD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A44BB36ACF453C9748B77B56 /* Pods-MyWeibo-AVOSCloud.xcconfig */,
+				5B6F06DD79D167A59454274E /* Pods-MyWeibo-AVOSCloud-Private.xcconfig */,
+				01FBCF2DAE457F89EA3BEA5A /* Pods-MyWeibo-AVOSCloud-dummy.m */,
+				12C57AB3618DC42624E0E0B1 /* Pods-MyWeibo-AVOSCloud-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-MyWeibo-AVOSCloud";
+			sourceTree = "<group>";
+		};
+		8253DB1D7A4FD99A1E2FCE94 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7BD924B28700D03B44EC866F /* Pods-MyWeibo-AFNetworking.xcconfig */,
+				9A41019DD47AA14E374A7AB4 /* Pods-MyWeibo-AFNetworking-Private.xcconfig */,
+				418960B7CE403FEE037D545F /* Pods-MyWeibo-AFNetworking-dummy.m */,
+				58C0241D34C65E5AA4524B58 /* Pods-MyWeibo-AFNetworking-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-MyWeibo-AFNetworking";
+			sourceTree = "<group>";
+		};
+		838DB54EE83733E30D01BED3 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				F6DAE7D106449F4CD7102013 /* Support Files */,
+				163D3396E1C7E717D2371964 /* common */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		94CFF1D10956157DF3CE58FE /* Pods-MyWeibo */ = {
+			isa = PBXGroup;
+			children = (
+				8179795CD8B197B6BF4353D9 /* Pods-MyWeibo-acknowledgements.markdown */,
+				962A6290431F58FE67AE0503 /* Pods-MyWeibo-acknowledgements.plist */,
+				D92E260E0E0887631CB75007 /* Pods-MyWeibo-dummy.m */,
+				F5172CEFF87CCD1EEAAD2478 /* Pods-MyWeibo-environment.h */,
+				74C07E7E158C747B6FF459CD /* Pods-MyWeibo-resources.sh */,
+				3F25233D307B3545AFBC2B7C /* Pods-MyWeibo.debug.xcconfig */,
+				CADCAF7A78077B94BE7C5D7F /* Pods-MyWeibo.release.xcconfig */,
+			);
+			name = "Pods-MyWeibo";
+			path = "Target Support Files/Pods-MyWeibo";
+			sourceTree = "<group>";
+		};
+		9A805EFBF5117C33ECDC2A65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34CDA7F9FAD537F1BE2078E0 /* libAVOSCloud.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC0B322A9A5D9B0076C825DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C813C146799714BD9C80C05A /* DDContextFilterLogFormatter.h */,
+				FD1BFF8CFFE44E4B9C00FC76 /* DDContextFilterLogFormatter.m */,
+				164DDDC3954C39F3F6BEE980 /* DDDispatchQueueLogFormatter.h */,
+				E1EA31F38A7329F53E4F2D19 /* DDDispatchQueueLogFormatter.m */,
+				4E2A0D9C733366F43646E5AD /* DDMultiFormatter.h */,
+				EC1A6AE4C0A5651807D8D6A2 /* DDMultiFormatter.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		B26553BC6483DC7766896779 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				52CBEFA27AD7700AA23B19A6 /* CocoaLumberjack.h */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
+		B56488A506A0BA65C32A25B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56EB2EDF43C193E3C0479AB7 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBA12B2DCFC7C7D358880E11 /* NSURLConnection */ = {
+			isa = PBXGroup;
+			children = (
+				B859B76DE71D4C223EC03729 /* AFHTTPRequestOperation.h */,
+				FB853BC2A8F3402420235869 /* AFHTTPRequestOperation.m */,
+				F6762B341B60A6C39F996B3E /* AFHTTPRequestOperationManager.h */,
+				670C968AD3E83DF16D9249E0 /* AFHTTPRequestOperationManager.m */,
+				D40C4C2128922C1C3D993BAF /* AFURLConnectionOperation.h */,
+				CC62E113C5B22C71575D0F7C /* AFURLConnectionOperation.m */,
+			);
+			name = NSURLConnection;
+			sourceTree = "<group>";
+		};
+		DCE142C5AFA3BDDF7CDCA1E4 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				BD8952D9B957103C5718EF64 /* AFNetworkReachabilityManager.h */,
+				8E83DBB9F76C6F2357D8CC99 /* AFNetworkReachabilityManager.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		DF1FDB206E95B7ABBA095153 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				1F01C42825945040BA717AA9 /* Core */,
+				B26553BC6483DC7766896779 /* Default */,
+				AC0B322A9A5D9B0076C825DB /* Extensions */,
+				F5962B77E32280B3332F70AC /* Support Files */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		E4CEB96A9CDE4372F1A06E1B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4132D8514FBA1A74E13EB40 /* Pods-MyWeibo-SVProgressHUD.xcconfig */,
+				D98990B2732EAF87252F42E1 /* Pods-MyWeibo-SVProgressHUD-Private.xcconfig */,
+				57521EC3BA91C6788929BD9D /* Pods-MyWeibo-SVProgressHUD-dummy.m */,
+				8300380D0289A6E702474DD6 /* Pods-MyWeibo-SVProgressHUD-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-MyWeibo-SVProgressHUD";
+			sourceTree = "<group>";
+		};
+		F5962B77E32280B3332F70AC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9EE499BF11035B15F9520F5 /* Pods-MyWeibo-CocoaLumberjack.xcconfig */,
+				A7259102057C1373A4209E15 /* Pods-MyWeibo-CocoaLumberjack-Private.xcconfig */,
+				BC7F97F7BF0ED4D0B5F683F7 /* Pods-MyWeibo-CocoaLumberjack-dummy.m */,
+				BA744E0A78E351B19B0C59F1 /* Pods-MyWeibo-CocoaLumberjack-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-MyWeibo-CocoaLumberjack";
+			sourceTree = "<group>";
+		};
+		F5B2108865E62884525F05A4 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				3258A9350FC1B4007655D588 /* AFSecurityPolicy.h */,
+				A8A661A153A87855CC5D64D3 /* AFSecurityPolicy.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		F6DAE7D106449F4CD7102013 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4546647B48D48E18F2F52094 /* Pods-MyWeibo-FMDB.xcconfig */,
+				1DEEAE50F9552E7485FE55CD /* Pods-MyWeibo-FMDB-Private.xcconfig */,
+				B83E395FEA0F691570C9AEB8 /* Pods-MyWeibo-FMDB-dummy.m */,
+				CE6DBC76CFA77658B800DD28 /* Pods-MyWeibo-FMDB-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-MyWeibo-FMDB";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		28C27918EFD6746B903275A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD0ABAAE822A6EA2970D39B /* CocoaLumberjack.h in Headers */,
+				1EDF7DBD6B8A54087980ACF4 /* DDASLLogCapture.h in Headers */,
+				754C06200D7E338381056933 /* DDASLLogger.h in Headers */,
+				FBD11A8C3B9CF8ED6E865916 /* DDAbstractDatabaseLogger.h in Headers */,
+				DEDB3C7A5272FB4FC957766E /* DDAssertMacros.h in Headers */,
+				A470C97AE2F9805280992F83 /* DDContextFilterLogFormatter.h in Headers */,
+				2411ACC1810E9AF6F5B6C5B5 /* DDDispatchQueueLogFormatter.h in Headers */,
+				74AD656D3C3989F615017D2B /* DDFileLogger.h in Headers */,
+				E34392E1A526CB1E6DDC27C5 /* DDLegacyMacros.h in Headers */,
+				509685AB8AD35A9086571B5C /* DDLog+LOGV.h in Headers */,
+				DB14189FDCCE960EFE2F6B0B /* DDLog.h in Headers */,
+				917CFB357FDEA6EBF171A635 /* DDLogMacros.h in Headers */,
+				006EAF1A3472DA38999AB165 /* DDMultiFormatter.h in Headers */,
+				EF097599466270F1F93DAF02 /* DDTTYLogger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A3B42B3B5EC50A2D2DBCF96 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37BF80BDBDF0470BD20FC49B /* AFHTTPRequestOperation.h in Headers */,
+				569FBD908CB3C39D25E80CEB /* AFHTTPRequestOperationManager.h in Headers */,
+				1D1CBDA5DF2E675CF0CE7C55 /* AFHTTPSessionManager.h in Headers */,
+				E8E60177F8F110817720D166 /* AFNetworkActivityIndicatorManager.h in Headers */,
+				7194DE405916752403E9D49A /* AFNetworkReachabilityManager.h in Headers */,
+				86F24664454BEE054B2DB88C /* AFNetworking.h in Headers */,
+				8FE4A6A1D53E1CDC318950A2 /* AFSecurityPolicy.h in Headers */,
+				C5E787C000A825A6CF3562A7 /* AFURLConnectionOperation.h in Headers */,
+				72C772C61261EF3201ACF05C /* AFURLRequestSerialization.h in Headers */,
+				53D1003324462709A0DE3288 /* AFURLResponseSerialization.h in Headers */,
+				E8A9953E460AAC2153F2FD1B /* AFURLSessionManager.h in Headers */,
+				3E15E8B60D9BFCBB263FC1DB /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				4B71ECE2ED2428AB6DE02531 /* UIAlertView+AFNetworking.h in Headers */,
+				54CB850F8ACB1CB96755792F /* UIButton+AFNetworking.h in Headers */,
+				384BD997EA9874D6931F848B /* UIImageView+AFNetworking.h in Headers */,
+				8EB62DFE96616464A308B5E0 /* UIKit+AFNetworking.h in Headers */,
+				0412349C916C9127C7627205 /* UIProgressView+AFNetworking.h in Headers */,
+				662D0CFCEAB884F9BD838793 /* UIRefreshControl+AFNetworking.h in Headers */,
+				784F2EDFEE58CD56E4F86604 /* UIWebView+AFNetworking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E78D03EBBA61733A8DC5BCC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF03D9C07DD3938B35169213 /* AFNetworkingFix.h in Headers */,
+				6696D946F957333686EFD930 /* AVACL.h in Headers */,
+				62EE2CB3DCBEB06842790D2A /* AVAmazonS3Client.h in Headers */,
+				6AB19A0089D6A4BF8AFA660D /* AVAnalytics.h in Headers */,
+				BF56D0734E1212EAE51AB416 /* AVAnonymousUtils.h in Headers */,
+				6D33FDFACA79674910C3097D /* AVCloud.h in Headers */,
+				B4C6EF08366674E9ED596BB5 /* AVCloudQueryResult.h in Headers */,
+				6DAD1778EC1D53800E5645B5 /* AVConstants.h in Headers */,
+				03BCFEDF9079DB44D88C63B6 /* AVFile.h in Headers */,
+				1E13293E5E4E0114FF69584C /* AVFileHTTPRequestOperation.h in Headers */,
+				D54CB531CFF7CCA8788F0FB7 /* AVGeoPoint.h in Headers */,
+				AADD5F34B5EAF66868CD94BC /* AVGlobal.h in Headers */,
+				43D4F93BA12794E355B705E8 /* AVGroup.h in Headers */,
+				CA9B95A475E8CEEE42B04F86 /* AVHTTPClient.h in Headers */,
+				E6A256C3B93E072349C609B5 /* AVHTTPRequestOperation.h in Headers */,
+				86747AB22D027736B5EF1840 /* AVHelpers.h in Headers */,
+				F74620F593F571BF48E8D391 /* AVHistoryMessage.h in Headers */,
+				8C3E28BBDD64861E706CEDFD /* AVHistoryMessageQuery.h in Headers */,
+				67F461C457EDECA0E4FA4E43 /* AVImageRequestOperation.h in Headers */,
+				A973C66B8EB3153B27AEA9ED /* AVInstallation.h in Headers */,
+				6E86678E165DB08AFDB0D9B4 /* AVJSONRequestOperation.h in Headers */,
+				7734FE7F87017310A359AA92 /* AVLocationManager.h in Headers */,
+				CB81BCB0FBB1666AD3333567 /* AVLogger.h in Headers */,
+				710093E48AFBCA2FED21869C /* AVMessage.h in Headers */,
+				885EBEAE32018CD6E9372DED /* AVNetworkActivityIndicatorManager.h in Headers */,
+				9B4CD3EDA6F4AA56911B5CF2 /* AVNetworking.h in Headers */,
+				A1E23AEF00B7E81F304D1124 /* AVOSCloud.h in Headers */,
+				14E891B8DC8857F92BFECC95 /* AVObject+Subclass.h in Headers */,
+				ACCCECC7BC40B79E05C1A745 /* AVObject.h in Headers */,
+				E81A09B49FC74725868ABDFB /* AVPropertyListRequestOperation.h in Headers */,
+				993E8E017D6C602A5AADF6F1 /* AVPush.h in Headers */,
+				5193BD6EE55C49BFEE71E2E3 /* AVQuery.h in Headers */,
+				BEF7ABCF80826EB305581852 /* AVRelation.h in Headers */,
+				A8084A88D85C679CB44B1404 /* AVRole.h in Headers */,
+				5FF2AFF0AFBC1D0462D4FFE8 /* AVSearchQuery.h in Headers */,
+				E0DD1B63C2C042A907A10322 /* AVSearchSortBuilder.h in Headers */,
+				A44B00F11ACF9FCFE3F5DBAB /* AVSession.h in Headers */,
+				FF089B6AE0BC45E9F1472D09 /* AVSignature.h in Headers */,
+				0A29710C8449749F96A85A61 /* AVStatus.h in Headers */,
+				51F7D139233CC4BA26B1E1FE /* AVSubclassing.h in Headers */,
+				4170F036311A8189F0B7D791 /* AVURLConnectionOperation.h in Headers */,
+				6694D3FE4BAE64D803DBB3B5 /* AVUser.h in Headers */,
+				7FFED939DA6D510415328902 /* AVUserFeedback.h in Headers */,
+				3A9AA19C39300C309407714C /* AVUserFeedbackAgent.h in Headers */,
+				A93E62E97DD21DA02D95C0BC /* AVUserFeedbackThread.h in Headers */,
+				BE157271643F09D73BB328D1 /* AVXMLRequestOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91CD53F997E5BDFA84CB394A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E5A430B4D882521F932509C /* SVIndefiniteAnimatedView.h in Headers */,
+				FB4A061B84F2F4F93E9ED0A3 /* SVProgressHUD.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE603A31DD2AE06B000CFFA6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C057203090A674E10F771E90 /* FMDB.h in Headers */,
+				C44AF75B13319CD52FE01EEB /* FMDatabase.h in Headers */,
+				7815A4AFB5067153ED4313B3 /* FMDatabaseAdditions.h in Headers */,
+				486E1D4B835FCA25775B3643 /* FMDatabasePool.h in Headers */,
+				324587B0F12FD223C272CA39 /* FMDatabaseQueue.h in Headers */,
+				C1F428540EB52ED961352ECD /* FMResultSet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3A123A36FB895D374711C174 /* Pods-MyWeibo-FMDB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB8598DD8683D0BC5D36DB5 /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-FMDB" */;
+			buildPhases = (
+				1E40705AA7715E6ADE34E81D /* Sources */,
+				F82B969BE557A5EC71B56ABB /* Frameworks */,
+				AE603A31DD2AE06B000CFFA6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MyWeibo-FMDB";
+			productName = "Pods-MyWeibo-FMDB";
+			productReference = 4F29D66166BA445E884BB2E4 /* libPods-MyWeibo-FMDB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A1357E3D87A8B2C8B78F0E05 /* Pods-MyWeibo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E3A261E6246568656D26DE2 /* Build configuration list for PBXNativeTarget "Pods-MyWeibo" */;
+			buildPhases = (
+				DE9E67C60E3BE70A5F2EDE23 /* Sources */,
+				D034CC09ED9BA5D7422D5579 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90F0EAFF719D58929EF098BE /* PBXTargetDependency */,
+				325AD48F049926C8F8BF832A /* PBXTargetDependency */,
+				6B7B8118FDCEB51B309C4FC6 /* PBXTargetDependency */,
+				B397D6E574FDD2EBBA0ABB0D /* PBXTargetDependency */,
+				72A90AA42A2A1B2F61566D61 /* PBXTargetDependency */,
+			);
+			name = "Pods-MyWeibo";
+			productName = "Pods-MyWeibo";
+			productReference = 32211D2542E02019717AE9F6 /* libPods-MyWeibo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A693EAFD6B0F724B5A2AE06A /* Pods-MyWeibo-AVOSCloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5045DED2510946408FB02D6F /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-AVOSCloud" */;
+			buildPhases = (
+				B38EAB6D7FCEF60440C27B43 /* Sources */,
+				ED8EC1AA5E75CAFA0FD7BE9B /* Frameworks */,
+				8E78D03EBBA61733A8DC5BCC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MyWeibo-AVOSCloud";
+			productName = "Pods-MyWeibo-AVOSCloud";
+			productReference = 081D6F1DCC6609EC56AF1B55 /* libPods-MyWeibo-AVOSCloud.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AFDB5BFD458A2A7B43D25BA9 /* Pods-MyWeibo-SVProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E9AF56E34D9E6AC3BC1067C /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-SVProgressHUD" */;
+			buildPhases = (
+				DA1B4574041FF4CF0F743489 /* Sources */,
+				84B6A6BDE22D229317D34726 /* Frameworks */,
+				91CD53F997E5BDFA84CB394A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MyWeibo-SVProgressHUD";
+			productName = "Pods-MyWeibo-SVProgressHUD";
+			productReference = ED2179A66A0715B445807DD1 /* libPods-MyWeibo-SVProgressHUD.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D1B27AEDAEA25653CD03058C /* Pods-MyWeibo-AFNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3637623D24ADAEA0CBF8C5BD /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-AFNetworking" */;
+			buildPhases = (
+				7AA9D14A4DF20931BB56BC28 /* Sources */,
+				BDC08B7B2148FAE76307C1C6 /* Frameworks */,
+				4A3B42B3B5EC50A2D2DBCF96 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MyWeibo-AFNetworking";
+			productName = "Pods-MyWeibo-AFNetworking";
+			productReference = 8A5B96276C071E1D53DFCA76 /* libPods-MyWeibo-AFNetworking.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FB7B51A5E93B06644442B65D /* Pods-MyWeibo-CocoaLumberjack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31263DDBC495464B926C2DF0 /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-CocoaLumberjack" */;
+			buildPhases = (
+				82191A1A09FAC6C832AAA1D6 /* Sources */,
+				C7D9980F2D2DCF17381428BB /* Frameworks */,
+				28C27918EFD6746B903275A9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MyWeibo-CocoaLumberjack";
+			productName = "Pods-MyWeibo-CocoaLumberjack";
+			productReference = D9C04980B5B335EF53907776 /* libPods-MyWeibo-CocoaLumberjack.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		432C5646F53FD703F1CDA24E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = 528915143D3BB4947F327A99 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 13B078EEF519F1815BECE6D9;
+			productRefGroup = 58985A4EA63A685895E7E5E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1357E3D87A8B2C8B78F0E05 /* Pods-MyWeibo */,
+				D1B27AEDAEA25653CD03058C /* Pods-MyWeibo-AFNetworking */,
+				A693EAFD6B0F724B5A2AE06A /* Pods-MyWeibo-AVOSCloud */,
+				FB7B51A5E93B06644442B65D /* Pods-MyWeibo-CocoaLumberjack */,
+				3A123A36FB895D374711C174 /* Pods-MyWeibo-FMDB */,
+				AFDB5BFD458A2A7B43D25BA9 /* Pods-MyWeibo-SVProgressHUD */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E40705AA7715E6ADE34E81D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A864836FEA9F8F200516B258 /* FMDatabase.m in Sources */,
+				B92CD89A3C122CCB9D2750FF /* FMDatabaseAdditions.m in Sources */,
+				4397484B268AC35EC17A1359 /* FMDatabasePool.m in Sources */,
+				DB26D7638B2D3A173647E08F /* FMDatabaseQueue.m in Sources */,
+				2BFCCF61479061F16F9C3A89 /* FMResultSet.m in Sources */,
+				D46B83F6F155893F3C8510A1 /* Pods-MyWeibo-FMDB-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AA9D14A4DF20931BB56BC28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				438FADF596484461B3B7E0D8 /* AFHTTPRequestOperation.m in Sources */,
+				3192414A225A372837B72594 /* AFHTTPRequestOperationManager.m in Sources */,
+				52878726053516822C0F9533 /* AFHTTPSessionManager.m in Sources */,
+				BDB7C5800991B6E24D3DFE32 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				3BA867AAE78BDB5B6B0D7618 /* AFNetworkReachabilityManager.m in Sources */,
+				213563489B30D794F5305666 /* AFSecurityPolicy.m in Sources */,
+				B63A57A0875356FE7B6C1236 /* AFURLConnectionOperation.m in Sources */,
+				EFBED9EE5E06EF3C470DBC4C /* AFURLRequestSerialization.m in Sources */,
+				36490D57C8757E0BBE522AC8 /* AFURLResponseSerialization.m in Sources */,
+				E7659440D1FB40551018C376 /* AFURLSessionManager.m in Sources */,
+				639C7D6FDE4D651396D2E1D4 /* Pods-MyWeibo-AFNetworking-dummy.m in Sources */,
+				1CD89F3FE01966790432A737 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				8CE1E7BDBC31CAB7A05CE669 /* UIAlertView+AFNetworking.m in Sources */,
+				FA362D5B29F933171D00B324 /* UIButton+AFNetworking.m in Sources */,
+				5FFCD9F072B70A1FEDD70F29 /* UIImageView+AFNetworking.m in Sources */,
+				893B24C9D976DBD71CB264B5 /* UIProgressView+AFNetworking.m in Sources */,
+				B11B67596637665D4A64BEB1 /* UIRefreshControl+AFNetworking.m in Sources */,
+				9EA55C3D304C9E662B7B892E /* UIWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82191A1A09FAC6C832AAA1D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90B662F40A909B08D8A15233 /* DDASLLogCapture.m in Sources */,
+				181330FCE6CB25AE23FEF4E4 /* DDASLLogger.m in Sources */,
+				5169ECF788B231869A98FE1F /* DDAbstractDatabaseLogger.m in Sources */,
+				24FB1AB56D36C46CF42BEC7F /* DDContextFilterLogFormatter.m in Sources */,
+				8548C7DA609195764959CA3A /* DDDispatchQueueLogFormatter.m in Sources */,
+				940A77B0BBF3BEE487BC06C8 /* DDFileLogger.m in Sources */,
+				9F95825465C1F0539C56476D /* DDLog.m in Sources */,
+				65EA5DD909CD1CA6DE00075B /* DDMultiFormatter.m in Sources */,
+				3A8E16904591D65DD74CECEC /* DDTTYLogger.m in Sources */,
+				B2BA2E201A197150509796FB /* Pods-MyWeibo-CocoaLumberjack-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B38EAB6D7FCEF60440C27B43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE777D20E7D2631D230CC96 /* LCDummy.m in Sources */,
+				192A8CE527751EDDE9E2B9FD /* Pods-MyWeibo-AVOSCloud-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA1B4574041FF4CF0F743489 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4AE7826AEF6ABC1F6651123 /* Pods-MyWeibo-SVProgressHUD-dummy.m in Sources */,
+				F50F8B28FA7DB99F2FC401F4 /* SVIndefiniteAnimatedView.m in Sources */,
+				80B13A641137CF7CB85E70DD /* SVProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE9E67C60E3BE70A5F2EDE23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D03076601732070AFE1733D /* Pods-MyWeibo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		325AD48F049926C8F8BF832A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MyWeibo-AVOSCloud";
+			target = A693EAFD6B0F724B5A2AE06A /* Pods-MyWeibo-AVOSCloud */;
+			targetProxy = 5207AE2CE9C27BCF30A4C066 /* PBXContainerItemProxy */;
+		};
+		6B7B8118FDCEB51B309C4FC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MyWeibo-CocoaLumberjack";
+			target = FB7B51A5E93B06644442B65D /* Pods-MyWeibo-CocoaLumberjack */;
+			targetProxy = 2FC8192DCF0A7A76B60485E6 /* PBXContainerItemProxy */;
+		};
+		72A90AA42A2A1B2F61566D61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MyWeibo-SVProgressHUD";
+			target = AFDB5BFD458A2A7B43D25BA9 /* Pods-MyWeibo-SVProgressHUD */;
+			targetProxy = 8769BAF5CE7C1FF5798B3738 /* PBXContainerItemProxy */;
+		};
+		90F0EAFF719D58929EF098BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MyWeibo-AFNetworking";
+			target = D1B27AEDAEA25653CD03058C /* Pods-MyWeibo-AFNetworking */;
+			targetProxy = B51A6E95F168ACAC19676FDF /* PBXContainerItemProxy */;
+		};
+		B397D6E574FDD2EBBA0ABB0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MyWeibo-FMDB";
+			target = 3A123A36FB895D374711C174 /* Pods-MyWeibo-FMDB */;
+			targetProxy = 2D7168BE12FE34FA43F43543 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		313B80619F02DF2B533B935F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F25233D307B3545AFBC2B7C /* Pods-MyWeibo.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		48AC0CD48474BDE573B22970 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B6F06DD79D167A59454274E /* Pods-MyWeibo-AVOSCloud-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-AVOSCloud/Pods-MyWeibo-AVOSCloud-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		57299FCD086C594C3289A832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DEEAE50F9552E7485FE55CD /* Pods-MyWeibo-FMDB-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-FMDB/Pods-MyWeibo-FMDB-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7D9C58C485DAC3FDB46455BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		88CED057335E96F01DBAB3B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		904876F10DF3924DDE4A426F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A41019DD47AA14E374A7AB4 /* Pods-MyWeibo-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-AFNetworking/Pods-MyWeibo-AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B8C73CE0A8F23BEA6D58A98B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D98990B2732EAF87252F42E1 /* Pods-MyWeibo-SVProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-SVProgressHUD/Pods-MyWeibo-SVProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C31692609AD7B101F587A6E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CADCAF7A78077B94BE7C5D7F /* Pods-MyWeibo.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C3B649F9C5BA1F40B220ACA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D98990B2732EAF87252F42E1 /* Pods-MyWeibo-SVProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-SVProgressHUD/Pods-MyWeibo-SVProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CC1476A4989D4F5088086725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7259102057C1373A4209E15 /* Pods-MyWeibo-CocoaLumberjack-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-CocoaLumberjack/Pods-MyWeibo-CocoaLumberjack-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CCA3C3FF783F61329911938E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A41019DD47AA14E374A7AB4 /* Pods-MyWeibo-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-AFNetworking/Pods-MyWeibo-AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D3A7EF62F75995A9E12F4722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7259102057C1373A4209E15 /* Pods-MyWeibo-CocoaLumberjack-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-CocoaLumberjack/Pods-MyWeibo-CocoaLumberjack-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DDB0C002F2960B386B733567 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B6F06DD79D167A59454274E /* Pods-MyWeibo-AVOSCloud-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-AVOSCloud/Pods-MyWeibo-AVOSCloud-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E7725097C6B46770C5777872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DEEAE50F9552E7485FE55CD /* Pods-MyWeibo-FMDB-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MyWeibo-FMDB/Pods-MyWeibo-FMDB-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31263DDBC495464B926C2DF0 /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-CocoaLumberjack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC1476A4989D4F5088086725 /* Debug */,
+				D3A7EF62F75995A9E12F4722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3637623D24ADAEA0CBF8C5BD /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-AFNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA3C3FF783F61329911938E /* Debug */,
+				904876F10DF3924DDE4A426F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB8598DD8683D0BC5D36DB5 /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-FMDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57299FCD086C594C3289A832 /* Debug */,
+				E7725097C6B46770C5777872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5045DED2510946408FB02D6F /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-AVOSCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB0C002F2960B386B733567 /* Debug */,
+				48AC0CD48474BDE573B22970 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		528915143D3BB4947F327A99 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D9C58C485DAC3FDB46455BD /* Debug */,
+				88CED057335E96F01DBAB3B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E9AF56E34D9E6AC3BC1067C /* Build configuration list for PBXNativeTarget "Pods-MyWeibo-SVProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3B649F9C5BA1F40B220ACA3 /* Debug */,
+				B8C73CE0A8F23BEA6D58A98B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E3A261E6246568656D26DE2 /* Build configuration list for PBXNativeTarget "Pods-MyWeibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				313B80619F02DF2B533B935F /* Debug */,
+				C31692609AD7B101F587A6E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 432C5646F53FD703F1CDA24E /* Project object */;
+}

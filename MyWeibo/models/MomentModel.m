@@ -84,12 +84,17 @@
                  arrayOfAllBySelect:[NSArray arrayWithObject:@"name"]
                      fromTable:[ImageModel stringOfTableName]
                          where:[NSDictionary dictionaryWithObject:commentID forKey:@"moment_id"]];
-             
         images = [images arrayByMap:(id)^(id item) {
             return [item objectForKey:@"name"];
         }];
         
-        [item setObject:images forKey:@"images"];
+        NSMutableArray *imagesArray = [NSMutableArray arrayWithArray:images];
+        
+        if ([images count] == 0) {
+            [imagesArray addObject:[NSString stringWithFormat:@"moment_id_%d", [Random randZeroToNum:4] + 1]];
+        }
+        
+        [item setObject:imagesArray forKey:@"images"];
         
         //set user info
 //        NSString *userID = [item objectForKey:@"user_id"];
@@ -110,8 +115,10 @@
 
 - (void) addImageModelsNumber:(int) number
 {
+    int rand = [Random randZeroToNum:4];
     for (int i = 0; i < number; i++) {
-        ImageModel *image = [ImageModel imageWithRandomValuesForCommentID:self.momentID];
+        int identifier = (rand + i)%4 + 1;
+        ImageModel *image = [ImageModel imageWithIdentifier: identifier ForCommentID:self.momentID];
         [self.images addObject:image];
     }
 }
@@ -127,7 +134,9 @@
     [[MyWeiApp sharedManager].databaseManager
      insearItemsTableName:[MomentModel stringOfTableName]
      columns:[self dictionaryOfPropertiesAndValues]];
-    
+    if ([self.images count] == 0) {
+        [self addImageModelsNumber:1];
+    }
     for (int i; i < [self.images count]; i++) {
         NSLog(@"Insert Image %d" ,i);
         [self.images[i] save];

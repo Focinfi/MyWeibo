@@ -21,16 +21,12 @@
     
     for (int i = 0; i < keys.count; i++) {
         NSString * type = [self objectForKey:keys[i]];
-        NSLog(@"Value: %@", type);
         NSString *assemble = keys[i];
         assemble = [assemble stringByAppendingFormat:@"=%@", [type stringSwapWithBoundary:@"'"]];
-        NSLog(@"Ass: %@", assemble);
         [pairs addObject:assemble];
     }
     
-    NSLog(@"Pairs1 count: %lu", (unsigned long)pairs.count);
     mapString = [pairs stringByJoinSimpelyWithBoundary:boundary];
-    NSLog(@"Pairs1: %@", pairs);
     return mapString;
 }
 @end

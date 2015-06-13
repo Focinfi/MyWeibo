@@ -37,22 +37,30 @@
     return [NSDictionary dictionaryWithObjects:types forKeys:[ImageModel arrayOfProperties]];
 }
 
-+ (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID;
++ (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSString *) commentID
+{
+    ImageModel *image = [[ImageModel alloc] init];
+    image.momentID = commentID;
+    image.name = [NSString stringWithFormat:@"moment_id_%d", identifier];
+    return image;
+}
+
++ (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID
 {
     ImageModel *image = [[ImageModel alloc] init];
     image.momentID = commentID;
 
     if ([Random possibilityTenOfNum:5]) {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"weibo1";
+            image.name = @"moment_id_1";
         } else {
-            image.name = @"weibo2";
+            image.name = @"moment_id_2";
         }
     } else {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"weibo3";
+            image.name = @"moment_id_3";
         } else {
-            image.name = @"weibo4";
+            image.name = @"moment_id_4";
         }
     }
     return image;

@@ -53,7 +53,8 @@
 - (void) setTitleAndBarButton
 {
     self.title = @"添加Moment";
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone  target:self action:@selector(saveMoment)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveMoment)];
+    rightButton.title = @"完成";
     self.navigationItem.rightBarButtonItem = rightButton;
 }
 
@@ -94,8 +95,9 @@
 {
     NSString *momentContentText = self.momentContentTextView.text;
     if (momentContentText.length <= 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写Moment" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [alert show];
+        [SVProgressHUD showErrorWithStatus:@"Moment不能为空哦"];
+    } else if ([newMoment.images count] == 0){
+        [SVProgressHUD showErrorWithStatus:@"添加个图片吧"];
     } else {
         newMoment.userID = @"1";
         newMoment.content = momentContentText;

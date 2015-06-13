@@ -17,6 +17,8 @@
 #import "Random.h"
 #import "NSString+Format.h"
 #import "NSArray+Assemble.h"
+#import "CocoaLumberjack.h"
+#import "AVOSCloud.h"
 
 @interface AppDelegate ()
 @end
@@ -25,31 +27,66 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self setUIColor];
+    [self test];
+    [self setConfig];
+    [self setUIViews];
     [self setBasicDataInitialization];
-    
-    [self setTab];
-
     return YES;
 }
 
-#pragma mark Color Configration
+#pragma mark Test
+- (void) test
+{
+//    "moment_id" = 84
+//    NSArray *images =
+//        [[MyWeiApp sharedManager].databaseManager
+//            arrayOfAllBySelect:[ImageModel arrayOfProperties]
+//                     fromTable:[ImageModel stringOfTableName]
+//                         where:nil];
+//    DDLogDebug(@"Images:%@", images);
+//    MomentModel *moment = [MomentModel momentWithRandomValues];
+//    DDLogDebug(@"Images:moment_id:%@", moment.momentID);
+//    ImageModel *image = moment.images[1];
+//    DDLogDebug(@"Images:%@", image.momentID);
+}
+
+#pragma mark Configration
+
+- (void) setConfig
+{
+    [self setUIColor];
+    [self setCocoaLumberjack];
+    [self setAVOS];
+}
 
 - (void) setUIColor
 {
     [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.90 alpha:1]];
 }
 
+- (void) setCocoaLumberjack
+{
+    // Standard lumberjack initialization
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+    // And we also enable colors
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+}
+
+- (void) setAVOS
+{
+    [AVOSCloud setApplicationId:@"gmc220p5ceyvbglo41g9hwmdbscozebzxb1sfv90g70kl5ao"
+                      clientKey:@"uje08oymkepwz8k2dvc2thq97dmj0msqr0bgvg4wl7ulc2te"];
+}
+
 #pragma mark DB Connection Init
 
 - (void) setBasicDataInitialization
 {
-
-    
     [MyWeiApp sharedManager].usesrDefaults = [NSUserDefaults standardUserDefaults];
    
     [MyWeiApp sharedManager].databaseManager = [[DBManager alloc] init];
-    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db31"];
+    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db35"];
     
     //create tables
     [[MyWeiApp sharedManager].databaseManager createTableName:[UserModel stringOfTableName] columns:[UserModel directoryOfPropertiesAndTypes]];
@@ -57,30 +94,14 @@
     [[MyWeiApp sharedManager].databaseManager createTableName:[ImageModel stringOfTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
     
     [[MyWeiApp sharedManager].databaseManager createTableName:[MomentModel stringOfTableName] columns:[MomentModel directoryOfPropertiesAndTypes]];
-    
-    //test
-//    NSString *s = @"A";
-//    NSArray *a = [NSArray arrayWithObjects:s, s, s, nil];
-//    NSLog([s stringSwapWithBoundary:@"'"]);
-//    NSLog([a stringByJoinEntierWithBoundary:@" AND "]);
-    
-    
-//    NSDictionary *d =
-//    [[MyWeiApp sharedManager].databaseManager
-//        dictionaryBySelect:[UserModel arrayOfProperties]
-//                 fromTable:[UserModel stringOfTableName]
-//                     where:nil];
-    
-//    NSLog(@"Dictionary: %@", d);
-//    NSArray *arr = [NSArray arrayWithObjects:@"1", @"2", @"a", nil];
-//    arr = [arr arrayBySelect:(id)^(id item) {
-//        return [item  isEqual: @"2"] ? @"Got" : @"None";
-//    }];
-//    NSLog(@"Arr: %@", arr);
 }
 
+#pragma mark Set UIViews
 
-#pragma mark UI Init
+- (void) setUIViews
+{
+    [self setTab];
+}
 
 - (void) setTab{
     UITabBarController *tabViewController = (UITabBarController *) self.window.rootViewController;

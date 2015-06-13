@@ -11,6 +11,7 @@
 #import "NSDictionary+Assemble.h"
 #import "NSArray+Assemble.h"
 #import "NSString+Format.h"
+#import "CocoaLumberjack.h"
 
 @implementation DBManager
 
@@ -29,23 +30,23 @@
 - (NSString *) makeSqlString:(NSDictionary *) colums
 {
     NSArray *keys = [colums allKeys];
-    NSLog(@"Columns: %@", keys);
+    DDLogVerbose(@"Columns: %@", keys);
 
     NSString *mapString;
     NSMutableArray *pairs = [NSMutableArray array];
     
     for (int i = 0; i < keys.count; i++) {
         NSString * type = [colums objectForKey:keys[i]];
-        NSLog(@"Value: %@", type);
+        DDLogVerbose(@"Value: %@", type);
         NSString *assemble = [keys[i] stringSwapWithBoundary:@"'"];
         assemble = [assemble stringByAppendingFormat:@" %@", type];
-        NSLog(@"Ass: %@", assemble);
+        DDLogVerbose(@"Ass: %@", assemble);
         [pairs addObject:assemble];
     }
     
-    NSLog(@"Pairs count: %lu", (unsigned long)pairs.count);
+    DDLogVerbose(@"Pairs count: %lu", (unsigned long)pairs.count);
     mapString = [pairs stringByJoinSimpelyWithBoundary:@","];
-    NSLog(@"Pairs: %@", pairs);
+    DDLogVerbose(@"Pairs: %@", pairs);
     return mapString;
 }
 
@@ -55,7 +56,7 @@
 {
     FMDatabase *db = [FMDatabase databaseWithPath:[self dbPath:name]];
 
-    NSLog(@"connect DB");
+    DDLogVerbose(@"connect DB");
     self.db = db;
 }
 
@@ -67,13 +68,13 @@
         NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' (%@)",name,[self makeSqlString: colums]];
         
         BOOL res = [self.db executeUpdate:sqlCreateTable];
-        NSLog(@"create table");
+        DDLogVerbose(@"create table");
         if (!res) {
-            NSLog(@"error when creating db table");
+            DDLogVerbose(@"error when creating db table");
             [self.db close];
             return NO;
         } else {
-            NSLog(@"success to creating db table");
+            DDLogVerbose(@"success to creating db table");
             [self.db close];
         }
     }
@@ -108,9 +109,9 @@
         [rs next];
         for (int i = 0; i < columns.count; i++) {
             NSString *value = [rs stringForColumn:columns[i]];
-            NSLog(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
+            DDLogVerbose(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
             if (value != nil) {
-                NSLog(@"Count: %d", i);
+                DDLogVerbose(@"Count: %d", i);
                 [item setValue:value forKey:columns[i]];
             }
         }
@@ -129,7 +130,6 @@
                           @"SELECT * FROM %@ ", name];
         if (conditions) {
             sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
-            //            sql = [sql stringByAppendingString:@"WHERE name = '仓井优'"];
         }
         FMResultSet * rs = [self.db executeQuery:sql];
         
@@ -137,13 +137,12 @@
             NSMutableDictionary *item = [NSMutableDictionary dictionary];
             for (int i = 0; i < columns.count; i++) {
                 NSString *value = [rs stringForColumn:columns[i]];
-                NSLog(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
+                DDLogVerbose(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
                 if (value != nil) {
-                    NSLog(@"Count: %d", i);
+                    DDLogVerbose(@"Count: %d", i);
                     [item setValue:value forKey:columns[i]];
                 }
             }
-                //                NSLog(@"RS ID: %@", [rs objectForColumnName:@"id"]);
             [data addObject:item];
         }
         [self.db close];
@@ -154,7 +153,7 @@
 
 - (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to
 {
-    NSLog(@"%@", columns);
+    DDLogVerbose(@"%@", columns);
     NSMutableArray *data = [NSMutableArray array];
     
     if ([self.db open]) {
@@ -167,18 +166,17 @@
         FMResultSet * rs = [self.db executeQuery:sql];
         
         for (int first = 0; [rs next] && first < to; first++) {
-            NSLog(@"Count in seart: %d", first);
+            DDLogVerbose(@"Count in seart: %d", first);
             if (first >= from && first < to) {
                 NSMutableDictionary *item = [NSMutableDictionary dictionary];
                 for (int i = 0; i < columns.count; i++) {
                     NSString *value = [rs stringForColumn:columns[i]];
-                    NSLog(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
                     if (value != nil) {
-                        NSLog(@"Count: %d", i);
+                        DDLogVerbose(@"Count: %d", i);
                         [item setValue:value forKey:columns[i]];
                     }
                 }
-//                NSLog(@"RS ID: %@", [rs objectForColumnName:@"id"]);
+//                DDLogVerbose(@"RS ID: %@", [rs objectForColumnName:@"id"]);
                 [data addObject:item];
             }
         }
@@ -204,11 +202,11 @@
         BOOL res = [self.db executeUpdate:insertSql];
         
         if (!res) {
-            NSLog(@"error when insert db table");
+            DDLogVerbose(@"error when insert db table");
             [self.db close];
             return NO;
         } else {
-            NSLog(@"success to insert db table");
+            DDLogVerbose(@"success to insert db table");
             [self.db close];
         }
     }

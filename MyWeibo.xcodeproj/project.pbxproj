@@ -12,15 +12,6 @@
 		043AFD0F1B2A96F300A0026F /* AddMomentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043AFD0D1B2A96F300A0026F /* AddMomentViewController.xib */; };
 		044D86861B268ED0008F415E /* MomentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86851B268ED0008F415E /* MomentModel.m */; };
 		044D86891B268EF7008F415E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86881B268EF7008F415E /* UserModel.m */; };
-		044D869E1B26C149008F415E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D868D1B26C149008F415E /* FMDatabase.m */; };
-		044D869F1B26C149008F415E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D868F1B26C149008F415E /* FMDatabaseAdditions.m */; };
-		044D86A01B26C149008F415E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86911B26C149008F415E /* FMDatabasePool.m */; };
-		044D86A11B26C149008F415E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86931B26C149008F415E /* FMDatabaseQueue.m */; };
-		044D86A21B26C149008F415E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86961B26C149008F415E /* FMResultSet.m */; };
-		044D86A31B26C149008F415E /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86991B26C149008F415E /* SVIndefiniteAnimatedView.m */; };
-		044D86A41B26C149008F415E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 044D869B1B26C149008F415E /* SVProgressHUD.bundle */; };
-		044D86A51B26C149008F415E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D869D1B26C149008F415E /* SVProgressHUD.m */; };
-		044D86A91B26C2AE008F415E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044D86A81B26C2AE008F415E /* QuartzCore.framework */; };
 		044D86B61B271E79008F415E /* DBIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86B51B271E79008F415E /* DBIdentifiers.m */; };
 		0467A8141B297ACE001A7079 /* MomentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0467A8121B297ACE001A7079 /* MomentDetailViewController.m */; };
 		0467A8151B297ACE001A7079 /* MomentDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0467A8131B297ACE001A7079 /* MomentDetailViewController.xib */; };
@@ -33,16 +24,16 @@
 		0494E90A1B253182004FD3BA /* MyWeiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E9091B253182004FD3BA /* MyWeiApp.m */; };
 		04BAA45B1B29B4BD00791E9D /* ImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BAA45A1B29B4BD00791E9D /* ImageBrowser.m */; };
 		04BAA4601B29CBDD00791E9D /* Support.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BAA45F1B29CBDD00791E9D /* Support.m */; };
+		3A66808EA24D813486BCF4AC /* libPods-MyWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC480A40A44556E9B529240D /* libPods-MyWeibo.a */; };
 		C9D260871B1065F400A49E0A /* MomentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260841B1065F400A49E0A /* MomentTableViewController.m */; };
-		C9D2609B1B10665F00A49E0A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D260981B10665F00A49E0A /* NewsCell.xib */; };
-		C9D2609C1B10665F00A49E0A /* NewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */; };
+		C9D2609B1B10665F00A49E0A /* MomentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D260981B10665F00A49E0A /* MomentCell.xib */; };
+		C9D2609C1B10665F00A49E0A /* MomentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2609A1B10665F00A49E0A /* MomentTableViewCell.m */; };
 		C9D3F3A41B0B459900313035 /* MyWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F3A31B0B459900313035 /* MyWeiboTests.m */; };
 		C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F4231B0B681100313035 /* AppDelegate.m */; };
 		C9D3F4341B0B681100313035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D3F4241B0B681100313035 /* LaunchScreen.xib */; };
 		C9D3F4351B0B681100313035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D3F4261B0B681100313035 /* Main.storyboard */; };
 		C9D3F4361B0B681100313035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D3F4281B0B681100313035 /* Images.xcassets */; };
 		C9D3F43F1B0B68F500313035 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3F43E1B0B68F500313035 /* main.m */; };
-		C9D3F4541B0B742200313035 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3F4531B0B742200313035 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,24 +57,6 @@
 		044D86851B268ED0008F415E /* MomentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentModel.m; path = models/MomentModel.m; sourceTree = "<group>"; };
 		044D86871B268EF7008F415E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = models/UserModel.h; sourceTree = "<group>"; };
 		044D86881B268EF7008F415E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = models/UserModel.m; sourceTree = "<group>"; };
-		044D868C1B26C149008F415E /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		044D868D1B26C149008F415E /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		044D868E1B26C149008F415E /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		044D868F1B26C149008F415E /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		044D86901B26C149008F415E /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		044D86911B26C149008F415E /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		044D86921B26C149008F415E /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		044D86931B26C149008F415E /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		044D86941B26C149008F415E /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		044D86951B26C149008F415E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		044D86961B26C149008F415E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		044D86981B26C149008F415E /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		044D86991B26C149008F415E /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		044D869A1B26C149008F415E /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
-		044D869B1B26C149008F415E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		044D869C1B26C149008F415E /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		044D869D1B26C149008F415E /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		044D86A81B26C2AE008F415E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		044D86B41B271E79008F415E /* DBIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBIdentifiers.h; path = utils/UserDefaults/DBIdentifiers.h; sourceTree = "<group>"; };
 		044D86B51B271E79008F415E /* DBIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBIdentifiers.m; path = utils/UserDefaults/DBIdentifiers.m; sourceTree = "<group>"; };
 		0467A8111B297ACE001A7079 /* MomentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentDetailViewController.h; path = controllers/MomentDetailViewController.h; sourceTree = "<group>"; };
@@ -107,11 +80,13 @@
 		04BAA45A1B29B4BD00791E9D /* ImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowser.m; sourceTree = "<group>"; };
 		04BAA45E1B29CBDD00791E9D /* Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Support.h; sourceTree = "<group>"; };
 		04BAA45F1B29CBDD00791E9D /* Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Support.m; sourceTree = "<group>"; };
+		455251D0C93044BC4CFED28E /* Pods-MyWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeibo/Pods-MyWeibo.debug.xcconfig"; sourceTree = "<group>"; };
+		5E9AA3C004F7F5D7D84BD27D /* Pods-MyWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeibo/Pods-MyWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		C9D260831B1065F400A49E0A /* MomentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentTableViewController.h; path = controllers/MomentTableViewController.h; sourceTree = "<group>"; };
 		C9D260841B1065F400A49E0A /* MomentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentTableViewController.m; path = controllers/MomentTableViewController.m; sourceTree = "<group>"; };
-		C9D260981B10665F00A49E0A /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsCell.xib; path = views/NewsCell.xib; sourceTree = "<group>"; };
-		C9D260991B10665F00A49E0A /* NewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewTableViewCell.h; path = views/NewTableViewCell.h; sourceTree = "<group>"; };
-		C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewTableViewCell.m; path = views/NewTableViewCell.m; sourceTree = "<group>"; };
+		C9D260981B10665F00A49E0A /* MomentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MomentCell.xib; path = views/MomentCell.xib; sourceTree = "<group>"; };
+		C9D260991B10665F00A49E0A /* MomentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentTableViewCell.h; path = views/MomentTableViewCell.h; sourceTree = "<group>"; };
+		C9D2609A1B10665F00A49E0A /* MomentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentTableViewCell.m; path = views/MomentTableViewCell.m; sourceTree = "<group>"; };
 		C9D3F3841B0B459900313035 /* MyWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D3F39D1B0B459900313035 /* MyWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D3F3A21B0B459900313035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,7 +98,7 @@
 		C9D3F4281B0B681100313035 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C9D3F4291B0B681100313035 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9D3F43E1B0B68F500313035 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C9D3F4531B0B742200313035 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EC480A40A44556E9B529240D /* libPods-MyWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044D86A91B26C2AE008F415E /* QuartzCore.framework in Frameworks */,
-				C9D3F4541B0B742200313035 /* libsqlite3.dylib in Frameworks */,
+				3A66808EA24D813486BCF4AC /* libPods-MyWeibo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,46 +120,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		044D868A1B26C149008F415E /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-				044D868B1B26C149008F415E /* fmdb */,
-				044D86971B26C149008F415E /* SVProgressHUD */,
-			);
-			path = Vendors;
-			sourceTree = "<group>";
-		};
-		044D868B1B26C149008F415E /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				044D868C1B26C149008F415E /* FMDatabase.h */,
-				044D868D1B26C149008F415E /* FMDatabase.m */,
-				044D868E1B26C149008F415E /* FMDatabaseAdditions.h */,
-				044D868F1B26C149008F415E /* FMDatabaseAdditions.m */,
-				044D86901B26C149008F415E /* FMDatabasePool.h */,
-				044D86911B26C149008F415E /* FMDatabasePool.m */,
-				044D86921B26C149008F415E /* FMDatabaseQueue.h */,
-				044D86931B26C149008F415E /* FMDatabaseQueue.m */,
-				044D86941B26C149008F415E /* FMDB.h */,
-				044D86951B26C149008F415E /* FMResultSet.h */,
-				044D86961B26C149008F415E /* FMResultSet.m */,
-			);
-			path = fmdb;
-			sourceTree = "<group>";
-		};
-		044D86971B26C149008F415E /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				044D86981B26C149008F415E /* SVIndefiniteAnimatedView.h */,
-				044D86991B26C149008F415E /* SVIndefiniteAnimatedView.m */,
-				044D869A1B26C149008F415E /* SVProgressHUD-Prefix.pch */,
-				044D869B1B26C149008F415E /* SVProgressHUD.bundle */,
-				044D869C1B26C149008F415E /* SVProgressHUD.h */,
-				044D869D1B26C149008F415E /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
 		044D86B31B271E4C008F415E /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +199,8 @@
 		04BAA45C1B29C27700791E9D /* ViewClass */ = {
 			isa = PBXGroup;
 			children = (
-				C9D260991B10665F00A49E0A /* NewTableViewCell.h */,
-				C9D2609A1B10665F00A49E0A /* NewTableViewCell.m */,
+				C9D260991B10665F00A49E0A /* MomentTableViewCell.h */,
+				C9D2609A1B10665F00A49E0A /* MomentTableViewCell.m */,
 			);
 			name = ViewClass;
 			sourceTree = "<group>";
@@ -276,20 +210,29 @@
 			children = (
 				043AFD0D1B2A96F300A0026F /* AddMomentViewController.xib */,
 				0467A8131B297ACE001A7079 /* MomentDetailViewController.xib */,
-				C9D260981B10665F00A49E0A /* NewsCell.xib */,
+				C9D260981B10665F00A49E0A /* MomentCell.xib */,
 				C9D3F4261B0B681100313035 /* Main.storyboard */,
 				C9D3F4241B0B681100313035 /* LaunchScreen.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
 		};
+		56F3F838C832FB5F6522C116 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC480A40A44556E9B529240D /* libPods-MyWeibo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C9D3F37B1B0B459900313035 = {
 			isa = PBXGroup;
 			children = (
-				044D868A1B26C149008F415E /* Vendors */,
 				C9D3F4211B0B681000313035 /* MyWeibo */,
 				C9D3F3A01B0B459900313035 /* MyWeiboTests */,
 				C9D3F3851B0B459900313035 /* Products */,
+				F09920CEA2DF6B678356018B /* Pods */,
+				56F3F838C832FB5F6522C116 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -337,8 +280,6 @@
 		C9D3F43D1B0B68C000313035 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				044D86A81B26C2AE008F415E /* QuartzCore.framework */,
-				C9D3F4531B0B742200313035 /* libsqlite3.dylib */,
 				C9D3F4291B0B681100313035 /* Info.plist */,
 				C9D3F43E1B0B68F500313035 /* main.m */,
 			);
@@ -367,6 +308,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		F09920CEA2DF6B678356018B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				455251D0C93044BC4CFED28E /* Pods-MyWeibo.debug.xcconfig */,
+				5E9AA3C004F7F5D7D84BD27D /* Pods-MyWeibo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,9 +324,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9D3F3A71B0B459900313035 /* Build configuration list for PBXNativeTarget "MyWeibo" */;
 			buildPhases = (
+				67BB0598BBA0B6DA28CE6BC7 /* Check Pods Manifest.lock */,
 				C9D3F3801B0B459900313035 /* Sources */,
 				C9D3F3811B0B459900313035 /* Frameworks */,
 				C9D3F3821B0B459900313035 /* Resources */,
+				2DB076C92692DC21C45537E1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -449,10 +401,9 @@
 			files = (
 				043AFD0F1B2A96F300A0026F /* AddMomentViewController.xib in Resources */,
 				0467A8151B297ACE001A7079 /* MomentDetailViewController.xib in Resources */,
-				044D86A41B26C149008F415E /* SVProgressHUD.bundle in Resources */,
 				C9D3F4361B0B681100313035 /* Images.xcassets in Resources */,
 				C9D3F4341B0B681100313035 /* LaunchScreen.xib in Resources */,
-				C9D2609B1B10665F00A49E0A /* NewsCell.xib in Resources */,
+				C9D2609B1B10665F00A49E0A /* MomentCell.xib in Resources */,
 				C9D3F4351B0B681100313035 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +417,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2DB076C92692DC21C45537E1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyWeibo/Pods-MyWeibo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67BB0598BBA0B6DA28CE6BC7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C9D3F3801B0B459900313035 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -475,28 +459,21 @@
 				C9D3F43F1B0B68F500313035 /* main.m in Sources */,
 				0494E9071B253146004FD3BA /* Random.m in Sources */,
 				04BAA4601B29CBDD00791E9D /* Support.m in Sources */,
-				044D869F1B26C149008F415E /* FMDatabaseAdditions.m in Sources */,
 				0467A8141B297ACE001A7079 /* MomentDetailViewController.m in Sources */,
-				044D86A31B26C149008F415E /* SVIndefiniteAnimatedView.m in Sources */,
 				0494E9031B253146004FD3BA /* NSArray+Assemble.m in Sources */,
 				043AFD0E1B2A96F300A0026F /* AddMomentViewController.m in Sources */,
 				044D86891B268EF7008F415E /* UserModel.m in Sources */,
 				C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */,
-				044D86A51B26C149008F415E /* SVProgressHUD.m in Sources */,
 				0494E9061B253146004FD3BA /* DBManager.m in Sources */,
 				04BAA45B1B29B4BD00791E9D /* ImageBrowser.m in Sources */,
 				042668861B27C3E600825CB4 /* DataWorker.m in Sources */,
-				044D86A11B26C149008F415E /* FMDatabaseQueue.m in Sources */,
 				C9D260871B1065F400A49E0A /* MomentTableViewController.m in Sources */,
-				C9D2609C1B10665F00A49E0A /* NewTableViewCell.m in Sources */,
+				C9D2609C1B10665F00A49E0A /* MomentTableViewCell.m in Sources */,
 				0494E9041B253146004FD3BA /* NSDictionary+Assemble.m in Sources */,
-				044D86A21B26C149008F415E /* FMResultSet.m in Sources */,
-				044D86A01B26C149008F415E /* FMDatabasePool.m in Sources */,
 				0494E8F11B25273B004FD3BA /* ImageModel.m in Sources */,
 				044D86861B268ED0008F415E /* MomentModel.m in Sources */,
 				0494E90A1B253182004FD3BA /* MyWeiApp.m in Sources */,
 				044D86B61B271E79008F415E /* DBIdentifiers.m in Sources */,
-				044D869E1B26C149008F415E /* FMDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +519,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					Standard,
+					"architectures(armv7,arm64)",
+					"$(ARCHS_STANDARD)",
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -583,6 +565,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					Standard,
+					"architectures(armv7,arm64)",
+					"$(ARCHS_STANDARD)",
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -616,6 +603,7 @@
 		};
 		C9D3F3A81B0B459900313035 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 455251D0C93044BC4CFED28E /* Pods-MyWeibo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyWeibo/Info.plist;
@@ -626,6 +614,7 @@
 		};
 		C9D3F3A91B0B459900313035 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E9AA3C004F7F5D7D84BD27D /* Pods-MyWeibo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyWeibo/Info.plist;
