@@ -13,7 +13,9 @@
 #import "NSString+Format.h"
 #import "CocoaLumberjack.h"
 
-@implementation DBManager
+@implementation DBManager{
+    FMDatabaseQueue* dBQueue;
+}
 
 #pragma mark - Supporting Utils
 
@@ -35,10 +37,11 @@
     NSString *mapString;
     NSMutableArray *pairs = [NSMutableArray array];
     
-    for (int i = 0; i < keys.count; i++) {
-        NSString * type = [colums objectForKey:keys[i]];
+
+    for (NSString *key in keys) {
+        NSString * type = [colums objectForKey:key];
         DDLogVerbose(@"Value: %@", type);
-        NSString *assemble = [keys[i] stringSwapWithBoundary:@"'"];
+        NSString *assemble = [key stringSwapWithBoundary:@"'"];
         assemble = [assemble stringByAppendingFormat:@" %@", type];
         DDLogVerbose(@"Ass: %@", assemble);
         [pairs addObject:assemble];
@@ -50,34 +53,35 @@
     return mapString;
 }
 
+#pragma mark - Init
+
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        dBQueue = [FMDatabaseQueue databaseQueueWithPath:[self dbPath:@"myweibo_db16"]];
+    }
+    return self;
+}
+
 #pragma mark - Connect DB
 
-- (void) connectDBName:(NSString *)name
+- (void) connectDB
 {
-    FMDatabase *db = [FMDatabase databaseWithPath:[self dbPath:name]];
-
-    DDLogVerbose(@"connect DB");
-    self.db = db;
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self dbPath:@"myweibo_db10"]];
+    dBQueue = queue;
 }
 
 #pragma mark - Create Table
 
 - (BOOL) createTableName:(NSString *)name columns:(NSDictionary *)colums
 {
-    if ([self.db open]) {
-        NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' (%@)",name,[self makeSqlString: colums]];
-        
-        BOOL res = [self.db executeUpdate:sqlCreateTable];
+
+    NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' (%@)",name,[self makeSqlString: colums]];
+    [dBQueue inDatabase:^(FMDatabase *db){
+        [db executeUpdate:sqlCreateTable];
         DDLogVerbose(@"create table");
-        if (!res) {
-            DDLogVerbose(@"error when creating db table");
-            [self.db close];
-            return NO;
-        } else {
-            DDLogVerbose(@"success to creating db table");
-            [self.db close];
-        }
-    }
+    }];
     return YES;
 }
 
@@ -85,59 +89,56 @@
 
 - (int) countOfItemsNumberInTable:(NSString *)name
 {
-    if ([self.db open]) {
-        int newsTotalCount = [self.db intForQuery:[NSString stringWithFormat:@"select count(*) from %@", name]];
-        [self.db close];
-        return newsTotalCount;
-    }
+    __block int newsTotalCount = 0;
     
-    return 0;
+    [dBQueue inDatabase:^(FMDatabase *db){
+        newsTotalCount = [db intForQuery:[NSString stringWithFormat:@"select count(*) from %@", name]];
+    }];
+    
+    return newsTotalCount;
 }
 
 - (NSDictionary *) dictionaryBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
 {
-    NSMutableDictionary *item = [NSMutableDictionary dictionary];
-
-    if ([self.db open]) {
-        NSString * sql = [NSString stringWithFormat:
-                          @"SELECT * FROM %@ ", name];
-        if (conditions) {
-            sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
-        }
-        
-        FMResultSet * rs = [self.db executeQuery:sql];
+    NSString * sql = [NSString stringWithFormat:
+                      @"SELECT * FROM %@ ", name];
+    if (conditions) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+    }
+    
+    __block NSMutableDictionary *item = [NSMutableDictionary dictionary];
+;
+    [dBQueue inDatabase:^(FMDatabase *db){
+        FMResultSet * rs = [db executeQuery:sql];
         [rs next];
         for (int i = 0; i < columns.count; i++) {
             NSString *value = [rs stringForColumn:columns[i]];
-            DDLogVerbose(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
             if (value != nil) {
                 DDLogVerbose(@"Count: %d", i);
                 [item setValue:value forKey:columns[i]];
             }
         }
-        
-        [self.db close];
-    }
+        [rs close];
+    }];
+
     return item;
 }
 
 - (NSArray *) arrayOfAllBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
 {
-    NSMutableArray *data = [NSMutableArray array];
-    
-    if ([self.db open]) {
-        NSString * sql = [NSString stringWithFormat:
-                          @"SELECT * FROM %@ ", name];
-        if (conditions) {
-            sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
-        }
-        FMResultSet * rs = [self.db executeQuery:sql];
-        
+    NSString * sql = [NSString stringWithFormat:
+                      @"SELECT * FROM %@ ", name];
+    if (conditions) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+    }
+    __block NSMutableArray *data = [NSMutableArray array];
+
+    [dBQueue inDatabase:^(FMDatabase *db){
+        FMResultSet * rs = [db executeQuery:sql];
         while ([rs next]) {
             NSMutableDictionary *item = [NSMutableDictionary dictionary];
             for (int i = 0; i < columns.count; i++) {
                 NSString *value = [rs stringForColumn:columns[i]];
-                DDLogVerbose(@"%@: %@", columns[i], [rs stringForColumn:@"avatar"]);
                 if (value != nil) {
                     DDLogVerbose(@"Count: %d", i);
                     [item setValue:value forKey:columns[i]];
@@ -145,26 +146,24 @@
             }
             [data addObject:item];
         }
-        [self.db close];
-    }
-    
+        [rs close];
+    }];
+
     return data;
 }
 
 - (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to
 {
-    DDLogVerbose(@"%@", columns);
-    NSMutableArray *data = [NSMutableArray array];
-    
-    if ([self.db open]) {
-        NSString * sql = [NSString stringWithFormat:
-                          @"SELECT * FROM %@ ", name];
-        if (conditions) {
-            sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
-//            sql = [sql stringByAppendingString:@"WHERE name = '仓井优'"];
-        }
-        FMResultSet * rs = [self.db executeQuery:sql];
-        
+    NSString * sql = [NSString stringWithFormat:
+                      @"SELECT * FROM %@ ", name];
+    if (conditions) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+    }
+
+    __block NSMutableArray *data = [NSMutableArray array];
+
+    [dBQueue inDatabase:^(FMDatabase *db){
+        FMResultSet * rs = [db executeQuery:sql];
         for (int first = 0; [rs next] && first < to; first++) {
             DDLogVerbose(@"Count in seart: %d", first);
             if (first >= from && first < to) {
@@ -176,13 +175,12 @@
                         [item setValue:value forKey:columns[i]];
                     }
                 }
-//                DDLogVerbose(@"RS ID: %@", [rs objectForColumnName:@"id"]);
                 [data addObject:item];
             }
         }
-        
-        [self.db close];
-    }
+        [rs close];
+    }];
+    
 
     return data;
 }
@@ -191,25 +189,28 @@
 
 - (BOOL) insearItemsTableName:(NSString *)name columns:(NSDictionary *)columns
 {
-    if ([self.db open]) {
-        
-        NSArray *keys = [columns allKeys];
-        NSArray *values = [columns allValues];
-        NSString *insertSql = [NSString stringWithFormat:
-                               @"INSERT INTO %@ (%@) VALUES (%@)",
-                               name, [keys stringByJoinEntierWithBoundary:@","], [values stringByJoinEntierWithBoundary:@","]];
-        
-        BOOL res = [self.db executeUpdate:insertSql];
-        
-        if (!res) {
-            DDLogVerbose(@"error when insert db table");
-            [self.db close];
-            return NO;
-        } else {
-            DDLogVerbose(@"success to insert db table");
-            [self.db close];
+    NSArray *keys = [columns allKeys];
+    NSArray *values = [columns allValues];
+    NSString *insertSql = [NSString stringWithFormat:
+                           @"INSERT INTO %@ (%@) VALUES (%@)",
+                           name, [keys stringByJoinEntierWithBoundary:@","], [values stringByJoinEntierWithBoundary:@","]];
+    [dBQueue inDatabase:^(FMDatabase *db){
+        [db executeUpdate:insertSql];
+    }];
+
+    return YES;
+}
+
+
+#pragma mark - Execute a bundle of sqls
+
+- (BOOL) excuteSQLs:(NSArray *) sqls
+{
+    [dBQueue inDatabase:^(FMDatabase *db){
+        for (NSString *sql in sqls) {
+            [db executeUpdate:sql];
         }
-    }
+    }];
     return YES;
 }
 

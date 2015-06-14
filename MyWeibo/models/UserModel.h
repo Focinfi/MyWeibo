@@ -21,6 +21,5 @@
 + (UserModel *) userWithRandomValues;
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
-- (void) save;
 
 @end

@@ -11,6 +11,6 @@
 
 @interface MyWeiApp : NSObject
 + (MyWeiApp *)sharedManager;
-@property (nonatomic, strong) DBManager *databaseManager;
 @property (nonatomic, strong) NSUserDefaults *usesrDefaults;
+@property (nonatomic, strong) DBManager *dbManager;
 @end

@@ -19,9 +19,11 @@
 {
     if ([MomentModel countOfMoments] < number) {
         [DataWorker saveBasicImages];
+        NSMutableArray *sqls = [NSMutableArray array];
         for (int i = 0; i < number; i++) {
-            [[MomentModel momentWithRandomValues] save];
+            [sqls addObjectsFromArray:[[MomentModel momentWithRandomValues] arrayOfInsertSqls]];
         }
+        [[MyWeiApp sharedManager].dbManager excuteSQLs:sqls];
     }
 
 }
@@ -29,7 +31,7 @@
 + (void) saveBasicImages
 {
     for (int i = 0; i < 4; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"moment_id_%d", i + 1];
+        NSString *imageName = [NSString stringWithFormat:@"moment_image_%d", i + 1];
         UIImage *image = [UIImage imageNamed:imageName];
         [Support saveImage:image withName:imageName];
         NSLog(@"UIImage:%@", imageName);

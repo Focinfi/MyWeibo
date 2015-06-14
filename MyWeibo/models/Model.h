@@ -13,6 +13,6 @@
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
-- (void) save;
+- (NSArray *) arrayOfInsertSqls;
 
 @end

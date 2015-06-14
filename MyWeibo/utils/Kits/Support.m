@@ -7,6 +7,8 @@
 //
 
 #import "Support.h"
+#import "NSArray+Assemble.h"
+#import "NSString+Format.h"
 
 @implementation Support
 + (float) proportionOfHeigthToWidth:(CGSize) size
@@ -26,6 +28,18 @@
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
     NSLog(@"Image File Path: %@", fullPath);
     return fullPath;
+}
+
+#pragma mark - Make Insert SQL
+
++ (NSString *) stringOfInsertSqlWihtTableName:(NSString *)name columns:(NSDictionary *)columns
+{
+    NSArray *keys = [columns allKeys];
+    NSArray *values = [columns allValues];
+    NSString *insertSql = [NSString stringWithFormat:
+                           @"INSERT INTO %@ (%@) VALUES (%@)",
+                           name, [keys stringByJoinEntierWithBoundary:@","], [values stringByJoinEntierWithBoundary:@","]];
+    return insertSql;
 }
 @end
 

@@ -13,6 +13,7 @@
 #import "DBIdentifiers.h"
 #import "SVProgressHUD.h"
 #import "MomentTableViewController.h"
+#import "MyWeiApp.h"
 
 @interface AddMomentViewController (){
     int imageWidth;
@@ -103,7 +104,7 @@
         newMoment.content = momentContentText;
         NSLog(@"WillSave moment_id:%@, images:%lu", newMoment.momentID, [newMoment.images count]);
         
-        [newMoment save];
+        [[MyWeiApp sharedManager].dbManager excuteSQLs:[newMoment arrayOfInsertSqls]];
         [SVProgressHUD showSuccessWithStatus:@"创建成功"];
         [self.navigationController popViewControllerAnimated:YES];
     }

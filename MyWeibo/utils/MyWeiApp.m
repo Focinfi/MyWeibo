@@ -7,10 +7,10 @@
 //
 
 #import "MyWeiApp.h"
+#import "DBManager.h"
 
 @implementation MyWeiApp
-@synthesize databaseManager;
-
+@synthesize dbManager;
 + (MyWeiApp *)sharedManager
 {
     static MyWeiApp *sharedAccountManagerInstance = nil;
@@ -19,6 +19,15 @@
         sharedAccountManagerInstance = [[self alloc] init];
     });
     return sharedAccountManagerInstance;
+}
+
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        self.dbManager = [[DBManager alloc] init];
+    }
+    return self;
 }
 
 @end

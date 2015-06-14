@@ -42,7 +42,7 @@
 - (NSArray *) arrayByMap:(id (^)(id)) map
 {
     NSMutableArray *res = [NSMutableArray array];
-    for (int i = 0; i < [self count]; i++) {
+    for (int i = 0; i < self.count; i++) {
         id item = [self objectAtIndex:i];
         [res addObject: map(item)];
     }
@@ -52,9 +52,9 @@
 - (NSArray *) arrayBySelect:(BOOL (^)(id)) select
 {
     NSMutableArray *res = [NSMutableArray array];
-    for (int i = 0; i < [self count]; i++) {
-        if (select(self[i])) {
-            [res addObject:self[i]];
+    for (id element in self) {
+        if (select(element)) {
+            [res addObject:element];
         }
     }
     return res;

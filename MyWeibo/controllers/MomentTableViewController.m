@@ -33,7 +33,6 @@
 @implementation MomentTableViewController
 @synthesize count;
 @synthesize sizeOfRefresh;
-@synthesize dbManager;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -63,7 +62,6 @@
 {
     tableData = [[NSMutableArray alloc] init];
 
-    self.dbManager = [MyWeiApp sharedManager].databaseManager;
     self.sizeOfRefresh = 10;
     self.count = 0;
     
@@ -116,9 +114,8 @@
 
     NSLog(@"Comments Count in countOfItems: %d", [MomentModel countOfMoments]);
     NSArray *comments = [MomentModel arrayOfItemsFrom:self.count to:to];
-
+    NSLog(@"Refresh Moments Count:%lu", [comments count]);
     [tableData addObjectsFromArray:comments];
-    
 }
 
 #pragma Init tableData
@@ -152,22 +149,35 @@
 
 - (void) handleData
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self insearItemsToTableData];
-        if (tableData.count > self.count) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新成功"];
-                self.count = tableData.count;
-                [self.tableView reloadData];
-                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-            });
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"没有更新的新鲜事了"];
-                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-            });
-        }
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        [self insearItemsToTableData];
+//        NSLog(@"Rresher here");
+//        if (tableData.count > self.count) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新成功"];
+//                self.count = tableData.count;
+//                [self.tableView reloadData];
+//                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
+//            });
+//        } else {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"没有更新的新鲜事了"];
+//                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
+//            });
+//        }
+//    });
+    [self insearItemsToTableData];
+    NSLog(@"Rresher here");
+    if (tableData.count > self.count) {
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新成功"];
+        self.count = tableData.count;
+        [self.tableView reloadData];
+        [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
+    } else {
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"没有更新的新鲜事了"];
+        [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
+    }
+
 }
 
 - (void) endRefreshingAinamation

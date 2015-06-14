@@ -10,6 +10,7 @@
 #import "Random.h"
 #import "MyWeiApp.h"
 #import "Support.h"
+#import "DBManager.h"
 
 @implementation ImageModel
 @synthesize name;
@@ -22,7 +23,8 @@
 
 + (int) countOfImages
 {
-    return [[MyWeiApp sharedManager].databaseManager countOfItemsNumberInTable:[ImageModel stringOfTableName]];
+    DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
+    return [dbManager countOfItemsNumberInTable:[ImageModel stringOfTableName]];
     
 }
 
@@ -41,7 +43,7 @@
 {
     ImageModel *image = [[ImageModel alloc] init];
     image.momentID = commentID;
-    image.name = [NSString stringWithFormat:@"moment_id_%d", identifier];
+    image.name = [NSString stringWithFormat:@"moment_image_%d", identifier];
     return image;
 }
 
@@ -52,15 +54,15 @@
 
     if ([Random possibilityTenOfNum:5]) {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"moment_id_1";
+            image.name = @"moment_iamge_1";
         } else {
-            image.name = @"moment_id_2";
+            image.name = @"moment_iamge_2";
         }
     } else {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"moment_id_3";
+            image.name = @"moment_iamge_3";
         } else {
-            image.name = @"moment_id_4";
+            image.name = @"moment_iamge_4";
         }
     }
     return image;
@@ -72,13 +74,6 @@
 {
     return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:name, momentID, nil]
                                        forKeys:[ImageModel arrayOfProperties]];
-}
-
-- (void) save
-{
-    [[MyWeiApp sharedManager].databaseManager
-     insearItemsTableName:[ImageModel stringOfTableName]
-     columns:[self dictionaryOfPropertiesAndValues]];
 }
 
 @end

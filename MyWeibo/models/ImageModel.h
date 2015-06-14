@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface ImageModel : NSObject<Model>
+@interface ImageModel : NSObject
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *momentID;
 
@@ -21,5 +21,4 @@
 + (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSString *) commentID;
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
-- (void) save;
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Model.h"
 
-@interface MomentModel : NSObject<Model>
+@interface MomentModel : NSObject
 @property (nonatomic) NSString *momentID;
 @property (nonatomic) NSString *userID;
 @property (nonatomic) NSString *content;
@@ -24,6 +24,6 @@
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
 - (void) addImageModelsNumber:(int) number;
-- (void) save;
+- (NSArray *) arrayOfInsertSqls;
 
 @end

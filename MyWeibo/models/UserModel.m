@@ -24,7 +24,9 @@
 
 + (int) countOfUsers
 {
-    return [[MyWeiApp sharedManager].databaseManager countOfItemsNumberInTable:[UserModel stringOfTableName]];
+    DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
+
+    return [dbManager countOfItemsNumberInTable:[UserModel stringOfTableName]];
 }
 
 + (NSArray *) arrayOfProperties
@@ -70,13 +72,6 @@
     NSArray *values = [NSArray arrayWithObjects:userID, name, avatar, desc, nil];
     return [NSDictionary dictionaryWithObjects:values
                                        forKeys:[UserModel arrayOfProperties]];
-}
-
-- (void) save
-{
-    [[MyWeiApp sharedManager].databaseManager
-     insearItemsTableName:[UserModel stringOfTableName]
-                  columns:[self dictionaryOfPropertiesAndValues]];
 }
 
 @end

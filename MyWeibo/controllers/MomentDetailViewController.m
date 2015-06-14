@@ -97,18 +97,18 @@
     NSArray *images = [self.mommentData objectForKey:@"images"];
     NSLog(@"Images Count: %lu", (unsigned long)[images count]);
     NSLog(@"Image:%@", images);
-    for (int i = 0; i < [images count]; i++) {
+    for (NSString *imageName in images) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.image = [[UIImage alloc]
                            initWithContentsOfFile:
-                           [Support stringOfFilePathForImageName:images[i]]];
+                           [Support stringOfFilePathForImageName:imageName]];
         
         float imageHeight = (mommentScrollWidth - padding) * [Support proportionOfHeigthToWidth:imageView.image.size];
         
         imageView.frame = CGRectMake(padding, mommentScrollHeight, mommentScrollWidth - padding, imageHeight);
         
         mommentScrollHeight += imageHeight + padding;
-
+        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
         
         imageView.userInteractionEnabled = YES;

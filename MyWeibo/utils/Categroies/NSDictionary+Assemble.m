@@ -19,9 +19,9 @@
     NSString *mapString;
     NSMutableArray *pairs = [NSMutableArray array];
     
-    for (int i = 0; i < keys.count; i++) {
-        NSString * type = [self objectForKey:keys[i]];
-        NSString *assemble = keys[i];
+    for (NSString *key in keys) {
+        NSString * type = [self objectForKey:key];
+        NSString *assemble = key;
         assemble = [assemble stringByAppendingFormat:@"=%@", [type stringSwapWithBoundary:@"'"]];
         [pairs addObject:assemble];
     }

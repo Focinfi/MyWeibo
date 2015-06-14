@@ -27,27 +27,33 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self test];
     [self setConfig];
     [self setUIViews];
     [self setBasicDataInitialization];
+    [self test];
     return YES;
 }
 
 #pragma mark Test
 - (void) test
 {
+//    test iamges
 //    "moment_id" = 84
-//    NSArray *images =
-//        [[MyWeiApp sharedManager].databaseManager
-//            arrayOfAllBySelect:[ImageModel arrayOfProperties]
-//                     fromTable:[ImageModel stringOfTableName]
-//                         where:nil];
-//    DDLogDebug(@"Images:%@", images);
+    DBManager *manager = [MyWeiApp sharedManager].dbManager;
+    NSArray *images =
+        [manager arrayOfAllBySelect:[ImageModel arrayOfProperties]
+                     fromTable:[ImageModel stringOfTableName]
+                         where:nil];
+    NSLog(@"Images All:%@", images);
+    
 //    MomentModel *moment = [MomentModel momentWithRandomValues];
 //    DDLogDebug(@"Images:moment_id:%@", moment.momentID);
 //    ImageModel *image = moment.images[1];
 //    DDLogDebug(@"Images:%@", image.momentID);
+    
+    //test AVOS
+//    MomentModel *moment = [MomentModel momentWithRandomValues];
+    
 }
 
 #pragma mark Configration
@@ -84,16 +90,15 @@
 - (void) setBasicDataInitialization
 {
     [MyWeiApp sharedManager].usesrDefaults = [NSUserDefaults standardUserDefaults];
-   
-    [MyWeiApp sharedManager].databaseManager = [[DBManager alloc] init];
-    [[MyWeiApp sharedManager].databaseManager connectDBName:@"my_wei_bo_db35"];
-    
+    DBManager *manager = [MyWeiApp sharedManager].dbManager;
+//    NSLog(@"DB queue:%@", manager.dBQueue);
+
     //create tables
-    [[MyWeiApp sharedManager].databaseManager createTableName:[UserModel stringOfTableName] columns:[UserModel directoryOfPropertiesAndTypes]];
+    [manager createTableName:[UserModel stringOfTableName] columns:[UserModel directoryOfPropertiesAndTypes]];
     
-    [[MyWeiApp sharedManager].databaseManager createTableName:[ImageModel stringOfTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
+    [manager createTableName:[ImageModel stringOfTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
     
-    [[MyWeiApp sharedManager].databaseManager createTableName:[MomentModel stringOfTableName] columns:[MomentModel directoryOfPropertiesAndTypes]];
+    [manager createTableName:[MomentModel stringOfTableName] columns:[MomentModel directoryOfPropertiesAndTypes]];
 }
 
 #pragma mark Set UIViews

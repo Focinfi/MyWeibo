@@ -14,6 +14,7 @@
 #import "MyWeiApp.h"
 #import "UserModel.h"
 #import "NSArray+Assemble.h"
+#import "Support.h"
 
 @implementation MomentModel
 @synthesize momentID;
@@ -27,7 +28,9 @@
 
 + (int) countOfMoments
 {
-    return [[MyWeiApp sharedManager].databaseManager countOfItemsNumberInTable:[MomentModel stringOfTableName]];
+    DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
+
+    return [dbManager countOfItemsNumberInTable:[MomentModel stringOfTableName]];
     
 }
 
@@ -73,42 +76,40 @@
 + (NSArray *) arrayOfItemsFrom:(long) from to:(long) to
 {
     NSMutableArray *data = [NSMutableArray array];
-    
-    NSArray *comments = [[MyWeiApp sharedManager].databaseManager arrayBySelect:[MomentModel arrayOfProperties] fromTable:[MomentModel stringOfTableName] where:nil from:from to:to];
-    for (int i; i < [comments count]; i++) {
-        NSMutableDictionary *item = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *) comments[i]];
+    DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
+
+    NSArray *moments = [dbManager arrayBySelect:[MomentModel arrayOfProperties] fromTable:[MomentModel stringOfTableName] where:nil from:from to:to];
+    NSLog(@"Refresh Moments In MomentModel:%@", moments);
+    for (NSDictionary *moment in moments) {
+ 
+        NSMutableDictionary *item = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *) moment];
         //set images
-        NSString *commentID = [item objectForKey:@"moment_id"];
+        NSString *momentID = [item objectForKey:@"moment_id"];
         NSArray *images =
-            [[MyWeiApp sharedManager].databaseManager
-                 arrayOfAllBySelect:[NSArray arrayWithObject:@"name"]
-                     fromTable:[ImageModel stringOfTableName]
-                         where:[NSDictionary dictionaryWithObject:commentID forKey:@"moment_id"]];
+            [dbManager
+                arrayOfAllBySelect:[NSArray arrayWithObject:@"name"]
+                         fromTable:[ImageModel stringOfTableName]
+                             where:[NSDictionary dictionaryWithObject:momentID forKey:@"moment_id"]];
+        
         images = [images arrayByMap:(id)^(id item) {
             return [item objectForKey:@"name"];
         }];
         
         NSMutableArray *imagesArray = [NSMutableArray arrayWithArray:images];
+        NSLog(@"Refresh Moments id %@ Images%@", momentID, imagesArray);
         
-        if ([images count] == 0) {
-            [imagesArray addObject:[NSString stringWithFormat:@"moment_id_%d", [Random randZeroToNum:4] + 1]];
-        }
+//        if ([images count] == 0) {
+//            [imagesArray addObject:[NSString stringWithFormat:@"moment_id_%d", [Random randZeroToNum:4] + 1]];
+//        }
         
         [item setObject:imagesArray forKey:@"images"];
-        
-        //set user info
-//        NSString *userID = [item objectForKey:@"user_id"];
-//        NSDictionary *user =
-//            [[MyWeiApp sharedManager].databaseManager
-//                dictionaryBySelect:[UserModel arrayOfProperties]
-//                         fromTable:[UserModel stringOfTableName]
-//                             where:[NSDictionary dictionaryWithObject:userID
-//                                                               forKey:@"user_id"]];
         
         [item setObject:[[UserModel userWithRandomValues] dictionaryOfPropertiesAndValues] forKey:@"user"];
         
         [data addObject:item];
     }
+    NSLog(@"Refresh Moments Data:%lu", [data count]);
+
     return data;
 }
 
@@ -129,18 +130,19 @@
                                        forKeys:[MomentModel arrayOfProperties]];
 }
 
-- (void) save
+- (NSArray *) arrayOfInsertSqls
 {
-    [[MyWeiApp sharedManager].databaseManager
-     insearItemsTableName:[MomentModel stringOfTableName]
-     columns:[self dictionaryOfPropertiesAndValues]];
-    if ([self.images count] == 0) {
-        [self addImageModelsNumber:1];
+    NSMutableArray *insertSqls = [NSMutableArray array];
+    [insertSqls addObject:
+     [Support stringOfInsertSqlWihtTableName:[MomentModel stringOfTableName]
+                                     columns:self.dictionaryOfPropertiesAndValues]];
+    
+    for (ImageModel *image in self.images) {
+        [insertSqls addObject:
+         [Support stringOfInsertSqlWihtTableName:[ImageModel stringOfTableName]
+                                         columns:image.dictionaryOfPropertiesAndValues]];
     }
-    for (int i; i < [self.images count]; i++) {
-        NSLog(@"Insert Image %d" ,i);
-        [self.images[i] save];
-    }
+    return insertSqls;
 }
 
 @end
