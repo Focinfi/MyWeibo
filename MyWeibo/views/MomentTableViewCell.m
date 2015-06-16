@@ -24,12 +24,18 @@
 
 - (void) setImages:(NSArray *) images
 {
-    for (int i = 0; i < [images count] && i < 3; i++) {
-        UIImageView * imageView = [weiboImages objectAtIndex:i];
-        NSLog(@"Images' File Path: %@", images[i]);
-        imageView.image = [[UIImage alloc]
-                           initWithContentsOfFile:
-                           [Support stringOfFilePathForImageName:images[i]]];
+    for (int i = 0; i < 3; i++) {
+        if (i < [images count]) {
+            UIImageView * imageView = [weiboImages objectAtIndex:i];
+            NSLog(@"Images' File Path: %@", images[i]);
+            imageView.image = [[UIImage alloc]
+                               initWithContentsOfFile:
+                               [Support stringOfFilePathForImageName:images[i]]];
+        } else {
+            UIImageView * imageView = [weiboImages objectAtIndex:i];
+            imageView.image = nil;
+        }
+       
     }
 }
 

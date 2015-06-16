@@ -10,4 +10,6 @@
 
 @interface NSDictionary (Assemble)
 - (NSString *) stringByJoinEntierWithBoundary:(NSString *) boundary;
+- (void) eachPairDo:(void (^)(NSString *key, id value)) execute;
+
 @end

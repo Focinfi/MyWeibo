@@ -10,7 +10,7 @@
 #import "MomentModel.h"
 #import "ImageModel.h"
 #import "Support.h"
-#import "DBIdentifiers.h"
+#import "MyWeiboDefaults.h"
 #import "SVProgressHUD.h"
 #import "MomentTableViewController.h"
 #import "MyWeiApp.h"
@@ -19,10 +19,14 @@
     int imageWidth;
     int imageOriginX;
     int imageOriginY;
+    int imageNextX;
+    int imageNextY;
     int imagesLine;
     int imagesCount;
     int imagePadding;
     MomentModel *newMoment;
+    UIImageView *addImageImageButton;
+    UITapGestureRecognizer *tap;
 }
 
 @end
@@ -35,20 +39,20 @@
     [self setTextView];
     [self setAddImageButton];
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void) initValues
 {
     imageWidth = 90;
-    imageOriginX = 40;
-    imageOriginY = 340;
+    imageOriginX = imageNextX = 40;
+    imageOriginY = imageNextY = 340;
     imagesLine = 0;
     imagesCount = 0;
     imagePadding = 10;
     newMoment = [[MomentModel alloc] init];
-    newMoment.momentID = [DBIdentifiers stringOfIdentifier:@"moment_id"];
+    newMoment.momentID = [MyWeiboDefaults stringOfIdentifier:@"moment_id"];
     newMoment.images = [NSMutableArray array];
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseImage)];
 }
 
 - (void) setTitleAndBarButton
@@ -69,22 +73,24 @@
 - (void) setAddImageButton
 {
     UIImage *addImage = [UIImage imageNamed:@"AddImage"];
-    UIImageView *addImageView = [[UIImageView alloc] initWithImage:addImage];
-    int imageX = imageOriginX + (imagesCount % 3) * (imageWidth + imagePadding);
-    int imageY = imageOriginY + (imagesCount / 3) * (imageWidth + imagePadding);
-    addImageView.frame = CGRectMake(imageX, imageY, imageWidth, imageWidth);
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseImage)];
-    addImageView.userInteractionEnabled = YES;
-    [addImageView addGestureRecognizer:tap];
-    [self.view addSubview:addImageView];
+    addImageImageButton = [[UIImageView alloc] initWithImage:addImage];
+    addImageImageButton.frame = CGRectMake(imageNextX, imageNextY, imageWidth, imageWidth);
+
+    addImageImageButton.userInteractionEnabled = YES;
+    [addImageImageButton addGestureRecognizer:tap];
+    [self.view addSubview:addImageImageButton];
+}
+
+- (void) updateAddImageButtonPosition
+{
+    [self setNextXAndY];
+    addImageImageButton.frame = CGRectMake(imageNextX, imageNextY, imageWidth, imageWidth);
 }
 
 - (void) addImagePreview:(UIImage *) imageView
 {
     UIImageView *newImageView = [[UIImageView alloc] initWithImage:imageView];
-    int imageX = imageOriginX + (imagesCount % 3) * (imageWidth + imagePadding);
-    int imageY = imageOriginY + (imagesCount / 3) * (imageWidth + imagePadding);
-    newImageView.frame = CGRectMake(imageX, imageY, imageWidth, imageWidth);
+    newImageView.frame = CGRectMake(imageNextX, imageNextY, imageWidth, imageWidth);
 
     imagesCount++;
     [self.view addSubview:newImageView];
@@ -103,6 +109,8 @@
         newMoment.userID = @"1";
         newMoment.content = momentContentText;
         NSLog(@"WillSave moment_id:%@, images:%lu", newMoment.momentID, [newMoment.images count]);
+        
+        [MyWeiboDefaults updateValue:@"YES" forKey:@"user_moment"];
         
         [[MyWeiApp sharedManager].dbManager excuteSQLs:[newMoment arrayOfInsertSqls]];
         [SVProgressHUD showSuccessWithStatus:@"创建成功"];
@@ -173,11 +181,12 @@
 }
 
 #pragma mark - image picker delegte
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissViewControllerAnimated:YES completion:^{}];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSString *imageName = [NSString stringWithFormat:@"moment_image_%@", [DBIdentifiers stringOfIdentifier:@"moment_image_id"]];
+    NSString *imageName = [NSString stringWithFormat:@"moment_image_%@", [MyWeiboDefaults stringOfIdentifier:@"moment_image_id"]];
     [Support saveImage:image withName:imageName];
     
     NSLog(@"Moment ID:%@", newMoment.momentID);
@@ -190,10 +199,22 @@
 
     [self addImagePreview:image];
     if (imagesCount < 6) {
-        [self setAddImageButton];
+        [self updateAddImageButtonPosition];
+    } else {
+        [addImageImageButton removeGestureRecognizer:tap];
     }
     
 }
+
+#pragma mark - Count Image X and Y
+
+- (void) setNextXAndY
+{
+    imageNextX = imageOriginX + (imagesCount % 3) * (imageWidth + imagePadding);
+    imageNextY = imageOriginY + (imagesCount / 3) * (imageWidth + imagePadding);
+
+}
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:^{}];

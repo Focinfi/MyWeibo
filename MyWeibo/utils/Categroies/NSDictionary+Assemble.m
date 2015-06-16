@@ -29,4 +29,12 @@
     mapString = [pairs stringByJoinSimpelyWithBoundary:boundary];
     return mapString;
 }
+
+- (void) eachPairDo:(void (^)(NSString *key, id value)) execute
+{
+    for (NSString *key in [self keyEnumerator]) {
+        execute(key, [self objectForKey:key]);
+    }
+}
+
 @end

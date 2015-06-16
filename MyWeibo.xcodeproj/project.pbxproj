@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040CA6431B2D6AB50025F57E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CA6411B2D6AB50025F57E /* LoginViewController.m */; };
+		040CA6441B2D6AB50025F57E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040CA6421B2D6AB50025F57E /* LoginViewController.xib */; };
 		042668861B27C3E600825CB4 /* DataWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 042668851B27C3E600825CB4 /* DataWorker.m */; };
 		043AFD0E1B2A96F300A0026F /* AddMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AFD0C1B2A96F300A0026F /* AddMomentViewController.m */; };
 		043AFD0F1B2A96F300A0026F /* AddMomentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043AFD0D1B2A96F300A0026F /* AddMomentViewController.xib */; };
 		044D86861B268ED0008F415E /* MomentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86851B268ED0008F415E /* MomentModel.m */; };
 		044D86891B268EF7008F415E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86881B268EF7008F415E /* UserModel.m */; };
-		044D86B61B271E79008F415E /* DBIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86B51B271E79008F415E /* DBIdentifiers.m */; };
+		044D86B61B271E79008F415E /* MyWeiboDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86B51B271E79008F415E /* MyWeiboDefaults.m */; };
 		0467A8141B297ACE001A7079 /* MomentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0467A8121B297ACE001A7079 /* MomentDetailViewController.m */; };
 		0467A8151B297ACE001A7079 /* MomentDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0467A8131B297ACE001A7079 /* MomentDetailViewController.xib */; };
 		0494E8F11B25273B004FD3BA /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8F01B25273B004FD3BA /* ImageModel.m */; };
@@ -24,6 +26,9 @@
 		0494E90A1B253182004FD3BA /* MyWeiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E9091B253182004FD3BA /* MyWeiApp.m */; };
 		04BAA45B1B29B4BD00791E9D /* ImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BAA45A1B29B4BD00791E9D /* ImageBrowser.m */; };
 		04BAA4601B29CBDD00791E9D /* Support.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BAA45F1B29CBDD00791E9D /* Support.m */; };
+		04C9A4D91B2FC70900168D7C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C9A4D81B2FC70900168D7C /* SystemConfiguration.framework */; };
+		04C9A4DC1B2FC87700168D7C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9A4DB1B2FC87700168D7C /* Reachability.m */; };
+		04C9A4E01B2FCB9700168D7C /* BasicTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9A4DF1B2FCB9700168D7C /* BasicTabViewController.m */; };
 		3A66808EA24D813486BCF4AC /* libPods-MyWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC480A40A44556E9B529240D /* libPods-MyWeibo.a */; };
 		C9D260871B1065F400A49E0A /* MomentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260841B1065F400A49E0A /* MomentTableViewController.m */; };
 		C9D2609B1B10665F00A49E0A /* MomentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D260981B10665F00A49E0A /* MomentCell.xib */; };
@@ -47,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040CA6401B2D6AB50025F57E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = controllers/LoginViewController.h; sourceTree = "<group>"; };
+		040CA6411B2D6AB50025F57E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = controllers/LoginViewController.m; sourceTree = "<group>"; };
+		040CA6421B2D6AB50025F57E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = controllers/LoginViewController.xib; sourceTree = "<group>"; };
 		042668841B27C3E600825CB4 /* DataWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWorker.h; sourceTree = "<group>"; };
 		042668851B27C3E600825CB4 /* DataWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataWorker.m; sourceTree = "<group>"; };
 		042668871B27CB0A00825CB4 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = models/Model.h; sourceTree = "<group>"; };
@@ -57,8 +65,8 @@
 		044D86851B268ED0008F415E /* MomentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentModel.m; path = models/MomentModel.m; sourceTree = "<group>"; };
 		044D86871B268EF7008F415E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = models/UserModel.h; sourceTree = "<group>"; };
 		044D86881B268EF7008F415E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = models/UserModel.m; sourceTree = "<group>"; };
-		044D86B41B271E79008F415E /* DBIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBIdentifiers.h; path = utils/UserDefaults/DBIdentifiers.h; sourceTree = "<group>"; };
-		044D86B51B271E79008F415E /* DBIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBIdentifiers.m; path = utils/UserDefaults/DBIdentifiers.m; sourceTree = "<group>"; };
+		044D86B41B271E79008F415E /* MyWeiboDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyWeiboDefaults.h; path = utils/UserDefaults/MyWeiboDefaults.h; sourceTree = "<group>"; };
+		044D86B51B271E79008F415E /* MyWeiboDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyWeiboDefaults.m; path = utils/UserDefaults/MyWeiboDefaults.m; sourceTree = "<group>"; };
 		0467A8111B297ACE001A7079 /* MomentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentDetailViewController.h; path = controllers/MomentDetailViewController.h; sourceTree = "<group>"; };
 		0467A8121B297ACE001A7079 /* MomentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentDetailViewController.m; path = controllers/MomentDetailViewController.m; sourceTree = "<group>"; };
 		0467A8131B297ACE001A7079 /* MomentDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MomentDetailViewController.xib; path = controllers/MomentDetailViewController.xib; sourceTree = "<group>"; };
@@ -80,6 +88,11 @@
 		04BAA45A1B29B4BD00791E9D /* ImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowser.m; sourceTree = "<group>"; };
 		04BAA45E1B29CBDD00791E9D /* Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Support.h; sourceTree = "<group>"; };
 		04BAA45F1B29CBDD00791E9D /* Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Support.m; sourceTree = "<group>"; };
+		04C9A4D81B2FC70900168D7C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		04C9A4DA1B2FC87700168D7C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		04C9A4DB1B2FC87700168D7C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		04C9A4DE1B2FCB9700168D7C /* BasicTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicTabViewController.h; path = controllers/BasicTabViewController.h; sourceTree = "<group>"; };
+		04C9A4DF1B2FCB9700168D7C /* BasicTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicTabViewController.m; path = controllers/BasicTabViewController.m; sourceTree = "<group>"; };
 		455251D0C93044BC4CFED28E /* Pods-MyWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeibo/Pods-MyWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		5E9AA3C004F7F5D7D84BD27D /* Pods-MyWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeibo/Pods-MyWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		C9D260831B1065F400A49E0A /* MomentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentTableViewController.h; path = controllers/MomentTableViewController.h; sourceTree = "<group>"; };
@@ -106,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C9A4D91B2FC70900168D7C /* SystemConfiguration.framework in Frameworks */,
 				3A66808EA24D813486BCF4AC /* libPods-MyWeibo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,8 +137,8 @@
 		044D86B31B271E4C008F415E /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				044D86B41B271E79008F415E /* DBIdentifiers.h */,
-				044D86B51B271E79008F415E /* DBIdentifiers.m */,
+				044D86B41B271E79008F415E /* MyWeiboDefaults.h */,
+				044D86B51B271E79008F415E /* MyWeiboDefaults.m */,
 			);
 			name = UserDefaults;
 			sourceTree = "<group>";
@@ -185,6 +199,8 @@
 		0494E9001B253146004FD3BA /* Kits */ = {
 			isa = PBXGroup;
 			children = (
+				04C9A4DA1B2FC87700168D7C /* Reachability.h */,
+				04C9A4DB1B2FC87700168D7C /* Reachability.m */,
 				0494E9011B253146004FD3BA /* Random.h */,
 				0494E9021B253146004FD3BA /* Random.m */,
 				04BAA4591B29B4BD00791E9D /* ImageBrowser.h */,
@@ -208,6 +224,7 @@
 		04BAA45D1B29C28A00791E9D /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				040CA6421B2D6AB50025F57E /* LoginViewController.xib */,
 				043AFD0D1B2A96F300A0026F /* AddMomentViewController.xib */,
 				0467A8131B297ACE001A7079 /* MomentDetailViewController.xib */,
 				C9D260981B10665F00A49E0A /* MomentCell.xib */,
@@ -220,6 +237,7 @@
 		56F3F838C832FB5F6522C116 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04C9A4D81B2FC70900168D7C /* SystemConfiguration.framework */,
 				EC480A40A44556E9B529240D /* libPods-MyWeibo.a */,
 			);
 			name = Frameworks;
@@ -304,6 +322,10 @@
 				0467A8121B297ACE001A7079 /* MomentDetailViewController.m */,
 				043AFD0B1B2A96F200A0026F /* AddMomentViewController.h */,
 				043AFD0C1B2A96F300A0026F /* AddMomentViewController.m */,
+				040CA6401B2D6AB50025F57E /* LoginViewController.h */,
+				040CA6411B2D6AB50025F57E /* LoginViewController.m */,
+				04C9A4DE1B2FCB9700168D7C /* BasicTabViewController.h */,
+				04C9A4DF1B2FCB9700168D7C /* BasicTabViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -404,6 +426,7 @@
 				C9D3F4361B0B681100313035 /* Images.xcassets in Resources */,
 				C9D3F4341B0B681100313035 /* LaunchScreen.xib in Resources */,
 				C9D2609B1B10665F00A49E0A /* MomentCell.xib in Resources */,
+				040CA6441B2D6AB50025F57E /* LoginViewController.xib in Resources */,
 				C9D3F4351B0B681100313035 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,21 +482,24 @@
 				C9D3F43F1B0B68F500313035 /* main.m in Sources */,
 				0494E9071B253146004FD3BA /* Random.m in Sources */,
 				04BAA4601B29CBDD00791E9D /* Support.m in Sources */,
+				040CA6431B2D6AB50025F57E /* LoginViewController.m in Sources */,
 				0467A8141B297ACE001A7079 /* MomentDetailViewController.m in Sources */,
 				0494E9031B253146004FD3BA /* NSArray+Assemble.m in Sources */,
 				043AFD0E1B2A96F300A0026F /* AddMomentViewController.m in Sources */,
 				044D86891B268EF7008F415E /* UserModel.m in Sources */,
 				C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */,
+				04C9A4DC1B2FC87700168D7C /* Reachability.m in Sources */,
 				0494E9061B253146004FD3BA /* DBManager.m in Sources */,
 				04BAA45B1B29B4BD00791E9D /* ImageBrowser.m in Sources */,
 				042668861B27C3E600825CB4 /* DataWorker.m in Sources */,
 				C9D260871B1065F400A49E0A /* MomentTableViewController.m in Sources */,
+				04C9A4E01B2FCB9700168D7C /* BasicTabViewController.m in Sources */,
 				C9D2609C1B10665F00A49E0A /* MomentTableViewCell.m in Sources */,
 				0494E9041B253146004FD3BA /* NSDictionary+Assemble.m in Sources */,
 				0494E8F11B25273B004FD3BA /* ImageModel.m in Sources */,
 				044D86861B268ED0008F415E /* MomentModel.m in Sources */,
 				0494E90A1B253182004FD3BA /* MyWeiApp.m in Sources */,
-				044D86B61B271E79008F415E /* DBIdentifiers.m in Sources */,
+				044D86B61B271E79008F415E /* MyWeiboDefaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

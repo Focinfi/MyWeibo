@@ -18,4 +18,14 @@
     return res;
 }
 
+- (BOOL) isBlank
+{
+    return self.length == 0;
+}
+
+- (BOOL) isYES
+{
+    return [self isEqualToString:@"YES"];
+}
+
 @end

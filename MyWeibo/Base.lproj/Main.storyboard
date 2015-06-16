@@ -130,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="622" y="-806"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Basic Tab View Controller-->
         <scene sceneID="oV7-tR-cbh">
             <objects>
-                <tabBarController id="2H5-09-jbG" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="BasicTabBar" id="2H5-09-jbG" customClass="BasicTabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="L4p-Ox-AeS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

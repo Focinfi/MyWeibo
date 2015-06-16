@@ -13,22 +13,21 @@
 #import "ImageModel.h"
 #import "MomentModel.h"
 #import "UserModel.h"
-#import "DBIdentifiers.h"
+#import "MyWeiboDefaults.h"
 #import "Random.h"
 #import "NSString+Format.h"
 #import "NSArray+Assemble.h"
 #import "CocoaLumberjack.h"
 #import "AVOSCloud.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setConfig];
-    [self setUIViews];
     [self setBasicDataInitialization];
     [self test];
     return YES;
@@ -39,20 +38,33 @@
 {
 //    test iamges
 //    "moment_id" = 84
-    DBManager *manager = [MyWeiApp sharedManager].dbManager;
-    NSArray *images =
-        [manager arrayOfAllBySelect:[ImageModel arrayOfProperties]
-                     fromTable:[ImageModel stringOfTableName]
-                         where:nil];
-    NSLog(@"Images All:%@", images);
-    
+//    DBManager *manager = [MyWeiApp sharedManager].dbManager;
+//    NSArray *images =
+//        [manager arrayOfAllBySelect:[ImageModel arrayOfProperties]
+//                     fromTable:[ImageModel stringOfTableName]
+//                         where:nil];
+//    NSLog(@"Images All:%@", images);
+//    
+////    MomentModel *moment = [MomentModel momentWithRandomValues];
+////    DDLogDebug(@"Images:moment_id:%@", moment.momentID);
+////    ImageModel *image = moment.images[1];
+////    DDLogDebug(@"Images:%@", image.momentID);
+//    
+//    //test AVOS
 //    MomentModel *moment = [MomentModel momentWithRandomValues];
-//    DDLogDebug(@"Images:moment_id:%@", moment.momentID);
-//    ImageModel *image = moment.images[1];
-//    DDLogDebug(@"Images:%@", image.momentID);
+//    [moment save];
     
-    //test AVOS
-//    MomentModel *moment = [MomentModel momentWithRandomValues];
+    // block
+    NSArray *nums = [NSArray arrayWithObjects:@1, @2, @3, @4, nil];
+    DDLogDebug(@"Nums: %@", nums);
+    NSString *s = @"s";
+    NSArray *double_nums = [nums arrayByMap:(id)^(id item){
+        return [NSString stringWithFormat:@"%@_%@", item, s];
+    }];
+    
+    DDLogDebug(@"Nums Double: %@", double_nums);
+    
+    
     
 }
 
@@ -103,61 +115,10 @@
 
 #pragma mark Set UIViews
 
-- (void) setUIViews
+- (void) showLoginView
 {
-    [self setTab];
-}
-
-- (void) setTab{
-    UITabBarController *tabViewController = (UITabBarController *) self.window.rootViewController;
-    [tabViewController setSelectedIndex:0];
-//
-    UITabBar *tabBar = tabViewController.tabBar;
-    [tabBar setTintColor: [UIColor greenColor]];
-    
-    //UITabBarItem
-    UITabBarItem *tab1 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *tab2 = [tabBar.items objectAtIndex:1];
-    UITabBarItem *tab3 = [tabBar.items objectAtIndex:2];
-    UITabBarItem *tab4 = [tabBar.items objectAtIndex:3];
-    UITabBarItem *tab5 = [tabBar.items objectAtIndex:4];
-    
-    UIImage *tab1Image = [UIImage imageNamed:@"Home"];
-    UIImage *scaledTab1Image = [UIImage imageWithCGImage: [tab1Image CGImage] scale:(tab1Image.scale * 4) orientation:(tab1Image.imageOrientation)];
-    
-    UIImage *tab1SelectedImage = [UIImage imageNamed:@"Home"];
-    UIImage *scaledTab1SelectedImage = [UIImage imageWithCGImage: [tab1SelectedImage CGImage] scale:(tab1SelectedImage.scale * 4) orientation:(tab1SelectedImage.imageOrientation)];
-    (void)[tab1 initWithTitle:@"主页" image:scaledTab1Image selectedImage:scaledTab1SelectedImage];
-    
-    UIImage *tab2Image = [UIImage imageNamed:@"Message"];
-    UIImage *scaledTab2Image = [UIImage imageWithCGImage: [tab2Image CGImage] scale:(tab2Image.scale * 4) orientation:(tab2Image.imageOrientation)];
-    
-    UIImage *tab2SelectedImage = [UIImage imageNamed:@"Message"];
-    UIImage *scaledTab2SelectedImage = [UIImage imageWithCGImage: [tab2SelectedImage CGImage] scale:(tab2SelectedImage.scale * 4) orientation:(tab2SelectedImage.imageOrientation)];
-    (void)[tab2 initWithTitle:@"消息" image:scaledTab2Image selectedImage:scaledTab2SelectedImage];
-    
-    UIImage *tab3Image = [UIImage imageNamed:@"Add"];
-    UIImage *scaledTab3Image = [UIImage imageWithCGImage: [tab3Image CGImage] scale:(tab3Image.scale * 4) orientation:(tab3Image.imageOrientation)];
-    
-    UIImage *tab3SelectedImage = [UIImage imageNamed:@"Add"];
-    UIImage *scaledTab3SelectedImage = [UIImage imageWithCGImage: [tab3SelectedImage CGImage] scale:(tab3SelectedImage.scale * 4) orientation:(tab3SelectedImage.imageOrientation)];
-    (void)[tab3 initWithTitle:@"添加" image:scaledTab3Image selectedImage:scaledTab3SelectedImage];
-    
-    UIImage *tab4Image = [UIImage imageNamed:@"Search"];
-    UIImage *scaledTab4Image = [UIImage imageWithCGImage: [tab4Image CGImage] scale:(tab4Image.scale * 4) orientation:(tab4Image.imageOrientation)];
-    
-    UIImage *tab4SelectedImage = [UIImage imageNamed:@"Search"];
-    UIImage *scaledTab4SelectedImage = [UIImage imageWithCGImage: [tab4SelectedImage CGImage] scale:(tab4SelectedImage.scale * 4) orientation:(tab4SelectedImage.imageOrientation)];
-    (void)[tab4 initWithTitle:@"搜索" image:scaledTab4Image selectedImage:scaledTab4SelectedImage];
-    
-    UIImage *tab5Image = [UIImage imageNamed:@"Aavatar"];
-    UIImage *scaledTab5Image = [UIImage imageWithCGImage: [tab5Image CGImage] scale:(tab5Image.scale * 4) orientation:(tab5Image.imageOrientation)];
-    
-    UIImage *tab5SelectedImage = [UIImage imageNamed:@"Aavatar"];
-    UIImage *scaledTab5SelectedImage = [UIImage imageWithCGImage: [tab5SelectedImage CGImage] scale:(tab5SelectedImage.scale * 4) orientation:(tab5SelectedImage.imageOrientation)];
-    (void)[tab5 initWithTitle:@"个人" image:scaledTab5Image selectedImage:scaledTab5SelectedImage];
-    
-    
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    self.window.rootViewController = loginViewController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

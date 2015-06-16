@@ -9,7 +9,7 @@
 #import "UserModel.h"
 #import "MyWeiApp.h"
 #import "Random.h"
-#import "DBIdentifiers.h"
+#import "MyWeiboDefaults.h"
 
 @implementation UserModel
 @synthesize userID;
@@ -44,7 +44,7 @@
 + (UserModel *) userWithRandomValues
 {
     UserModel *user = [[UserModel alloc] init];
-    user.userID = [DBIdentifiers stringOfIdentifier:@"user_id"];
+    user.userID = [MyWeiboDefaults stringOfIdentifier:@"user_id"];
     
     if ([Random possibilityTenOfNum:5]) {
         user.name = @"苍井优";

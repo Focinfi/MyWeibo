@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DBIdentifiers : NSObject
+@interface MyWeiboDefaults : NSObject
 + (NSString *) stringOfIdentifier:(NSString *) identifier;
 + (NSNumber *) numberOfCurrentID:(NSString *) identifier;
-+ (void) updateIdentifier:(id) identifier newValue:(NSString *) value;
++ (void) updateValue:(NSString *) value forKey:(NSString *) key;
++ (NSString *) stringOfKey:(NSString *) key;
 
 @end

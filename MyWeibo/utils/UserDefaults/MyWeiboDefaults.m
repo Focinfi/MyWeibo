@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import "DBIdentifiers.h"
+#import "MyWeiboDefaults.h"
 #import "MyWeiApp.h"
 
-@implementation DBIdentifiers
+@implementation MyWeiboDefaults
 + (NSString *) stringOfIdentifier:(NSString *) identifier
 {
     NSString * newIdentifierString =[NSString stringWithFormat:@"%d",
-                                     [[DBIdentifiers numberOfCurrentID:identifier] intValue] + 1];
-    [DBIdentifiers updateIdentifier:identifier newValue:newIdentifierString];
-    
+                                     [[MyWeiboDefaults numberOfCurrentID:identifier] intValue] + 1];
+    [MyWeiboDefaults updateValue:newIdentifierString forKey:identifier];
+
     return newIdentifierString;
 }
 
@@ -29,8 +29,18 @@
     return [NSNumber numberWithInteger:[number intValue]];
 }
 
-+ (void) updateIdentifier:(NSString *) identifier newValue:(NSString *) value
++ (void) updateValue:(NSString *) value forKey:(NSString *) key
 {
-    [[MyWeiApp sharedManager].usesrDefaults setObject:value forKey:identifier];
+    [[MyWeiApp sharedManager].usesrDefaults setObject:value forKey:key];
 }
+
++ (NSString *) stringOfKey:(NSString *) key
+{
+    NSString *value = [[MyWeiApp sharedManager].usesrDefaults objectForKey:key];
+    if (value == nil) {
+        value = @"";
+    }
+    return value;
+}
+
 @end

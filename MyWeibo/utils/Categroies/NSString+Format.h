@@ -11,5 +11,6 @@
 @interface NSString (Format)
 
 - (NSString *) stringSwapWithBoundary: (NSString *)boundary;
-
+- (BOOL) isBlank;
+- (BOOL) isYES;
 @end

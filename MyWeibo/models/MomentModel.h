@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Model.h"
+#import <AVOSCloud/AVOSCloud.h>
 
-@interface MomentModel : NSObject
+@interface MomentModel : AVObject
 @property (nonatomic) NSString *momentID;
 @property (nonatomic) NSString *userID;
 @property (nonatomic) NSString *content;
@@ -25,5 +25,7 @@
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
 - (void) addImageModelsNumber:(int) number;
 - (NSArray *) arrayOfInsertSqls;
+
+- (void) save;
 
 @end

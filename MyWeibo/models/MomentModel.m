@@ -9,11 +9,13 @@
 
 #import "MomentModel.h"
 #import "Random.h"
-#import "DBIdentifiers.h"
+#import "MyWeiboDefaults.h"
 #import "ImageModel.h"
 #import "MyWeiApp.h"
 #import "UserModel.h"
 #import "NSArray+Assemble.h"
+#import "NSDictionary+Assemble.h"
+#import "NSString+Format.h"
 #import "Support.h"
 
 @implementation MomentModel
@@ -48,25 +50,10 @@
 + (MomentModel *) momentWithRandomValues
 {
     MomentModel *comment = [[MomentModel alloc] init];
-
-//    NSArray *userIDs =
-//        [[MyWeiApp sharedManager].databaseManager
-//            arrayBySelect:[NSArray arrayWithObject:@"user_id"]
-//                fromTable:[UserModel stringOfTableName]
-//                    where:nil
-//                     from:0
-//                       to:[UserModel countOfUsers]];
-//    
-//    if ([userIDs count] > 0) {
-//        comment.userID = userIDs[[Random randZeroToNum:(int)[userIDs count]]];
-//
-//    } else {
-//        comment.userID = @"1";
-//    }
     
     comment.userID = @"1";
     comment.content = [Random stringOfRandomWeiboSetencesCount:[Random randZeroToNum:3]];
-    comment.momentID = [DBIdentifiers stringOfIdentifier:@"moment_id"];
+    comment.momentID = [MyWeiboDefaults stringOfIdentifier:@"moment_id"];
     comment.images = [NSMutableArray array];
     [comment addImageModelsNumber:[Random randZeroToNum:4] + 1];
 
@@ -97,14 +84,20 @@
         
         NSMutableArray *imagesArray = [NSMutableArray arrayWithArray:images];
         NSLog(@"Refresh Moments id %@ Images%@", momentID, imagesArray);
-        
-//        if ([images count] == 0) {
-//            [imagesArray addObject:[NSString stringWithFormat:@"moment_id_%d", [Random randZeroToNum:4] + 1]];
-//        }
-        
         [item setObject:imagesArray forKey:@"images"];
         
-        [item setObject:[[UserModel userWithRandomValues] dictionaryOfPropertiesAndValues] forKey:@"user"];
+        UserModel *user = [[UserModel alloc] init];
+        if ([[MyWeiboDefaults stringOfKey:@"logged_in"] isYES] &&
+            [[MyWeiboDefaults stringOfKey:@"user_moment"] isYES]) {
+            user.userID = [MyWeiboDefaults stringOfIdentifier:@"user_id"];
+            user.name = [MyWeiboDefaults stringOfKey:@"current_user"];
+            user.avatar = @"Aoi1";
+            user.desc = @"他很懒，什么都不说。";
+        } else {
+            user = [UserModel userWithRandomValues];
+        }
+
+        [item setObject:[user dictionaryOfPropertiesAndValues] forKey:@"user"];
         
         [data addObject:item];
     }
@@ -145,4 +138,11 @@
     return insertSqls;
 }
 
+- (void) save
+{
+    [[self dictionaryOfPropertiesAndValues] eachPairDo:^(NSString *key, id value) {
+        [self setObject:value forKey:key];
+    }];
+    [super save];
+}
 @end

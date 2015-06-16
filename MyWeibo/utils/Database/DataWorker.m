@@ -12,12 +12,13 @@
 #import "MomentModel.h"
 #import "UserModel.h"
 #import "Support.h"
-#import "DBIdentifiers.h"
+#import "MyWeiboDefaults.h"
 
 @implementation DataWorker
 + (void) insertBasicDataWihtNumber:(int) number
 {
     if ([MomentModel countOfMoments] < number) {
+        [MyWeiboDefaults updateValue:@"NO" forKey:@"user_moment"];
         [DataWorker saveBasicImages];
         NSMutableArray *sqls = [NSMutableArray array];
         for (int i = 0; i < number; i++) {

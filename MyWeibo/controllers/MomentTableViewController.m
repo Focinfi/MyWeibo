@@ -19,6 +19,10 @@
 #import "AddMomentViewController.h"
 #import "Random.h"
 #import "AVOSCloud.h"
+#import "Support.h"
+#import "MyWeiboDefaults.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import "LoginViewController.h"
 
 @interface MomentTableViewController () {
     NSMutableArray *tableData;
@@ -26,6 +30,8 @@
     NSString *_name;
     NSString *_description;
     NSString *_content;
+    NSString *cancelBtnTitle;
+    NSString *gotoLoginBtnTitle;
 }
 
 @end
@@ -69,6 +75,8 @@
     _name = @"name";
     _description = @"description";
     _content = @"weibo";
+    cancelBtnTitle = @"稍后再说";
+    gotoLoginBtnTitle = @"马上登录";
     
     [self initAVOS];
 }
@@ -149,35 +157,23 @@
 
 - (void) handleData
 {
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        [self insearItemsToTableData];
-//        NSLog(@"Rresher here");
-//        if (tableData.count > self.count) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新成功"];
-//                self.count = tableData.count;
-//                [self.tableView reloadData];
-//                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-//            });
-//        } else {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"没有更新的新鲜事了"];
-//                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-//            });
-//        }
-//    });
-    [self insearItemsToTableData];
-    NSLog(@"Rresher here");
-    if (tableData.count > self.count) {
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新成功"];
-        self.count = tableData.count;
-        [self.tableView reloadData];
-        [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-    } else {
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"没有更新的新鲜事了"];
-        [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-    }
-
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self insearItemsToTableData];
+        NSLog(@"Rresher here");
+        if (tableData.count > self.count) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新成功"];
+                self.count = tableData.count;
+                [self.tableView reloadData];
+                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"没有更新的新鲜事了"];
+                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
+            });
+        }
+    });
 }
 
 - (void) endRefreshingAinamation
@@ -207,7 +203,11 @@
 {
     static NSString *CellIdentifier = @"MomentCell";    
     MomentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell = [[[NSBundle mainBundle] loadNibNamed:@"MomentCell" owner:self options:nil] lastObject];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MomentCell" owner:self options:nil] lastObject];
+    }
+
     [cell setAvatarAsRound];
     long r = (long)indexPath.row;
     long index = self.count - 1 - r;
@@ -240,8 +240,34 @@
 
 
 - (IBAction)AddMommentAction:(id)sender {
-    AddMomentViewController *addMommentViewController = [[AddMomentViewController alloc] init];
-    addMommentViewController.momentTableViewController = self;
-    [self.navigationController pushViewController:addMommentViewController animated:YES];
+
+    if ([Support isReachabileToNet]){
+        AVUser *currentUser = [AVUser currentUser];
+        if (currentUser) {
+            [MyWeiboDefaults updateValue:currentUser.username forKey:@"current_user"];
+            [MyWeiboDefaults updateValue:@"YES" forKey:@"logged_in"];
+            DDLogDebug(@"current_user:%@", currentUser.username);
+            DDLogDebug(@"logged_in:%@", [MyWeiboDefaults stringOfKey:@"logged_in"]);
+            AddMomentViewController *addMommentViewController = [[AddMomentViewController alloc] init];
+            addMommentViewController.momentTableViewController = self;
+            [self.navigationController pushViewController:addMommentViewController animated:YES];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"还没登录" message:@"现在就去登录页面" delegate:self cancelButtonTitle:cancelBtnTitle otherButtonTitles:gotoLoginBtnTitle, nil];
+ 
+            [alert show];
+        }
+
+    } else {
+        [SVProgressHUD showInfoWithStatus:@"网络没有链接哦"];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+     NSString *btnTitle = [alertView buttonTitleAtIndex:buttonIndex];
+     if ([btnTitle isEqualToString:gotoLoginBtnTitle] ) {
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];         
+        [self.navigationController pushViewController:loginViewController animated:YES];
+    }
 }
 @end

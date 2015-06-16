@@ -13,5 +13,5 @@
 + (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName;
 + (NSString *) stringOfFilePathForImageName:(NSString *) imageName;
 + (NSString *) stringOfInsertSqlWihtTableName:(NSString *)name columns:(NSDictionary *)columns;
-
++ (BOOL) isReachabileToNet;
 @end

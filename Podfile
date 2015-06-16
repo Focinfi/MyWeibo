@@ -8,6 +8,7 @@ target 'MyWeibo' do
   pod 'SVProgressHUD'
   pod 'CocoaLumberjack'
   pod 'AVOSCloud'
+  pod 'IQKeyboardManager'
 
 end
 

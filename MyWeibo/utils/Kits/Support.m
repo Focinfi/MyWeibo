@@ -9,6 +9,7 @@
 #import "Support.h"
 #import "NSArray+Assemble.h"
 #import "NSString+Format.h"
+#import "Reachability.h"
 
 @implementation Support
 + (float) proportionOfHeigthToWidth:(CGSize) size
@@ -41,5 +42,17 @@
                            name, [keys stringByJoinEntierWithBoundary:@","], [values stringByJoinEntierWithBoundary:@","]];
     return insertSql;
 }
+
+#pragma mark - Network
+/**
+ *  Check the Network
+ *
+ *  @return true for network is OK.
+ */
++ (BOOL) isReachabileToNet
+{
+    return [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable;
+}
+
 @end
 

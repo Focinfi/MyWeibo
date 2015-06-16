@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MyWeibo-IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MyWeibo-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3A123A36FB895D374711C174</key>
+		<key>2BC2F012C741FCAC2229A634</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1357E3D87A8B2C8B78F0E05</key>
+		<key>2F613D0F4A1F2B4A84CF7279</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A693EAFD6B0F724B5A2AE06A</key>
+		<key>39A4FC9649A965D37D2975A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AFDB5BFD458A2A7B43D25BA9</key>
+		<key>AD98DD8CE21329DB43E6036E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1B27AEDAEA25653CD03058C</key>
+		<key>BF087B30BBF9C53066360E1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB7B51A5E93B06644442B65D</key>
+		<key>D5B4B2D2B148D4FF4A570C2E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB56B3CFAFA6A1D78035F6F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
