@@ -38,12 +38,12 @@
 
 + (NSArray *) arrayOfProperties
 {
-    return [NSArray arrayWithObjects:@"moment_id", @"user_id", @"content", nil];
+    return @[@"moment_id", @"user_id", @"content"];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
 {
-    NSArray *types = [NSArray arrayWithObjects:@"TEXT", @"TEXT", @"TEXT", nil];
+    NSArray *types = @[@"TEXT", @"TEXT", @"TEXT"];
     return [NSDictionary dictionaryWithObjects:types forKeys:[MomentModel arrayOfProperties]];
 }
 
@@ -119,7 +119,7 @@
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues
 {
-    return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:momentID, userID, content, nil]
+    return [NSDictionary dictionaryWithObjects:@[momentID, userID, content]
                                        forKeys:[MomentModel arrayOfProperties]];
 }
 

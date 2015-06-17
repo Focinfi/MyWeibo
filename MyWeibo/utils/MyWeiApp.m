@@ -10,6 +10,20 @@
 #import "DBManager.h"
 
 @implementation MyWeiApp
+
+NSString *const UserTableName = @"users";
+NSString *const UserID = @"user_id";
+NSString *const UserName = @"name";
+NSString *const UserAvatar = @"avatar";
+NSString *const UserDescription = @"description";
+
+NSString *const ImageTableName = @"images";
+NSString *const ImageName = @"name";
+
+NSString *const MomentTableName = @"moments";
+NSString *const MomentContent = @"content";
+
+
 @synthesize dbManager;
 + (MyWeiApp *)sharedManager
 {

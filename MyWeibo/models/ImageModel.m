@@ -30,12 +30,12 @@
 
 + (NSArray *) arrayOfProperties
 {
-    return [NSArray arrayWithObjects: @"name", @"moment_id", nil];
+    return @[@"name", @"moment_id"];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
 {
-    NSArray *types = [NSArray arrayWithObjects:@"TEXT", @"TEXT", nil];
+    NSArray *types = @[@"TEXT", @"TEXT"];
     return [NSDictionary dictionaryWithObjects:types forKeys:[ImageModel arrayOfProperties]];
 }
 
@@ -72,7 +72,7 @@
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues
 {
-    return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:name, momentID, nil]
+    return [NSDictionary dictionaryWithObjects:@[name, momentID]
                                        forKeys:[ImageModel arrayOfProperties]];
 }
 

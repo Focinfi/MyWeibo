@@ -31,12 +31,12 @@
 
 + (NSArray *) arrayOfProperties
 {
-    return [NSArray arrayWithObjects:@"user_id", @"name", @"avatar", @"description", nil];
+    return @[@"user_id", @"name", @"avatar", @"description"];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
 {
-    NSArray *types = [NSArray arrayWithObjects:@"TEXT", @"TEXT", @"TEXT", @"TEXT", nil];
+    NSArray *types = @[@"TEXT", @"TEXT", @"TEXT", @"TEXT"];
 
     return [NSDictionary dictionaryWithObjects:types
                                        forKeys:[UserModel arrayOfProperties]];
@@ -69,7 +69,7 @@
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues
 {
-    NSArray *values = [NSArray arrayWithObjects:userID, name, avatar, desc, nil];
+    NSArray *values = @[userID, name, avatar, desc];
     return [NSDictionary dictionaryWithObjects:values
                                        forKeys:[UserModel arrayOfProperties]];
 }

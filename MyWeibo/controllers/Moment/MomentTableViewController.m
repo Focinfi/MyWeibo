@@ -23,15 +23,13 @@
 #import "MyWeiboDefaults.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import "LoginViewController.h"
+#import "RefreshControl.h"
 
-@interface MomentTableViewController () {
+@interface MomentTableViewController ()<RefreshControlDelegate> {
     NSMutableArray *tableData;
-    NSString *_avatar;
-    NSString *_name;
-    NSString *_description;
-    NSString *_content;
     NSString *cancelBtnTitle;
     NSString *gotoLoginBtnTitle;
+    RefreshControl *refreshControl;
 }
 
 @end
@@ -52,7 +50,7 @@
 - (void)viewDidLoad {
     [self initValues];
     [self initBasicData];
-    [self addRefreshViewControl];
+//    [self addRefreshViewControl];
     [self setUpForTableView];
     [super viewDidLoad];
 }
@@ -71,12 +69,13 @@
     self.sizeOfRefresh = 10;
     self.count = 0;
     
-    _avatar = @"avatar";
-    _name = @"name";
-    _description = @"description";
-    _content = @"weibo";
     cancelBtnTitle = @"稍后再说";
     gotoLoginBtnTitle = @"马上登录";
+    refreshControl = [[RefreshControl alloc] initWithScrollView:self.tableView delegate:self];
+    refreshControl.topEnabled = NO;
+    refreshControl.bottomEnabled = YES;
+//    refreshControl.enableInsetTop = 65;
+    refreshControl.enableInsetBottom = 110;
     
     [self initAVOS];
 }
@@ -85,15 +84,26 @@
 {
 }
 
-- (void) initTableData
+- (void) loadTableData
 {
     [self insearItemsToTableData];
     self.count = tableData.count;
+    
+    if (refreshControl.refreshingDirection == RefreshingDirectionTop)
+    {
+        [refreshControl finishRefreshingDirection:RefreshDirectionTop];
+    }
+    else if (refreshControl.refreshingDirection == RefreshingDirectionBottom)
+    {
+        [refreshControl finishRefreshingDirection:RefreshDirectionBottom];
+    }
+    
     [self.tableView reloadData];
+//    self.tableView.contentOffset = ;
 }
 
 
-#pragma mark - Set Up For Table View
+#pragma mark - Set Up For TableView
 
 - (void) setUpForTableView
 {
@@ -131,63 +141,31 @@
 - (void) dismissProcessorAndInitTableData
 {
     [SVProgressHUD dismiss];
-    [self initTableData];
+    [self loadTableData];
 }
 
-#pragma mark - Refresh Controller
+#pragma mark - Refresh Controll Delegate
 
--(void)addRefreshViewControl
+- (void)refreshControl:(RefreshControl *)refreshControl didEngageRefreshDirection:(RefreshDirection)direction
 {
-    self.refreshControl = [[UIRefreshControl alloc]init];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
-    [self.refreshControl addTarget:self action:@selector(RefreshViewControlEventValueChanged) forControlEvents:UIControlEventValueChanged];
-}
-
-
--(void)RefreshViewControlEventValueChanged
-{
-    
-    if (self.refreshControl.refreshing) {
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新中"];
-        
-        [self performSelector:@selector(handleData) withObject:nil afterDelay:0.5];
+    if (direction==RefreshDirectionTop)
+    {
+       
         
     }
+    else if (direction==RefreshDirectionBottom)
+    {
+        __weak typeof(self)weakSelf=self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            __strong typeof(weakSelf)strongSelf=weakSelf;
+            [strongSelf loadTableData];
+            
+        });
+    }
+    
 }
 
-- (void) handleData
-{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self insearItemsToTableData];
-        NSLog(@"Rresher here");
-        if (tableData.count > self.count) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新成功"];
-                self.count = tableData.count;
-                [self.tableView reloadData];
-                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-            });
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"没有更新的新鲜事了"];
-                [self performSelector:@selector(endRefreshingAinamation) withObject:nil afterDelay:0.5];
-            });
-        }
-    });
-}
-
-- (void) endRefreshingAinamation
-{
-    [self.refreshControl endRefreshing];
-    [self performSelector:@selector(changeRefreshingTitle) withObject:nil afterDelay:1];
-}
-
-- (void) changeRefreshingTitle
-{
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
-}
-
-#pragma mark - Table view settings
+#pragma mark - TableView Data Source
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -196,7 +174,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.count;
+    return [tableData count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -214,11 +192,11 @@
         
     NSDictionary *d = (NSDictionary *) [tableData objectAtIndex:index];
     NSDictionary *userInfo = [d objectForKey:@"user"];
-    NSMutableArray *images = [d objectForKey:@"images"];
-    cell.avatar.image = [UIImage imageNamed:[userInfo objectForKey:_avatar]];
-    cell.name.text = [[userInfo objectForKey:_name] stringByAppendingFormat:@"_%ld", index];
-    cell.description.text = [userInfo objectForKey:_description];
-    cell.weibo.text = [d objectForKey:@"content"];
+    NSMutableArray *images = [d objectForKey:ImageTableName];
+    cell.avatar.image = [UIImage imageNamed:[userInfo objectForKey:UserAvatar]];
+    cell.name.text = [[userInfo objectForKey:UserName] stringByAppendingFormat:@"_%ld", index];
+    cell.description.text = [userInfo objectForKey:UserDescription];
+    cell.weibo.text = [d objectForKey:MomentContent];
 
     [cell setImages:images];
     return cell;
@@ -261,6 +239,8 @@
         [SVProgressHUD showInfoWithStatus:@"网络没有链接哦"];
     }
 }
+
+#pragma mark - Alert Actions
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
