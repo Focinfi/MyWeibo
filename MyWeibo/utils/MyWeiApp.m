@@ -11,18 +11,34 @@
 
 @implementation MyWeiApp
 
+/**
+ *  Model const
+ */
+NSString *const DataBaseOrderASC = @"ASC";
+NSString *const DataBaseOrderDESC = @"DESC";
+
 NSString *const UserTableName = @"users";
 NSString *const UserID = @"user_id";
 NSString *const UserName = @"name";
 NSString *const UserAvatar = @"avatar";
 NSString *const UserDescription = @"description";
-
-NSString *const ImageTableName = @"images";
-NSString *const ImageName = @"name";
+NSString *const CurrentUser = @"current_user";
+NSString *const LoggedIn = @"NO";
 
 NSString *const MomentTableName = @"moments";
+NSString *const MomentID = @"moment_id";
+NSString *const MomentUser = @"user";
 NSString *const MomentContent = @"content";
 
+NSString *const ImageTableName = @"images";
+NSString *const MomentImage = @"moment_image";
+NSString *const MomentImageId = @"moment_image_id";
+NSString *const ImageName = @"name";
+
+/**
+ *  Resources identifier
+ */
+NSString *const MomentCellId = @"MomentCell";
 
 @synthesize dbManager;
 + (MyWeiApp *)sharedManager
@@ -40,6 +56,8 @@ NSString *const MomentContent = @"content";
     self = [super init];
     if (self) {
         self.dbManager = [[DBManager alloc] init];
+        self.usesrDefaults = [NSUserDefaults standardUserDefaults];
+
     }
     return self;
 }

@@ -179,22 +179,21 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MomentCell";    
-    MomentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MomentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MomentCellId];
     
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"MomentCell" owner:self options:nil] lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:MomentCellId owner:self options:nil] lastObject];
     }
 
     [cell setAvatarAsRound];
-    long r = (long)indexPath.row;
-    long index = self.count - 1 - r;
+    long index = (long)indexPath.row;
         
     NSDictionary *d = (NSDictionary *) [tableData objectAtIndex:index];
-    NSDictionary *userInfo = [d objectForKey:@"user"];
+    NSDictionary *userInfo = [d objectForKey:MomentUser];
     NSMutableArray *images = [d objectForKey:ImageTableName];
     cell.avatar.image = [UIImage imageNamed:[userInfo objectForKey:UserAvatar]];
-    cell.name.text = [[userInfo objectForKey:UserName] stringByAppendingFormat:@"_%ld", index];
+//    cell.name.text = [[userInfo objectForKey:UserName] stringByAppendingFormat:@"_%ld", index];
+    cell.name.text = [userInfo objectForKey:UserID];
     cell.description.text = [userInfo objectForKey:UserDescription];
     cell.weibo.text = [d objectForKey:MomentContent];
 
@@ -209,8 +208,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    long r = (long)indexPath.row;
-    long index = self.count - 1 - r;
+    long index = (long)indexPath.row;
     MomentDetailViewController *detailView = [[MomentDetailViewController alloc] init];
     detailView.mommentData = tableData[index];
     [self.navigationController pushViewController:detailView animated:YES];
@@ -222,10 +220,10 @@
     if ([Support isReachabileToNet]){
         AVUser *currentUser = [AVUser currentUser];
         if (currentUser) {
-            [MyWeiboDefaults updateValue:currentUser.username forKey:@"current_user"];
-            [MyWeiboDefaults updateValue:@"YES" forKey:@"logged_in"];
-            DDLogDebug(@"current_user:%@", currentUser.username);
-            DDLogDebug(@"logged_in:%@", [MyWeiboDefaults stringOfKey:@"logged_in"]);
+            [MyWeiboDefaults updateValue:currentUser.username forKey:CurrentUser];
+            [MyWeiboDefaults updateValue:@"YES" forKey:LoggedIn];
+            DDLogDebug(@"%@:%@", CurrentUser, currentUser.username);
+            DDLogDebug(@"%@:%@", LoggedIn, [MyWeiboDefaults stringOfKey:LoggedIn]);
             AddMomentViewController *addMommentViewController = [[AddMomentViewController alloc] init];
             addMommentViewController.momentTableViewController = self;
             [self.navigationController pushViewController:addMommentViewController animated:YES];

@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDictionary (Assemble)
-- (NSString *) stringByJoinEntierWithBoundary:(NSString *) boundary;
+- (NSString *) stringByJoinEntierWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary;
+- (NSString *) stringByJoinSimplyrWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary;
 - (void) eachPairDo:(void (^)(NSString *key, id value)) execute;
 
 @end

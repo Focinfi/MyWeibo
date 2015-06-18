@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol Model <NSObject>
-+ (NSString *) stringOfTableName;
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;
 - (NSDictionary *) dictionaryOfPropertiesAndValues;

@@ -13,7 +13,6 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *momentID;
 
-+ (NSString *) stringOfTableName;
 + (int) countOfImages;
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;

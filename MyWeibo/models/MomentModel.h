@@ -15,7 +15,6 @@
 @property (nonatomic) NSString *content;
 @property (nonatomic) NSMutableArray *images;
 
-+ (NSString *) stringOfTableName;
 + (int) countOfMoments;
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;

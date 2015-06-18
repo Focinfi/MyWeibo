@@ -11,7 +11,7 @@
 #import "NSString+Format.h"
 
 @implementation NSDictionary (Assemble)
-- (NSString *) stringByJoinEntierWithBoundary:(NSString *)boundary
+- (NSString *) stringByJoinEntierWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary
 {
     NSArray *keys = [self allKeys];
     NSLog(@"Columns1: %@", keys);
@@ -22,12 +22,33 @@
     for (NSString *key in keys) {
         NSString * type = [self objectForKey:key];
         NSString *assemble = key;
-        assemble = [assemble stringByAppendingFormat:@"=%@", [type stringSwapWithBoundary:@"'"]];
+        assemble = [assemble stringByAppendingFormat:@"%@%@", spaceCharacter, [type stringSwapWithBoundary:@"'"]];
+
         [pairs addObject:assemble];
     }
     
     mapString = [pairs stringByJoinSimpelyWithBoundary:boundary];
     return mapString;
+}
+
+- (NSString *) stringByJoinSimplyrWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary
+{
+    NSArray *keys = [self allKeys];
+    NSLog(@"Columns1: %@", keys);
+    
+    NSString *mapString;
+    NSMutableArray *pairs = [NSMutableArray array];
+    
+    for (NSString *key in keys) {
+        NSString * type = [self objectForKey:key];
+        NSString *assemble = key;
+        assemble = [assemble stringByAppendingFormat:@"%@%@", spaceCharacter, type];
+        [pairs addObject:assemble];
+    }
+    
+    mapString = [pairs stringByJoinSimpelyWithBoundary:boundary];
+    return mapString;
+
 }
 
 - (void) eachPairDo:(void (^)(NSString *key, id value)) execute

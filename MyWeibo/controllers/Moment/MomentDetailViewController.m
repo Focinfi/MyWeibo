@@ -9,6 +9,7 @@
 #import "MomentDetailViewController.h"
 #import "ImageBrowser.h"
 #import "Support.h"
+#import "MyWeiApp.h"
 
 @interface MomentDetailViewController (){
     NSDictionary *userInfo;
@@ -42,7 +43,7 @@
 {
     padding = 10;
     mommentScrollWidth = 250;
-    userInfo = [self.mommentData objectForKey:@"user"];
+    userInfo = [self.mommentData objectForKey:MomentUser];
 }
 
 #pragma mark Init UI
@@ -55,12 +56,12 @@
     [self setImages];
     [self setCommentScrollView];
     
-    NSLog(@"Detail Data: %@", [mommentData objectForKey:@"content"]);
+    NSLog(@"Detail Data: %@", [mommentData objectForKey:MomentContent]);
 }
 
 - (void) setAvatarAsRound
 {
-    self.avatar.image = [UIImage imageNamed:[userInfo objectForKey:@"avatar"]];
+    self.avatar.image = [UIImage imageNamed:[userInfo objectForKey:UserAvatar]];
     self.avatar.layer.masksToBounds = YES;
     self.avatar.layer.cornerRadius = self.avatar.bounds.size.width/2;
 }
@@ -68,8 +69,8 @@
 - (void) setNameAndDescription
 {
     self.title = @"Moment";
-    self.userName.text = [userInfo objectForKey:@"name"];
-    self.userDescription.text = [userInfo objectForKey:@"description"];
+    self.userName.text = [userInfo objectForKey:UserName];
+    self.userDescription.text = [userInfo objectForKey:UserDescription];
 }
 
 - (void) setCommentScrollView
@@ -82,7 +83,7 @@
 
 - (void) setCommentContent
 {
-    NSString *contentText = [self.mommentData objectForKey:@"content"];
+    NSString *contentText = [self.mommentData objectForKey:MomentContent];
     UILabel *content = [[UILabel alloc] init];
     content.numberOfLines = [contentText length]/10 + 1;
     mommentContentHeight = (int)content.numberOfLines * 15 + padding;
@@ -94,7 +95,7 @@
 
 - (void) setImages
 {
-    NSArray *images = [self.mommentData objectForKey:@"images"];
+    NSArray *images = [self.mommentData objectForKey:ImageTableName];
     NSLog(@"Images Count: %lu", (unsigned long)[images count]);
     NSLog(@"Image:%@", images);
     for (NSString *imageName in images) {

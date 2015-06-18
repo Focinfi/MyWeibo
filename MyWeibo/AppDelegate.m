@@ -62,9 +62,7 @@
         return [NSString stringWithFormat:@"%@_%@", item, s];
     }];
     
-    DDLogDebug(@"Nums Double: %@", double_nums);
-    
-    
+    DDLogDebug(@"Nums Double: %@", double_nums);    
     
 }
 
@@ -101,16 +99,14 @@
 
 - (void) setBasicDataInitialization
 {
-    [MyWeiApp sharedManager].usesrDefaults = [NSUserDefaults standardUserDefaults];
     DBManager *manager = [MyWeiApp sharedManager].dbManager;
-//    NSLog(@"DB queue:%@", manager.dBQueue);
-
+    
     //create tables
-    [manager createTableName:[UserModel stringOfTableName] columns:[UserModel directoryOfPropertiesAndTypes]];
+    [manager createTableName:UserTableName columns:[UserModel directoryOfPropertiesAndTypes]];
     
-    [manager createTableName:[ImageModel stringOfTableName] columns:[ImageModel directoryOfPropertiesAndTypes]];
+    [manager createTableName:ImageTableName columns:[ImageModel directoryOfPropertiesAndTypes]];
     
-    [manager createTableName:[MomentModel stringOfTableName] columns:[MomentModel directoryOfPropertiesAndTypes]];
+    [manager createTableName:MomentTableName columns:[MomentModel directoryOfPropertiesAndTypes]];
 }
 
 #pragma mark Set UIViews

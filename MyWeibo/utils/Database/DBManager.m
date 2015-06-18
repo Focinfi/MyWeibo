@@ -103,7 +103,7 @@
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@ ", name];
     if (conditions) {
-        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithSpaceCharacter:@"=" andBoundary:@" AND "]]];
     }
     
     __block NSMutableDictionary *item = [NSMutableDictionary dictionary];
@@ -124,13 +124,14 @@
     return item;
 }
 
-- (NSArray *) arrayOfAllBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
+- (NSArray *) arrayOfAllBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions 
 {
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@ ", name];
     if (conditions) {
-        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithSpaceCharacter:@"=" andBoundary:@" AND "]]];
     }
+    
     __block NSMutableArray *data = [NSMutableArray array];
 
     [dBQueue inDatabase:^(FMDatabase *db){
@@ -152,16 +153,54 @@
     return data;
 }
 
-- (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions from:(long) from to:(long) to
+- (NSArray *) arrayOfAllBySelect:(NSArray *)columns fromTable:(NSString *)name where:(NSDictionary *)conditions orderBy:(NSDictionary *)order
 {
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@ ", name];
     if (conditions) {
-        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithBoundary:@" AND "]]];
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@", [conditions stringByJoinEntierWithSpaceCharacter:@"=" andBoundary:@" AND "]]];
+    }
+    
+    if (order) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"ORDER BY %@", [conditions stringByJoinSimplyrWithSpaceCharacter:@" " andBoundary:@" , "]]];
     }
 
     __block NSMutableArray *data = [NSMutableArray array];
+    
+    [dBQueue inDatabase:^(FMDatabase *db){
+        FMResultSet * rs = [db executeQuery:sql];
+        while ([rs next]) {
+            NSMutableDictionary *item = [NSMutableDictionary dictionary];
+            for (int i = 0; i < columns.count; i++) {
+                NSString *value = [rs stringForColumn:columns[i]];
+                if (value != nil) {
+                    DDLogVerbose(@"Count: %d", i);
+                    [item setValue:value forKey:columns[i]];
+                }
+            }
+            [data addObject:item];
+        }
+        [rs close];
+    }];
+    
+    return data;
+}
 
+- (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions orderBy:(NSDictionary *) order from:(long) from to:(long) to
+{
+    NSString * sql = [NSString stringWithFormat:
+                      @"SELECT * FROM %@ ", name];
+    if (conditions) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"WHERE %@ ", [conditions stringByJoinEntierWithSpaceCharacter:@"=" andBoundary:@" AND "]]];
+    }
+    
+    if (order) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"ORDER BY %@", [order stringByJoinSimplyrWithSpaceCharacter:@" " andBoundary:@" , "]]];
+        DDLogDebug(@"Order by %@", sql);
+    }
+    
+    __block NSMutableArray *data = [NSMutableArray array];
+    
     [dBQueue inDatabase:^(FMDatabase *db){
         FMResultSet * rs = [db executeQuery:sql];
         for (int first = 0; [rs next] && first < to; first++) {
@@ -181,7 +220,7 @@
         [rs close];
     }];
     
-
+    
     return data;
 }
 

@@ -15,12 +15,19 @@
 @property (nonatomic, strong) NSUserDefaults *usesrDefaults;
 @property (nonatomic, strong) DBManager *dbManager;
 
+/**
+ *  Model const
+ */
+extern NSString *const DataBaseOrderASC;;
+extern NSString *const DataBaseOrderDESC;
+
 extern NSString *const UserTableName;
 extern NSString *const UserID;
 extern NSString *const UserName;
 extern NSString *const UserAvatar;
 extern NSString *const UserDescription;
 extern NSString *const CurrentUser;
+extern NSString *const LoggedIn;
 
 extern NSString *const MomentTableName;
 extern NSString *const MomentID;
@@ -28,6 +35,14 @@ extern NSString *const MomentUser;
 extern NSString *const MomentContent;
 
 extern NSString *const ImageTableName;
+extern NSString *const MomentImageId;
+extern NSString *const MomentImage;
 extern NSString *const ImageName;
+
+/**
+ *  Resources idenditifier
+ */
+
+extern NSString *const MomentCellId;
 
 @end

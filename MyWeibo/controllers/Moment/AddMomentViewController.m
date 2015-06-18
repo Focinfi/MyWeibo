@@ -50,7 +50,7 @@
     imagesCount = 0;
     imagePadding = 10;
     newMoment = [[MomentModel alloc] init];
-    newMoment.momentID = [MyWeiboDefaults stringOfIdentifier:@"moment_id"];
+    newMoment.momentID = [MyWeiboDefaults stringOfIdentifier:MomentID];
     newMoment.images = [NSMutableArray array];
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseImage)];
 }
@@ -186,7 +186,7 @@
 {
     [picker dismissViewControllerAnimated:YES completion:^{}];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSString *imageName = [NSString stringWithFormat:@"moment_image_%@", [MyWeiboDefaults stringOfIdentifier:@"moment_image_id"]];
+    NSString *imageName = [NSString stringWithFormat:@"%@_%@", MomentImage, [MyWeiboDefaults stringOfIdentifier:MomentImageId]];
     [Support saveImage:image withName:imageName];
     
     NSLog(@"Moment ID:%@", newMoment.momentID);

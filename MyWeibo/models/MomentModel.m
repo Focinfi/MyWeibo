@@ -23,22 +23,17 @@
 @synthesize userID;
 @synthesize content;
 
-+ (NSString *) stringOfTableName
-{
-    return @"moments";
-}
-
 + (int) countOfMoments
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
 
-    return [dbManager countOfItemsNumberInTable:[MomentModel stringOfTableName]];
+    return [dbManager countOfItemsNumberInTable:MomentTableName];
     
 }
 
 + (NSArray *) arrayOfProperties
 {
-    return @[@"moment_id", @"user_id", @"content"];
+    return @[MomentID, UserID, MomentContent];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
@@ -53,7 +48,7 @@
     
     comment.userID = @"1";
     comment.content = [Random stringOfRandomWeiboSetencesCount:[Random randZeroToNum:3]];
-    comment.momentID = [MyWeiboDefaults stringOfIdentifier:@"moment_id"];
+    comment.momentID = [MyWeiboDefaults stringOfIdentifier:MomentID];
     comment.images = [NSMutableArray array];
     [comment addImageModelsNumber:[Random randZeroToNum:4] + 1];
 
@@ -64,40 +59,41 @@
 {
     NSMutableArray *data = [NSMutableArray array];
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
+    NSDictionary *orderDictionary = @{MomentID: DataBaseOrderDESC};
 
-    NSArray *moments = [dbManager arrayBySelect:[MomentModel arrayOfProperties] fromTable:[MomentModel stringOfTableName] where:nil from:from to:to];
+    NSArray *moments = [dbManager arrayBySelect:[MomentModel arrayOfProperties] fromTable:MomentTableName where:nil orderBy: orderDictionary from:from to:to];
     NSLog(@"Refresh Moments In MomentModel:%@", moments);
     for (NSDictionary *moment in moments) {
  
         NSMutableDictionary *item = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *) moment];
         //set images
-        NSString *momentID = [item objectForKey:@"moment_id"];
+        NSString *momentID = [item objectForKey:MomentID];
         NSArray *images =
             [dbManager
-                arrayOfAllBySelect:[NSArray arrayWithObject:@"name"]
-                         fromTable:[ImageModel stringOfTableName]
-                             where:[NSDictionary dictionaryWithObject:momentID forKey:@"moment_id"]];
+                arrayOfAllBySelect:@[ImageName]
+                         fromTable:ImageTableName
+                             where:[NSDictionary dictionaryWithObject:momentID forKey:MomentID]];
         
         images = [images arrayByMap:(id)^(id item) {
-            return [item objectForKey:@"name"];
+            return [item objectForKey:ImageName];
         }];
         
         NSMutableArray *imagesArray = [NSMutableArray arrayWithArray:images];
         NSLog(@"Refresh Moments id %@ Images%@", momentID, imagesArray);
-        [item setObject:imagesArray forKey:@"images"];
+        [item setObject:imagesArray forKey:ImageTableName];
         
         UserModel *user = [[UserModel alloc] init];
-        if ([[MyWeiboDefaults stringOfKey:@"logged_in"] isYES] &&
+        if ([[MyWeiboDefaults stringOfKey:LoggedIn] isYES] &&
             [[MyWeiboDefaults stringOfKey:@"user_moment"] isYES]) {
-            user.userID = [MyWeiboDefaults stringOfIdentifier:@"user_id"];
-            user.name = [MyWeiboDefaults stringOfKey:@"current_user"];
+            user.userID = [MyWeiboDefaults stringOfIdentifier:UserID];
+            user.name = [MyWeiboDefaults stringOfKey:CurrentUser];
             user.avatar = @"Aoi1";
             user.desc = @"他很懒，什么都不说。";
         } else {
             user = [UserModel userWithRandomValues];
         }
 
-        [item setObject:[user dictionaryOfPropertiesAndValues] forKey:@"user"];
+        [item setObject:[user dictionaryOfPropertiesAndValues] forKey:MomentUser];
         
         [data addObject:item];
     }
@@ -127,12 +123,12 @@
 {
     NSMutableArray *insertSqls = [NSMutableArray array];
     [insertSqls addObject:
-     [Support stringOfInsertSqlWihtTableName:[MomentModel stringOfTableName]
+     [Support stringOfInsertSqlWihtTableName:MomentTableName
                                      columns:self.dictionaryOfPropertiesAndValues]];
     
     for (ImageModel *image in self.images) {
         [insertSqls addObject:
-         [Support stringOfInsertSqlWihtTableName:[ImageModel stringOfTableName]
+         [Support stringOfInsertSqlWihtTableName:ImageTableName
                                          columns:image.dictionaryOfPropertiesAndValues]];
     }
     return insertSqls;

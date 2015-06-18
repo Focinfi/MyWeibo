@@ -14,7 +14,6 @@
 @property (nonatomic) NSString *avatar;
 @property (nonatomic) NSString *desc;
 
-+ (NSString *) stringOfTableName;
 + (int) countOfUsers;
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;

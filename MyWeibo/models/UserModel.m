@@ -17,21 +17,16 @@
 @synthesize avatar;
 @synthesize desc;
 
-+ (NSString *) stringOfTableName
-{
-    return @"users";
-}
-
 + (int) countOfUsers
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
 
-    return [dbManager countOfItemsNumberInTable:[UserModel stringOfTableName]];
+    return [dbManager countOfItemsNumberInTable:UserTableName];
 }
 
 + (NSArray *) arrayOfProperties
 {
-    return @[@"user_id", @"name", @"avatar", @"description"];
+    return @[UserID, UserName, UserAvatar, UserDescription];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
@@ -44,7 +39,7 @@
 + (UserModel *) userWithRandomValues
 {
     UserModel *user = [[UserModel alloc] init];
-    user.userID = [MyWeiboDefaults stringOfIdentifier:@"user_id"];
+    user.userID = [MyWeiboDefaults stringOfIdentifier:UserID];
     
     if ([Random possibilityTenOfNum:5]) {
         user.name = @"苍井优";

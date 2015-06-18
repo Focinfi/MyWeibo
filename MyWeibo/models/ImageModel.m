@@ -16,21 +16,16 @@
 @synthesize name;
 @synthesize momentID;
 
-+ (NSString *) stringOfTableName
-{
-    return @"images";
-}
-
 + (int) countOfImages
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
-    return [dbManager countOfItemsNumberInTable:[ImageModel stringOfTableName]];
+    return [dbManager countOfItemsNumberInTable:ImageTableName];
     
 }
 
 + (NSArray *) arrayOfProperties
 {
-    return @[@"name", @"moment_id"];
+    return @[ImageName, MomentID];
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
@@ -43,7 +38,7 @@
 {
     ImageModel *image = [[ImageModel alloc] init];
     image.momentID = commentID;
-    image.name = [NSString stringWithFormat:@"moment_image_%d", identifier];
+    image.name = [NSString stringWithFormat:@"%@_%d", MomentImage, identifier];
     return image;
 }
 
@@ -54,15 +49,16 @@
 
     if ([Random possibilityTenOfNum:5]) {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"moment_iamge_1";
+            image.name = [NSString stringWithFormat:@"%@_%d", MomentImage, 1];
         } else {
-            image.name = @"moment_iamge_2";
+            image.name = [NSString stringWithFormat:@"%@_%d", MomentImage, 2];
         }
     } else {
         if ([Random possibilityTenOfNum:5]) {
-            image.name = @"moment_iamge_3";
+            image.name = [NSString stringWithFormat:@"%@_%d", MomentImage, 3];
+
         } else {
-            image.name = @"moment_iamge_4";
+            image.name = [NSString stringWithFormat:@"%@_%d", MomentImage, 4];
         }
     }
     return image;
