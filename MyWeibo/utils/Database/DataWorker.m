@@ -26,7 +26,6 @@
         }
         [[MyWeiApp sharedManager].dbManager excuteSQLs:sqls];
     }
-
 }
 
 + (void) saveBasicImages

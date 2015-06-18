@@ -19,8 +19,7 @@
 + (int) countOfImages
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
-    return [dbManager countOfItemsNumberInTable:ImageTableName];
-    
+    return [dbManager countOfItemsNumberInTable:ImageTableName];    
 }
 
 + (NSArray *) arrayOfProperties
