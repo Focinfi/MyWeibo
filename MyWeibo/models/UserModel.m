@@ -10,12 +10,23 @@
 #import "MyWeiApp.h"
 #import "Random.h"
 #import "MyWeiboDefaults.h"
+#import "NSDictionary+Assemble.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 @implementation UserModel
 @synthesize userID;
 @synthesize name;
 @synthesize avatar;
 @synthesize desc;
+
+- (id)init
+{
+    self = [super self];
+    if (self) {
+        userID = [MyWeiboDefaults stringOfIdentifier:UserID];
+    }
+    return self;
+}
 
 + (int) countOfUsers
 {
@@ -39,7 +50,6 @@
 + (UserModel *) userWithRandomValues
 {
     UserModel *user = [[UserModel alloc] init];
-    user.userID = [MyWeiboDefaults stringOfIdentifier:UserID];
     
     if ([Random possibilityTenOfNum:5]) {
         user.name = @"苍井优";
@@ -64,9 +74,18 @@
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues
 {
-    NSArray *values = @[userID, name, avatar, desc];
+    NSArray *values = @[self.userID, self.name, self.avatar, self.desc];
     return [NSDictionary dictionaryWithObjects:values
                                        forKeys:[UserModel arrayOfProperties]];
+}
+
+- (void) saveInBackgroundWithBlock:(AVBooleanResultBlock)block
+{
+    DDLogDebug(@"New User:%@", [self dictionaryOfPropertiesAndValues]);
+    [[self dictionaryOfPropertiesAndValues] eachPairDo:^(NSString *key, id value) {
+        [self setObject:value forKey:key];
+    }];
+    [super saveInBackgroundWithBlock:block];
 }
 
 @end

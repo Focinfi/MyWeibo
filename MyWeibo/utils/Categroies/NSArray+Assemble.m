@@ -60,5 +60,11 @@
     return res;
 }
 
+- (void) excetueEach:(void (^)(id)) exexcution {
+    for (id item in self) {
+        exexcution(item);
+    }
+}
+
 
 @end

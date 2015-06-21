@@ -13,6 +13,8 @@
 #import "UserModel.h"
 #import "Support.h"
 #import "MyWeiboDefaults.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 @implementation DataWorker
 + (void) insertBasicDataWihtNumber:(int) number
@@ -37,4 +39,5 @@
         NSLog(@"UIImage:%@", imageName);
     }
 }
+
 @end

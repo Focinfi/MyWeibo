@@ -36,13 +36,19 @@ extern NSString *const MomentContent;
 
 extern NSString *const ImageTableName;
 extern NSString *const MomentImageId;
+extern NSString *const UserAvatarImage;
+extern NSString *const UserAvatarImageID;
 extern NSString *const MomentImage;
 extern NSString *const ImageName;
 
 /**
  *  Resources idenditifier
  */
-
 extern NSString *const MomentCellId;
+
+/**
+ *  Alert
+ */
+extern NSString *const AlertNotReachableNetWork;
 
 @end

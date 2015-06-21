@@ -10,13 +10,15 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 @interface MomentModel : AVObject
-@property (nonatomic) NSString *momentID;
+@property (nonatomic) NSNumber *momentID;
 @property (nonatomic) NSString *userID;
 @property (nonatomic) NSString *content;
 @property (nonatomic) NSMutableArray *images;
 
 + (int) countOfMoments;
 + (NSArray *) arrayOfProperties;
++ (NSArray *) arrayOfObjects:(NSArray *) objects;
++ (NSDictionary *) dictionaryOfObject:(id) object;
 + (NSDictionary *) directoryOfPropertiesAndTypes;
 + (MomentModel *) momentWithRandomValues;
 + (NSArray *) arrayOfItemsFrom:(long) from to:(long) to;
@@ -25,6 +27,5 @@
 - (void) addImageModelsNumber:(int) number;
 - (NSArray *) arrayOfInsertSqls;
 
-- (void) save;
-
+- (void) saveInBackgroundWithBlock:(AVBooleanResultBlock)block;
 @end

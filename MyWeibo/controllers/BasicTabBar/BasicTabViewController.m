@@ -41,6 +41,7 @@
     //
     UITabBar *tabBar = self.tabBar;
     [tabBar setTintColor: [UIColor greenColor]];
+    tabBar.translucent = NO;
     
     //UITabBarItem
     UITabBarItem *tab1 = [tabBar.items objectAtIndex:0];

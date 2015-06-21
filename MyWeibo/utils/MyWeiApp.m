@@ -21,7 +21,7 @@ NSString *const UserTableName = @"users";
 NSString *const UserID = @"user_id";
 NSString *const UserName = @"name";
 NSString *const UserAvatar = @"avatar";
-NSString *const UserDescription = @"description";
+NSString *const UserDescription = @"user_description";
 NSString *const CurrentUser = @"current_user";
 NSString *const LoggedIn = @"NO";
 
@@ -31,6 +31,8 @@ NSString *const MomentUser = @"user";
 NSString *const MomentContent = @"content";
 
 NSString *const ImageTableName = @"images";
+NSString *const UserAvatarImage = @"user_image";
+NSString *const UserAvatarImageID = @"user_image_id";
 NSString *const MomentImage = @"moment_image";
 NSString *const MomentImageId = @"moment_image_id";
 NSString *const ImageName = @"name";
@@ -39,6 +41,11 @@ NSString *const ImageName = @"name";
  *  Resources identifier
  */
 NSString *const MomentCellId = @"MomentCell";
+
+/**
+ *  Alert
+ */
+NSString * const AlertNotReachableNetWork = @"网络没有连接哦";
 
 @synthesize dbManager;
 + (MyWeiApp *)sharedManager

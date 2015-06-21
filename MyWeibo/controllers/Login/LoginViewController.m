@@ -15,6 +15,8 @@
 #import "BasicTabViewController.h"
 #import "Support.h"
 #import "MyWeiboDefaults.h"
+#import "MyWeiApp.h"
+#import "UserEditViewController.h"
 
 @interface LoginViewController (){
     enum Actions {
@@ -35,15 +37,19 @@
     self = [super init];
     if (self) {
         currentAction = LoginAction;
-        self.userNameTextField.text = [MyWeiboDefaults stringOfKey:@"current_user"];
     }
     return self;
 }
 
 - (void)viewDidLoad {
-    
+    [self setUIText];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void) setUIText
+{
+    self.userNameTextField.text = [MyWeiboDefaults stringOfKey:CurrentUser];
 }
 
 - (void) setInputValues
@@ -71,7 +77,7 @@
     switch (currentAction) {
         case LoginAction:
             currentAction = RegisterAction;
-            self.userNameTextField.placeholder = @"新的邮箱";
+            self.userNameTextField.placeholder = @"你的用户名";
             [self.exchangeButton setTitle:@"已有账号？马上登录" forState:normal];
             [self.loginButton setTitle:@"注册" forState:normal];
             break;
@@ -95,7 +101,7 @@
     if ([userName isBlank] || [password isBlank]) {
         [SVProgressHUD showErrorWithStatus:@"请填写完整"];
     } else if (![Support isReachabileToNet] ) {
-        [SVProgressHUD showInfoWithStatus:@"网络没有连接哦"];
+        [SVProgressHUD showInfoWithStatus:AlertNotReachableNetWork];
     } else {
         switch (currentAction) {
             case LoginAction:
@@ -118,10 +124,16 @@
     [AVUser logInWithUsernameInBackground:userName password:password block:^(AVUser *user, NSError *error) {
         if (![self hasError:error]) {
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-            [MyWeiboDefaults updateValue:@"YES" forKey:@"logged_in"];
+            [MyWeiboDefaults updateValue:@"YES" forKey:LoggedIn];
             [self.navigationController popViewControllerAnimated:YES];
+            [self setUserInfo];
         }
     }];
+}
+
+- (void) setUserInfo
+{
+//    AVQuery *query = [AVQuery ]
 }
 
 - (void) registerUser
@@ -134,8 +146,10 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (![self hasError:error]) {
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
-            [MyWeiboDefaults updateValue:@"YES" forKey:@"logged_in"];
-            [MyWeiboDefaults updateValue:userName forKey:@"current_user"];
+            [MyWeiboDefaults updateValue:@"YES" forKey:LoggedIn];
+            [MyWeiboDefaults updateValue:userName forKey:CurrentUser];
+            [self.navigationController removeFromParentViewController];
+            [self.navigationController pushViewController:[[UserEditViewController alloc] init] animated:YES];
             DDLogDebug(@"New User: %@", userName);
         }
     }];

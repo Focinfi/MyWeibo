@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVOSCloud/AVOSCloud.h>
 
-@interface UserModel : NSObject
+@interface UserModel : AVObject
 @property (nonatomic) NSString *userID;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *avatar;
@@ -20,5 +21,6 @@
 + (UserModel *) userWithRandomValues;
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
+- (void) saveInBackgroundWithBlock:(AVBooleanResultBlock)block;
 
 @end

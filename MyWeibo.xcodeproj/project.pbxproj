@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		042668861B27C3E600825CB4 /* DataWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 042668851B27C3E600825CB4 /* DataWorker.m */; };
+		043FC5AB1B36D10E002EB5C5 /* UserEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC5A91B36D10E002EB5C5 /* UserEditViewController.m */; };
+		043FC5AC1B36D10E002EB5C5 /* UserEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043FC5AA1B36D10E002EB5C5 /* UserEditViewController.xib */; };
+		043FC5B01B3702D3002EB5C5 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC5AE1B3702D3002EB5C5 /* UserDetailViewController.m */; };
+		043FC5B11B3702D3002EB5C5 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043FC5AF1B3702D3002EB5C5 /* UserDetailViewController.xib */; };
 		044D86861B268ED0008F415E /* MomentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86851B268ED0008F415E /* MomentModel.m */; };
 		044D86891B268EF7008F415E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86881B268EF7008F415E /* UserModel.m */; };
 		044D86B61B271E79008F415E /* MyWeiboDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86B51B271E79008F415E /* MyWeiboDefaults.m */; };
@@ -60,6 +64,12 @@
 		042668841B27C3E600825CB4 /* DataWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWorker.h; sourceTree = "<group>"; };
 		042668851B27C3E600825CB4 /* DataWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataWorker.m; sourceTree = "<group>"; };
 		042668871B27CB0A00825CB4 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = models/Model.h; sourceTree = "<group>"; };
+		043FC5A81B36D10E002EB5C5 /* UserEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditViewController.h; sourceTree = "<group>"; };
+		043FC5A91B36D10E002EB5C5 /* UserEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditViewController.m; sourceTree = "<group>"; };
+		043FC5AA1B36D10E002EB5C5 /* UserEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserEditViewController.xib; path = controllers/Login/UserEditViewController.xib; sourceTree = "<group>"; };
+		043FC5AD1B3702D3002EB5C5 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
+		043FC5AE1B3702D3002EB5C5 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
+		043FC5AF1B3702D3002EB5C5 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		044D86841B268ED0008F415E /* MomentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentModel.h; path = models/MomentModel.h; sourceTree = "<group>"; };
 		044D86851B268ED0008F415E /* MomentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentModel.m; path = models/MomentModel.m; sourceTree = "<group>"; };
 		044D86871B268EF7008F415E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = models/UserModel.h; sourceTree = "<group>"; };
@@ -261,13 +271,18 @@
 			path = controllers/BasicTabBar;
 			sourceTree = "<group>";
 		};
-		0498F1B41B316CD0008351FA /* Login */ = {
+		0498F1B41B316CD0008351FA /* User */ = {
 			isa = PBXGroup;
 			children = (
 				0498F1B51B316CD0008351FA /* LoginViewController.h */,
 				0498F1B61B316CD0008351FA /* LoginViewController.m */,
+				043FC5A81B36D10E002EB5C5 /* UserEditViewController.h */,
+				043FC5A91B36D10E002EB5C5 /* UserEditViewController.m */,
+				043FC5AD1B3702D3002EB5C5 /* UserDetailViewController.h */,
+				043FC5AE1B3702D3002EB5C5 /* UserDetailViewController.m */,
+				043FC5AF1B3702D3002EB5C5 /* UserDetailViewController.xib */,
 			);
-			name = Login;
+			name = User;
 			path = controllers/Login;
 			sourceTree = "<group>";
 		};
@@ -297,6 +312,7 @@
 		04BAA45D1B29C28A00791E9D /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				043FC5AA1B36D10E002EB5C5 /* UserEditViewController.xib */,
 				0498F1991B316C3B008351FA /* AddMomentViewController.xib */,
 				0498F19A1B316C3B008351FA /* LoginViewController.xib */,
 				0498F19B1B316C3B008351FA /* MomentCell.xib */,
@@ -390,7 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				0498F1B11B316CD0008351FA /* BasicTabBar */,
-				0498F1B41B316CD0008351FA /* Login */,
+				0498F1B41B316CD0008351FA /* User */,
 				0498F1B71B316CD0008351FA /* Moment */,
 				0498F1A11B316C5B008351FA /* RefreshControl */,
 			);
@@ -489,6 +505,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0498F19E1B316C3B008351FA /* LoginViewController.xib in Resources */,
+				043FC5B11B3702D3002EB5C5 /* UserDetailViewController.xib in Resources */,
+				043FC5AC1B36D10E002EB5C5 /* UserEditViewController.xib in Resources */,
 				0498F19D1B316C3B008351FA /* AddMomentViewController.xib in Resources */,
 				0498F1AE1B316C5B008351FA /* pull_refresh@3x.png in Resources */,
 				0498F1A01B316C3B008351FA /* MomentDetailViewController.xib in Resources */,
@@ -558,10 +576,12 @@
 				044D86891B268EF7008F415E /* UserModel.m in Sources */,
 				C9D3F4331B0B681100313035 /* AppDelegate.m in Sources */,
 				0498F1C11B316CD0008351FA /* MomentDetailViewController.m in Sources */,
+				043FC5AB1B36D10E002EB5C5 /* UserEditViewController.m in Sources */,
 				04C9A4DC1B2FC87700168D7C /* Reachability.m in Sources */,
 				0498F1C01B316CD0008351FA /* AddMomentViewController.m in Sources */,
 				0494E9061B253146004FD3BA /* DBManager.m in Sources */,
 				04BAA45B1B29B4BD00791E9D /* ImageBrowser.m in Sources */,
+				043FC5B01B3702D3002EB5C5 /* UserDetailViewController.m in Sources */,
 				0498F1AC1B316C5B008351FA /* RefreshControl.m in Sources */,
 				042668861B27C3E600825CB4 /* DataWorker.m in Sources */,
 				C9D2609C1B10665F00A49E0A /* MomentTableViewCell.m in Sources */,

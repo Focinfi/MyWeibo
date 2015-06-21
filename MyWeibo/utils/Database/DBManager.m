@@ -59,7 +59,7 @@
 {
     self = [super init];
     if (self) {
-        dBQueue = [FMDatabaseQueue databaseQueueWithPath:[self dbPath:@"myweibo_db16"]];
+        dBQueue = [FMDatabaseQueue databaseQueueWithPath:[self dbPath:@"myweibo_db17"]];
     }
     return self;
 }

@@ -11,7 +11,7 @@
 @interface MyWeiboDefaults : NSObject
 + (NSString *) stringOfIdentifier:(NSString *) identifier;
 + (NSNumber *) numberOfCurrentID:(NSString *) identifier;
-+ (void) updateValue:(NSString *) value forKey:(NSString *) key;
++ (void) updateValue:(id) value forKey:(NSString *) key;
 + (NSString *) stringOfKey:(NSString *) key;
 
 @end

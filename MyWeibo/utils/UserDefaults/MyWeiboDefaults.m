@@ -29,7 +29,7 @@
     return [NSNumber numberWithInteger:[number intValue]];
 }
 
-+ (void) updateValue:(NSString *) value forKey:(NSString *) key
++ (void) updateValue:(id) value forKey:(NSString *) key
 {
     [[MyWeiApp sharedManager].usesrDefaults setObject:value forKey:key];
 }

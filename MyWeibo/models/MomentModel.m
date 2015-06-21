@@ -23,6 +23,15 @@
 @synthesize userID;
 @synthesize content;
 
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        _images = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 + (int) countOfMoments
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
@@ -34,6 +43,32 @@
 + (NSArray *) arrayOfProperties
 {
     return @[MomentID, UserID, MomentContent];
+}
+
++ (NSDictionary *) dictionaryOfObject:(id) object
+{
+    NSMutableDictionary *momentDictionary = [NSMutableDictionary dictionary];
+    [[MomentModel arrayOfProperties] excetueEach:^(id item){
+        [momentDictionary setObject:[object objectForKey:item] forKey:item];
+    }];
+    
+    if ([object objectForKey:ImageTableName]) {
+        [momentDictionary setObject:[object objectForKey:ImageTableName] forKey:ImageTableName];
+    }
+    if ([object objectForKey:MomentUser]) {
+        [momentDictionary setObject:[object objectForKey:MomentUser] forKey:MomentUser];
+    }
+    
+    return momentDictionary;
+}
+
++ (NSArray *) arrayOfObjects:(NSArray *) objects
+{
+    NSMutableArray *momentsAarry = [NSMutableArray array];
+    [objects excetueEach:^(id item){
+        [momentsAarry addObject:[MomentModel dictionaryOfObject:item]];
+    }];
+    return momentsAarry;
 }
 
 + (NSDictionary *) directoryOfPropertiesAndTypes
@@ -48,8 +83,7 @@
     
     comment.userID = @"1";
     comment.content = [Random stringOfRandomWeiboSetencesCount:[Random randZeroToNum:3]];
-    comment.momentID = [MyWeiboDefaults stringOfIdentifier:MomentID];
-    comment.images = [NSMutableArray array];
+    comment.momentID = [NSNumber numberWithInt:[[MyWeiboDefaults stringOfIdentifier:MomentID] intValue]];
     [comment addImageModelsNumber:[Random randZeroToNum:4] + 1];
 
     return comment;
@@ -108,7 +142,8 @@
     int rand = [Random randZeroToNum:4];
     for (int i = 0; i < number; i++) {
         int identifier = (rand + i)%4 + 1;
-        ImageModel *image = [ImageModel imageWithIdentifier: identifier ForCommentID:self.momentID];
+        ImageModel *image = [ImageModel imageWithIdentifier: identifier
+                                               ForCommentID:self.momentID];
         [self.images addObject:image];
     }
 }
@@ -134,11 +169,24 @@
     return insertSqls;
 }
 
-- (void) save
+- (void) saveInBackgroundWithBlock:(AVBooleanResultBlock)block
 {
     [[self dictionaryOfPropertiesAndValues] eachPairDo:^(NSString *key, id value) {
         [self setObject:value forKey:key];
     }];
-    [super save];
+    NSArray *imageNames = [self.images arrayByMap:(id)^(id image){
+        ImageModel *i = image;
+        return i.name;
+    }];
+    
+    [self setObject:imageNames forKey:ImageTableName];
+    UserModel *user = [UserModel userWithRandomValues];
+    user.name = [MyWeiboDefaults stringOfKey:CurrentUser];
+    user.avatar = [MyWeiboDefaults stringOfKey:UserAvatarImage];
+    user.desc = [MyWeiboDefaults stringOfKey:UserDescription];
+    [self setObject:[user dictionaryOfPropertiesAndValues] forKey:MomentUser];
+    
+    [super saveInBackgroundWithBlock:block];
 }
+
 @end

@@ -11,13 +11,13 @@
 
 @interface ImageModel : NSObject
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *momentID;
+@property (nonatomic) NSNumber *momentID;
 
 + (int) countOfImages;
 + (NSArray *) arrayOfProperties;
 + (NSDictionary *) directoryOfPropertiesAndTypes;
-+ (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID;
-+ (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSString *) commentID;
++ (ImageModel *) imageWithRandomValuesForCommentID:(NSNumber *) commentID;
++ (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSNumber *) commentID;
 
 - (NSDictionary *) dictionaryOfPropertiesAndValues;
 @end

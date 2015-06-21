@@ -33,7 +33,7 @@
     return [NSDictionary dictionaryWithObjects:types forKeys:[ImageModel arrayOfProperties]];
 }
 
-+ (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSString *) commentID
++ (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSNumber *) commentID
 {
     ImageModel *image = [[ImageModel alloc] init];
     image.momentID = commentID;
@@ -41,7 +41,7 @@
     return image;
 }
 
-+ (ImageModel *) imageWithRandomValuesForCommentID:(NSString *) commentID
++ (ImageModel *) imageWithRandomValuesForCommentID:(NSNumber *) commentID
 {
     ImageModel *image = [[ImageModel alloc] init];
     image.momentID = commentID;

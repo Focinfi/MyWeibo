@@ -14,4 +14,5 @@
 - (NSString *) stringByJoinSimpelyWithBoundary:(NSString *) boundary;
 - (NSArray *) arrayByMap:(id (^)(id)) map;
 - (NSArray *) arrayBySelect:(BOOL (^)(id)) select;
+- (void) excetueEach:(void (^)(id)) exexcution;
 @end

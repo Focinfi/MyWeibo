@@ -10,6 +10,5 @@
 
 @interface DataWorker : NSObject
 + (void) insertBasicDataWihtNumber:(int) number;
-
 + (void) saveBasicImages;
 @end

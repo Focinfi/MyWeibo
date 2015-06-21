@@ -14,6 +14,7 @@
 #import "SVProgressHUD.h"
 #import "MomentTableViewController.h"
 #import "MyWeiApp.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 @interface AddMomentViewController (){
     int imageWidth;
@@ -50,8 +51,7 @@
     imagesCount = 0;
     imagePadding = 10;
     newMoment = [[MomentModel alloc] init];
-    newMoment.momentID = [MyWeiboDefaults stringOfIdentifier:MomentID];
-    newMoment.images = [NSMutableArray array];
+    newMoment.momentID = [NSNumber numberWithInt:[[MyWeiboDefaults stringOfIdentifier:MomentID] intValue]];
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseImage)];
 }
 
@@ -108,13 +108,17 @@
     } else {
         newMoment.userID = @"1";
         newMoment.content = momentContentText;
-        NSLog(@"WillSave moment_id:%@, images:%lu", newMoment.momentID, [newMoment.images count]);
         
-        [MyWeiboDefaults updateValue:@"YES" forKey:@"user_moment"];
+//        [[MyWeiApp sharedManager].dbManager excuteSQLs:[newMoment arrayOfInsertSqls]];
         
-        [[MyWeiApp sharedManager].dbManager excuteSQLs:[newMoment arrayOfInsertSqls]];
-        [SVProgressHUD showSuccessWithStatus:@"创建成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+        [newMoment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if (error) {
+                [SVProgressHUD showErrorWithStatus:@"添加失败"];
+            } else {
+                [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
     }
 }
 

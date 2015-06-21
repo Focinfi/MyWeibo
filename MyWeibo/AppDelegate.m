@@ -36,7 +36,18 @@
 #pragma mark Test
 - (void) test
 {
+    NSLog(@"User Info:%@", [MyWeiboDefaults stringOfIdentifier:UserAvatarImage]);
+    //NSArray
+//    NSMutableArray *array = [NSMutableArray array];
+//    array remo
 //    test iamges
+//    MomentModel *newMoment = [MomentModel momentWithRandomValues];
+//    NSArray *imageNames = [newMoment.images arrayByMap:(id)^(id image){
+//        ImageModel *image1 = image;
+//        return image1.name;
+//    }];
+//    DDLogDebug(@"Images1 %@:", imageNames);
+    
 //    "moment_id" = 84
 //    DBManager *manager = [MyWeiApp sharedManager].dbManager;
 //    NSArray *images =
@@ -51,8 +62,26 @@
 ////    DDLogDebug(@"Images:%@", image.momentID);
 //    
 //    //test AVOS
+    //save
 //    MomentModel *moment = [MomentModel momentWithRandomValues];
-//    [moment save];
+//    DDLogDebug(@"New Moment:%@", [moment dictionaryOfPropertiesAndValues]);
+//    [moment saveInBackgroundWithBlock:nil];
+//
+//    AVObject *user = [AVObject objectWithClassName:@"UserModel"];
+//    [user save];
+    
+    [AVUser logOut];
+    //query
+//    AVQuery *query = [AVQuery queryWithClassName:@"MomentModel"];
+//    [query addDescendingOrder:MomentID];
+//    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+//        if (!object) {
+//            NSLog(@"getFirstObject 请求失败。");
+//        } else {
+//            // 查询成功
+//            NSLog(@"MomentID:%@ -- %@", moment.momentID, [object objectForKey:MomentID]);
+//        }
+//    }];
     
     // block
     NSArray *nums = [NSArray arrayWithObjects:@1, @2, @3, @4, nil];
@@ -62,8 +91,7 @@
         return [NSString stringWithFormat:@"%@_%@", item, s];
     }];
     
-    DDLogDebug(@"Nums Double: %@", double_nums);    
-    
+    DDLogDebug(@"Nums Double: %@", double_nums);
 }
 
 #pragma mark Configration

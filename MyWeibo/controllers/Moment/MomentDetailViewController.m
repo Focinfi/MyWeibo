@@ -39,7 +39,7 @@
 
 #pragma mark Init Values
 
-- (void) initValue
+- (void)initValue
 {
     padding = 10;
     mommentScrollWidth = 250;
@@ -48,7 +48,7 @@
 
 #pragma mark Init UI
 
-- (void) setUI
+- (void)setUI
 {
     [self setAvatarAsRound];
     [self setNameAndDescription];
@@ -59,21 +59,21 @@
     NSLog(@"Detail Data: %@", [mommentData objectForKey:MomentContent]);
 }
 
-- (void) setAvatarAsRound
+- (void)setAvatarAsRound
 {
     self.avatar.image = [UIImage imageNamed:[userInfo objectForKey:UserAvatar]];
     self.avatar.layer.masksToBounds = YES;
     self.avatar.layer.cornerRadius = self.avatar.bounds.size.width/2;
 }
 
-- (void) setNameAndDescription
+- (void)setNameAndDescription
 {
     self.title = @"Moment";
     self.userName.text = [userInfo objectForKey:UserName];
     self.userDescription.text = [userInfo objectForKey:UserDescription];
 }
 
-- (void) setCommentScrollView
+- (void)setCommentScrollView
 {
     self.mommentScrollView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.8];
     self.mommentScrollView.contentSize = CGSizeMake(mommentScrollWidth, mommentScrollHeight);
@@ -81,7 +81,7 @@
     self.mommentScrollView.layer.cornerRadius = 8;
 }
 
-- (void) setCommentContent
+- (void)setCommentContent
 {
     NSString *contentText = [self.mommentData objectForKey:MomentContent];
     UILabel *content = [[UILabel alloc] init];
@@ -93,7 +93,7 @@
     [self.mommentScrollView addSubview:content];
 }
 
-- (void) setImages
+- (void)setImages
 {
     NSArray *images = [self.mommentData objectForKey:ImageTableName];
     NSLog(@"Images Count: %lu", (unsigned long)[images count]);
