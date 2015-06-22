@@ -50,5 +50,7 @@ extern NSString *const MomentCellId;
  *  Alert
  */
 extern NSString *const AlertNotReachableNetWork;
+extern NSString *const CancelBtnTitle;
+extern NSString *const GotoLoginBtnTitle;
 
 @end

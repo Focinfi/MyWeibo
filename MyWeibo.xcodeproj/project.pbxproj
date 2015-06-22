@@ -11,7 +11,6 @@
 		043FC5AB1B36D10E002EB5C5 /* UserEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC5A91B36D10E002EB5C5 /* UserEditViewController.m */; };
 		043FC5AC1B36D10E002EB5C5 /* UserEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043FC5AA1B36D10E002EB5C5 /* UserEditViewController.xib */; };
 		043FC5B01B3702D3002EB5C5 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC5AE1B3702D3002EB5C5 /* UserDetailViewController.m */; };
-		043FC5B11B3702D3002EB5C5 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043FC5AF1B3702D3002EB5C5 /* UserDetailViewController.xib */; };
 		044D86861B268ED0008F415E /* MomentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86851B268ED0008F415E /* MomentModel.m */; };
 		044D86891B268EF7008F415E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86881B268EF7008F415E /* UserModel.m */; };
 		044D86B61B271E79008F415E /* MyWeiboDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D86B51B271E79008F415E /* MyWeiboDefaults.m */; };
@@ -69,7 +68,6 @@
 		043FC5AA1B36D10E002EB5C5 /* UserEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserEditViewController.xib; path = controllers/Login/UserEditViewController.xib; sourceTree = "<group>"; };
 		043FC5AD1B3702D3002EB5C5 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
 		043FC5AE1B3702D3002EB5C5 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
-		043FC5AF1B3702D3002EB5C5 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		044D86841B268ED0008F415E /* MomentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentModel.h; path = models/MomentModel.h; sourceTree = "<group>"; };
 		044D86851B268ED0008F415E /* MomentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentModel.m; path = models/MomentModel.m; sourceTree = "<group>"; };
 		044D86871B268EF7008F415E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = models/UserModel.h; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 				043FC5A91B36D10E002EB5C5 /* UserEditViewController.m */,
 				043FC5AD1B3702D3002EB5C5 /* UserDetailViewController.h */,
 				043FC5AE1B3702D3002EB5C5 /* UserDetailViewController.m */,
-				043FC5AF1B3702D3002EB5C5 /* UserDetailViewController.xib */,
 			);
 			name = User;
 			path = controllers/Login;
@@ -505,7 +502,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0498F19E1B316C3B008351FA /* LoginViewController.xib in Resources */,
-				043FC5B11B3702D3002EB5C5 /* UserDetailViewController.xib in Resources */,
 				043FC5AC1B36D10E002EB5C5 /* UserEditViewController.xib in Resources */,
 				0498F19D1B316C3B008351FA /* AddMomentViewController.xib in Resources */,
 				0498F1AE1B316C5B008351FA /* pull_refresh@3x.png in Resources */,

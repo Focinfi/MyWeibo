@@ -27,8 +27,6 @@
 
 @interface MomentTableViewController ()<RefreshControlDelegate> {
     NSArray *tableData;
-    NSString *cancelBtnTitle;
-    NSString *gotoLoginBtnTitle;
     RefreshControl *refreshControl;
     NSNumber *maxMomentID;
     NSNumber *miniMomentID;
@@ -73,8 +71,6 @@
     maxMomentID = [NSNumber numberWithInt:0];
     miniMomentID = [NSNumber numberWithInt:0];
     
-    cancelBtnTitle = @"稍后再说";
-    gotoLoginBtnTitle = @"马上登录";
     refreshControl = [[RefreshControl alloc] initWithScrollView:self.tableView delegate:self];
     refreshControl.topEnabled = YES;
     refreshControl.bottomEnabled = YES;
@@ -309,7 +305,7 @@
             addMommentViewController.momentTableViewController = self;
             [self.navigationController pushViewController:addMommentViewController animated:YES];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"还没登录" message:@"现在就去登录页面" delegate:self cancelButtonTitle:cancelBtnTitle otherButtonTitles:gotoLoginBtnTitle, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"还没登录" message:@"马上登录" delegate:self cancelButtonTitle:CancelBtnTitle otherButtonTitles:GotoLoginBtnTitle, nil];
  
             [alert show];
         }
@@ -324,7 +320,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
      NSString *btnTitle = [alertView buttonTitleAtIndex:buttonIndex];
-     if ([btnTitle isEqualToString:gotoLoginBtnTitle] ) {
+     if ([btnTitle isEqualToString:GotoLoginBtnTitle] ) {
         LoginViewController *loginViewController = [[LoginViewController alloc] init];         
         [self.navigationController pushViewController:loginViewController animated:YES];
     }

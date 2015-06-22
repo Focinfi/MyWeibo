@@ -23,6 +23,7 @@
         LoginAction,
         RegisterAction
     };
+    
     int currentAction;
 }
 @end
@@ -49,6 +50,7 @@
 
 - (void) setUIText
 {
+    self.loginButton.layer.cornerRadius = 5;
     self.userNameTextField.text = [MyWeiboDefaults stringOfKey:CurrentUser];
 }
 
@@ -148,7 +150,6 @@
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             [MyWeiboDefaults updateValue:@"YES" forKey:LoggedIn];
             [MyWeiboDefaults updateValue:userName forKey:CurrentUser];
-            [self.navigationController removeFromParentViewController];
             [self.navigationController pushViewController:[[UserEditViewController alloc] init] animated:YES];
             DDLogDebug(@"New User: %@", userName);
         }

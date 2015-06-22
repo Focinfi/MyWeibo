@@ -13,5 +13,6 @@
 + (NSNumber *) numberOfCurrentID:(NSString *) identifier;
 + (void) updateValue:(id) value forKey:(NSString *) key;
 + (NSString *) stringOfKey:(NSString *) key;
++ (id) objectOfKey:(NSString *) key;
 
 @end

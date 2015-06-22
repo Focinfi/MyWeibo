@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface UserDetailViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *userAvatarImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *userDescLabel;
+
+- (IBAction)logOutButtonAction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *logOutButton;
 @end

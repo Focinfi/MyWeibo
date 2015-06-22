@@ -36,7 +36,7 @@
 #pragma mark Test
 - (void) test
 {
-    NSLog(@"User Info:%@", [MyWeiboDefaults stringOfIdentifier:UserAvatarImage]);
+    NSLog(@"User Info Delegate:%@", [MyWeiboDefaults stringOfKey:UserAvatarImage]);
     //NSArray
 //    NSMutableArray *array = [NSMutableArray array];
 //    array remo
@@ -70,7 +70,7 @@
 //    AVObject *user = [AVObject objectWithClassName:@"UserModel"];
 //    [user save];
     
-    [AVUser logOut];
+//    [AVUser logOut];
     //query
 //    AVQuery *query = [AVQuery queryWithClassName:@"MomentModel"];
 //    [query addDescendingOrder:MomentID];

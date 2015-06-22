@@ -43,4 +43,10 @@
     return value;
 }
 
++ (id) objectOfKey:(NSString *) key
+{
+    id object = [[MyWeiApp sharedManager].usesrDefaults objectForKey:key];
+    return object ? object : @"";
+}
+
 @end

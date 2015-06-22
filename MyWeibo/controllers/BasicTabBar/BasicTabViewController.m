@@ -7,22 +7,50 @@
 //
 
 #import "BasicTabViewController.h"
+#import "UserDetailViewController.h"
+#import "LoginViewController.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
-@interface BasicTabViewController ()
+@interface BasicTabViewController (){
+    enum TabBarItemTags{
+        Index,
+        Message,
+        Add,
+        Search,
+        Me
+    };
+}
 
 @end
 
 @implementation BasicTabViewController
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.delegate = self;
+    }
+    return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self setTabWithSelectedIndex:0];
+    DDLogDebug(@"Tab count:%lu", self.tabBar.items.count);
+}
+
 - (void)viewDidLoad {
-    [self setTab];
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tabBarController:(UITabBarController *)barController didSelectViewController:(UIViewController *)viewController
+{
+    [self setTabWithSelectedIndex:(int)barController.selectedIndex];
 }
 
 /*
@@ -35,9 +63,9 @@
 }
 */
 
-- (void) setTab{
+- (void)setTabWithSelectedIndex:(int) index {
 
-    [self setSelectedIndex:0];
+    [self setSelectedIndex:index];
     //
     UITabBar *tabBar = self.tabBar;
     [tabBar setTintColor: [UIColor greenColor]];
@@ -49,6 +77,11 @@
     UITabBarItem *tab3 = [tabBar.items objectAtIndex:2];
     UITabBarItem *tab4 = [tabBar.items objectAtIndex:3];
     UITabBarItem *tab5 = [tabBar.items objectAtIndex:4];
+    tab1.tag = Index;
+    tab2.tag = Message;
+    tab3.tag = Add;
+    tab4.tag = Search;
+    tab5.tag = Me;
     
     UIImage *tab1Image = [UIImage imageNamed:@"Home"];
     UIImage *scaledTab1Image = [UIImage imageWithCGImage: [tab1Image CGImage] scale:(tab1Image.scale * 4) orientation:(tab1Image.imageOrientation)];

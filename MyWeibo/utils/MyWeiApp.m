@@ -31,7 +31,7 @@ NSString *const MomentUser = @"user";
 NSString *const MomentContent = @"content";
 
 NSString *const ImageTableName = @"images";
-NSString *const UserAvatarImage = @"user_image";
+NSString *const UserAvatarImage = @"user_avatar_image";
 NSString *const UserAvatarImageID = @"user_image_id";
 NSString *const MomentImage = @"moment_image";
 NSString *const MomentImageId = @"moment_image_id";
@@ -41,6 +41,8 @@ NSString *const ImageName = @"name";
  *  Resources identifier
  */
 NSString *const MomentCellId = @"MomentCell";
+NSString *const CancelBtnTitle = @"稍后再说";
+NSString *const GotoLoginBtnTitle = @"马上登录";
 
 /**
  *  Alert

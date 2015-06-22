@@ -80,6 +80,7 @@
             } else {
                 [SVProgressHUD showSuccessWithStatus:@"上传成功"];
                 [MyWeiboDefaults updateValue:userAvatarImageString forKey:UserAvatarImage];
+                DDLogDebug(@"upload User Avatar:%@", userAvatarImageString);
                 [MyWeiboDefaults updateValue:userDescString forKey:UserDescription];
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
@@ -164,9 +165,7 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.userAvatarImageVIew.image = image;
     userAvatarImageString = [NSString stringWithFormat:@"%@_%@", UserAvatarImage, [MyWeiboDefaults stringOfIdentifier:UserAvatarImageID]];
-    
     [Support saveImage:image withName:userAvatarImageString];
-        
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,6 +23,23 @@
             </objects>
             <point key="canvasLocation" x="622" y="940"/>
         </scene>
+        <!--UserMe-->
+        <scene sceneID="h3b-V5-F7z">
+            <objects>
+                <navigationController title="UserMe" id="bVM-zt-MtB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="USb-GE-ONg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zTe-yn-qc8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fvm-s1-ddJ" kind="relationship" relationship="rootViewController" id="D2v-mE-VNm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDn-Hi-w1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-481" y="749"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="Uf8-VV-2Ok">
             <objects>
@@ -97,7 +114,7 @@
         <!--Item-->
         <scene sceneID="rib-KG-xd0">
             <objects>
-                <viewController id="fvm-s1-ddJ" sceneMemberID="viewController">
+                <viewController id="fvm-s1-ddJ" customClass="UserDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UAH-jS-cyN"/>
                         <viewControllerLayoutGuide type="bottom" id="91y-Oh-Ic4"/>
@@ -105,13 +122,82 @@
                     <view key="view" contentMode="scaleToFill" id="rvc-Wo-8L9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="iGt-c1-3gj">
+                                <rect key="frame" x="250" y="76" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="D3J-gL-ze1"/>
+                                    <constraint firstAttribute="height" constant="97" id="xsT-ry-Vgs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-c6-4AW">
+                                <rect key="frame" x="136" y="239" width="325" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="356" id="D3r-8H-sEP"/>
+                                    <constraint firstAttribute="width" constant="325" id="NTK-5v-IpE"/>
+                                    <constraint firstAttribute="height" constant="28" id="Ufe-wO-67i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="D3r-8H-sEP"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJ6-Te-xUg">
+                                <rect key="frame" x="119" y="335" width="363" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="363" id="lzk-mc-MDh"/>
+                                    <constraint firstAttribute="height" constant="34" id="nMn-Ly-vfW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh8-cv-LAF">
+                                <rect key="frame" x="214" y="438" width="173" height="34"/>
+                                <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="yA2-CR-8NG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="退出登录">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButtonAction:" destination="fvm-s1-ddJ" eventType="touchUpInside" id="eAd-Wl-vxe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kh8-cv-LAF" firstAttribute="centerX" secondItem="eJ6-Te-xUg" secondAttribute="centerX" id="52e-ZJ-31g"/>
+                            <constraint firstItem="dEl-c6-4AW" firstAttribute="centerX" secondItem="iGt-c1-3gj" secondAttribute="centerX" id="Kar-C6-kTk"/>
+                            <constraint firstItem="91y-Oh-Ic4" firstAttribute="top" secondItem="eJ6-Te-xUg" secondAttribute="bottom" constant="182" id="PJd-H5-GwV"/>
+                            <constraint firstItem="dEl-c6-4AW" firstAttribute="leading" secondItem="rvc-Wo-8L9" secondAttribute="leading" constant="136" id="Plu-Hk-Sbd"/>
+                            <constraint firstAttribute="centerX" secondItem="iGt-c1-3gj" secondAttribute="centerX" constant="1.5" id="die-0H-xQw"/>
+                            <constraint firstItem="eJ6-Te-xUg" firstAttribute="top" secondItem="dEl-c6-4AW" secondAttribute="bottom" constant="68" id="em9-Nx-18a"/>
+                            <constraint firstItem="91y-Oh-Ic4" firstAttribute="top" secondItem="kh8-cv-LAF" secondAttribute="bottom" constant="79" id="hGm-Fn-s2P"/>
+                            <constraint firstItem="dEl-c6-4AW" firstAttribute="top" secondItem="iGt-c1-3gj" secondAttribute="bottom" constant="66" id="luw-cP-Qp1"/>
+                            <constraint firstItem="kh8-cv-LAF" firstAttribute="top" secondItem="eJ6-Te-xUg" secondAttribute="bottom" constant="69" id="x3D-gk-vVA"/>
+                            <constraint firstItem="eJ6-Te-xUg" firstAttribute="centerX" secondItem="rvc-Wo-8L9" secondAttribute="centerX" id="zje-ru-tq8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Qsg-iw-8yz"/>
+                    <navigationItem key="navigationItem" id="FHf-gF-Edd"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="kh8-cv-LAF" id="Ktf-Q9-4w0"/>
+                        <outlet property="userAvatarImageView" destination="iGt-c1-3gj" id="47g-fO-xKi"/>
+                        <outlet property="userDescLabel" destination="eJ6-Te-xUg" id="23m-BW-tce"/>
+                        <outlet property="userNameLabel" destination="dEl-c6-4AW" id="OEI-oi-Gsz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aF-AK-GZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-402" y="940"/>
+            <point key="canvasLocation" x="-128" y="1658"/>
         </scene>
         <!--Nav-->
         <scene sceneID="6o2-UX-idw">
@@ -145,7 +231,7 @@
                         <segue destination="JqG-zC-tBF" kind="relationship" relationship="viewControllers" id="lqP-eP-55R"/>
                         <segue destination="A5u-2B-yvr" kind="relationship" relationship="viewControllers" id="d3E-Bd-7oa"/>
                         <segue destination="EpB-eu-bnM" kind="relationship" relationship="viewControllers" id="YpM-zv-28b"/>
-                        <segue destination="fvm-s1-ddJ" kind="relationship" relationship="viewControllers" id="mo5-yu-MWS"/>
+                        <segue destination="bVM-zt-MtB" kind="relationship" relationship="viewControllers" id="IWN-vi-rYF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcz-ET-pkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,4 +239,7 @@
             <point key="canvasLocation" x="-530" y="-128"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="UserAvatar" width="128" height="128"/>
+    </resources>
 </document>
