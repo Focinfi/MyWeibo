@@ -42,9 +42,10 @@ extern NSString *const MomentImage;
 extern NSString *const ImageName;
 
 /**
- *  Resources idenditifier
+ *  Resources
  */
 extern NSString *const MomentCellId;
+extern NSString *const LatestTenMoments;
 
 /**
  *  Alert

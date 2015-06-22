@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MyWeiboDefaults : NSObject
+
 + (NSString *) stringOfIdentifier:(NSString *) identifier;
 + (NSNumber *) numberOfCurrentID:(NSString *) identifier;
 + (void) updateValue:(id) value forKey:(NSString *) key;

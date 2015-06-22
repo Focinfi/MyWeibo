@@ -16,24 +16,28 @@
 @synthesize name;
 @synthesize momentID;
 
-+ (int) countOfImages
+#pragma mark - Class Methods Return Basic Data
+
++ (int)countOfImages
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
     return [dbManager countOfItemsNumberInTable:ImageTableName];    
 }
 
-+ (NSArray *) arrayOfProperties
++ (NSArray *)arrayOfProperties
 {
     return @[ImageName, MomentID];
 }
 
-+ (NSDictionary *) directoryOfPropertiesAndTypes
++ (NSDictionary *)directoryOfPropertiesAndTypes
 {
     NSArray *types = @[@"TEXT", @"TEXT"];
     return [NSDictionary dictionaryWithObjects:types forKeys:[ImageModel arrayOfProperties]];
 }
 
-+ (ImageModel *) imageWithIdentifier:(int) identifier ForCommentID:(NSNumber *) commentID
+#pragma mark - Class Methods Return ImageModel Instance
+
++ (ImageModel *)imageWithIdentifier:(int) identifier ForCommentID:(NSNumber *) commentID
 {
     ImageModel *image = [[ImageModel alloc] init];
     image.momentID = commentID;
@@ -41,7 +45,7 @@
     return image;
 }
 
-+ (ImageModel *) imageWithRandomValuesForCommentID:(NSNumber *) commentID
++ (ImageModel *)imageWithRandomValuesForCommentID:(NSNumber *) commentID
 {
     ImageModel *image = [[ImageModel alloc] init];
     image.momentID = commentID;
@@ -63,9 +67,9 @@
     return image;
 }
 
+#pragma mark Instance Data
 
-
-- (NSDictionary *) dictionaryOfPropertiesAndValues
+- (NSDictionary *)dictionaryOfPropertiesAndValues
 {
     return [NSDictionary dictionaryWithObjects:@[name, momentID]
                                        forKeys:[ImageModel arrayOfProperties]];

@@ -34,6 +34,8 @@
 
 @implementation AddMomentViewController
 
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [self initValues];
     [self setTitleAndBarButton];
@@ -42,7 +44,14 @@
     [super viewDidLoad];
 }
 
-- (void) initValues
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Init Vaules
+
+- (void)initValues
 {
     imageWidth = 90;
     imageOriginX = imageNextX = 40;
@@ -55,7 +64,9 @@
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseImage)];
 }
 
-- (void) setTitleAndBarButton
+#pragma mark - UI Setup
+
+- (void)setTitleAndBarButton
 {
     self.title = @"添加Moment";
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveMoment)];
@@ -63,14 +74,14 @@
     self.navigationItem.rightBarButtonItem = rightButton;
 }
 
-- (void) setTextView
+- (void)setTextView
 {
     self.momentContentTextView.layer.masksToBounds = YES;
     self.momentContentTextView.layer.cornerRadius = 8;
     self.momentContentTextView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.9];
 }
 
-- (void) setAddImageButton
+- (void)setAddImageButton
 {
     UIImage *addImage = [UIImage imageNamed:@"AddImage"];
     addImageImageButton = [[UIImageView alloc] initWithImage:addImage];
@@ -81,13 +92,13 @@
     [self.view addSubview:addImageImageButton];
 }
 
-- (void) updateAddImageButtonPosition
+- (void)updateAddImageButtonPosition
 {
     [self setNextXAndY];
     addImageImageButton.frame = CGRectMake(imageNextX, imageNextY, imageWidth, imageWidth);
 }
 
-- (void) addImagePreview:(UIImage *) imageView
+- (void)addImagePreview:(UIImage *) imageView
 {
     UIImageView *newImageView = [[UIImageView alloc] initWithImage:imageView];
     newImageView.frame = CGRectMake(imageNextX, imageNextY, imageWidth, imageWidth);
@@ -98,7 +109,7 @@
 
 #pragma mark Set Actions
 
-- (void) saveMoment
+- (void)saveMoment
 {
     NSString *momentContentText = self.momentContentTextView.text;
     if (momentContentText.length <= 0) {
@@ -108,8 +119,6 @@
     } else {
         newMoment.userID = @"1";
         newMoment.content = momentContentText;
-        
-//        [[MyWeiApp sharedManager].dbManager excuteSQLs:[newMoment arrayOfInsertSqls]];
         
         [newMoment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (error) {
@@ -122,7 +131,7 @@
     }
 }
 
-- (void) chooseImage
+- (void)chooseImage
 {
     UIActionSheet *sheet;
     
@@ -141,9 +150,9 @@
     [sheet showInView:self.view];
 }
 
-#pragma mark actionsheet delegate
+#pragma mark Actionsheet Delegate
 
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (actionSheet.tag == 255) {
         
@@ -184,7 +193,7 @@
     }
 }
 
-#pragma mark - image picker delegte
+#pragma mark - Image Picker Delegte
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -212,7 +221,7 @@
 
 #pragma mark - Count Image X and Y
 
-- (void) setNextXAndY
+- (void)setNextXAndY
 {
     imageNextX = imageOriginX + (imagesCount % 3) * (imageWidth + imagePadding);
     imageNextY = imageOriginY + (imagesCount / 3) * (imageWidth + imagePadding);
@@ -222,11 +231,6 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

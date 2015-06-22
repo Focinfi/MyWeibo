@@ -10,7 +10,9 @@
 
 @implementation NSString (Format)
 
-- (NSString *) stringSwapWithBoundary: (NSString *)boundary
+#pragma mark - String Decrator
+
+- (NSString *)stringSwapWithBoundary: (NSString *)boundary
 {
     NSString *res = boundary;
     res = [res stringByAppendingString:self];
@@ -18,12 +20,14 @@
     return res;
 }
 
-- (BOOL) isBlank
+#pragma mark - String Detector
+
+- (BOOL)isBlank
 {
     return self.length == 0;
 }
 
-- (BOOL) isYES
+- (BOOL)isYES
 {
     return [self isEqualToString:@"YES"];
 }

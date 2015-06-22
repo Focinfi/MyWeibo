@@ -10,7 +10,10 @@
 #import "MyWeiApp.h"
 
 @implementation MyWeiboDefaults
-+ (NSString *) stringOfIdentifier:(NSString *) identifier
+
+#pragma mark - Autoincrease Indentifier
+
++ (NSString *)stringOfIdentifier:(NSString *) identifier
 {
     NSString * newIdentifierString =[NSString stringWithFormat:@"%d",
                                      [[MyWeiboDefaults numberOfCurrentID:identifier] intValue] + 1];
@@ -19,7 +22,7 @@
     return newIdentifierString;
 }
 
-+ (NSNumber *) numberOfCurrentID:(NSString *) identifier
++ (NSNumber *)numberOfCurrentID:(NSString *) identifier
 {
     NSString *number = [[MyWeiApp sharedManager].usesrDefaults stringForKey:identifier];
 
@@ -29,12 +32,14 @@
     return [NSNumber numberWithInteger:[number intValue]];
 }
 
+#pragma mark - Value's Setter And Getter 
+
 + (void) updateValue:(id) value forKey:(NSString *) key
 {
     [[MyWeiApp sharedManager].usesrDefaults setObject:value forKey:key];
 }
 
-+ (NSString *) stringOfKey:(NSString *) key
++ (NSString *)stringOfKey:(NSString *) key
 {
     NSString *value = [[MyWeiApp sharedManager].usesrDefaults objectForKey:key];
     if (value == nil) {

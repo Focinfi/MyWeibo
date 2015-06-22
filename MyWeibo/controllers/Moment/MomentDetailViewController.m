@@ -28,13 +28,13 @@
 @synthesize mommentScrollView;
 @synthesize mommentData;
 
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     
     [self initValue];
     [self setUI];
-    
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 #pragma mark Init Values
@@ -46,7 +46,11 @@
     userInfo = [self.mommentData objectForKey:MomentUser];
 }
 
-#pragma mark Init UI
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark UI Setup
 
 - (void)setUI
 {
@@ -119,13 +123,11 @@
     }
 }
 
+#pragma mark - Gesture Actions
+
 - (void)magnifyImage:(UITapGestureRecognizer *) gestureRecognizer
 {
     [ImageBrowser showImage:(UIImageView *)[gestureRecognizer view]];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 /*

@@ -23,7 +23,9 @@
 @synthesize userID;
 @synthesize content;
 
-- (id) init
+#pragma mark - Construction
+
+- (id)init
 {
     self = [super init];
     if (self) {
@@ -32,7 +34,9 @@
     return self;
 }
 
-+ (int) countOfMoments
+#pragma mark - Class Methods Return Basic Data
+
++ (int)countOfMoments
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
 
@@ -40,38 +44,12 @@
     
 }
 
-+ (NSArray *) arrayOfProperties
++ (NSArray *)arrayOfProperties
 {
     return @[MomentID, UserID, MomentContent];
 }
 
-+ (NSDictionary *) dictionaryOfObject:(id) object
-{
-    NSMutableDictionary *momentDictionary = [NSMutableDictionary dictionary];
-    [[MomentModel arrayOfProperties] excetueEach:^(id item){
-        [momentDictionary setObject:[object objectForKey:item] forKey:item];
-    }];
-    
-    if ([object objectForKey:ImageTableName]) {
-        [momentDictionary setObject:[object objectForKey:ImageTableName] forKey:ImageTableName];
-    }
-    if ([object objectForKey:MomentUser]) {
-        [momentDictionary setObject:[object objectForKey:MomentUser] forKey:MomentUser];
-    }
-    
-    return momentDictionary;
-}
-
-+ (NSArray *) arrayOfObjects:(NSArray *) objects
-{
-    NSMutableArray *momentsAarry = [NSMutableArray array];
-    [objects excetueEach:^(id item){
-        [momentsAarry addObject:[MomentModel dictionaryOfObject:item]];
-    }];
-    return momentsAarry;
-}
-
-+ (NSDictionary *) directoryOfPropertiesAndTypes
++ (NSDictionary *)directoryOfPropertiesAndTypes
 {
     NSArray *types = @[@"TEXT", @"TEXT", @"TEXT"];
     return [NSDictionary dictionaryWithObjects:types forKeys:[MomentModel arrayOfProperties]];
@@ -89,7 +67,9 @@
     return comment;
 }
 
-+ (NSArray *) arrayOfItemsFrom:(long) from to:(long) to
+#pragma mark - Get Data from Database
+
++ (NSArray *)arrayOfItemsFrom:(long) from to:(long) to
 {
     NSMutableArray *data = [NSMutableArray array];
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
@@ -136,8 +116,37 @@
     return data;
 }
 
+#pragma mark - Extrive Data From Objects
 
-- (void) addImageModelsNumber:(int) number
++ (NSDictionary *)dictionaryOfObject:(id) object
+{
+    NSMutableDictionary *momentDictionary = [NSMutableDictionary dictionary];
+    [[MomentModel arrayOfProperties] excetueEach:^(id item){
+        [momentDictionary setObject:[object objectForKey:item] forKey:item];
+    }];
+    
+    if ([object objectForKey:ImageTableName]) {
+        [momentDictionary setObject:[object objectForKey:ImageTableName] forKey:ImageTableName];
+    }
+    if ([object objectForKey:MomentUser]) {
+        [momentDictionary setObject:[object objectForKey:MomentUser] forKey:MomentUser];
+    }
+    
+    return momentDictionary;
+}
+
++ (NSArray *)arrayOfObjects:(NSArray *) objects
+{
+    NSMutableArray *momentsAarry = [NSMutableArray array];
+    [objects excetueEach:^(id item){
+        [momentsAarry addObject:[MomentModel dictionaryOfObject:item]];
+    }];
+    return momentsAarry;
+}
+
+#pragma mark - Attributes Maker
+
+- (void)addImageModelsNumber:(int) number
 {
     int rand = [Random randZeroToNum:4];
     for (int i = 0; i < number; i++) {
@@ -148,13 +157,15 @@
     }
 }
 
-- (NSDictionary *) dictionaryOfPropertiesAndValues
+#pragma mark - Extrive Data From MomentModel Instance
+
+- (NSDictionary *)dictionaryOfPropertiesAndValues
 {
     return [NSDictionary dictionaryWithObjects:@[momentID, userID, content]
                                        forKeys:[MomentModel arrayOfProperties]];
 }
 
-- (NSArray *) arrayOfInsertSqls
+- (NSArray *)arrayOfInsertSqls
 {
     NSMutableArray *insertSqls = [NSMutableArray array];
     [insertSqls addObject:
@@ -169,7 +180,9 @@
     return insertSqls;
 }
 
-- (void) saveInBackgroundWithBlock:(AVBooleanResultBlock)block
+#pragma mark - Overwirte AVObject Methods
+
+- (void)saveInBackgroundWithBlock:(AVBooleanResultBlock)block
 {
     [[self dictionaryOfPropertiesAndValues] eachPairDo:^(NSString *key, id value) {
         [self setObject:value forKey:key];

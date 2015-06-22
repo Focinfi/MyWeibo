@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 NJUPT. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "UserLoginViewController.h"
 #import <AVOSCloud/AVUser.h>
 #import "CocoaLumberjack.h"
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -18,7 +18,7 @@
 #import "MyWeiApp.h"
 #import "UserEditViewController.h"
 
-@interface LoginViewController (){
+@interface UserLoginViewController (){
     enum Actions {
         LoginAction,
         RegisterAction
@@ -28,12 +28,14 @@
 }
 @end
 
-@implementation LoginViewController{
+@implementation UserLoginViewController{
     NSString *userName;
     NSString *password;
 }
 
-- (id) init
+#pragma mark - Construction
+
+- (id)init
 {
     self = [super init];
     if (self) {
@@ -42,38 +44,32 @@
     return self;
 }
 
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [self setUIText];
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void) setUIText
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - UI Setup
+
+- (void)setUIText
 {
     self.loginButton.layer.cornerRadius = 5;
     self.userNameTextField.text = [MyWeiboDefaults stringOfKey:CurrentUser];
 }
 
-- (void) setInputValues
+- (void)setInputValues
 {
     userName = self.userNameTextField.text;
     password = self.passwordTestField.text;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - Button Actions
 
 - (IBAction)exchange:(id)sender {
     switch (currentAction) {
@@ -120,7 +116,9 @@
     }
 }
 
-- (void) loginUser
+#pragma mark - User Login/Register
+
+- (void)loginUser
 {
     [SVProgressHUD showWithStatus:@"正在登录"];
     [AVUser logInWithUsernameInBackground:userName password:password block:^(AVUser *user, NSError *error) {
@@ -128,17 +126,11 @@
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
             [MyWeiboDefaults updateValue:@"YES" forKey:LoggedIn];
             [self.navigationController popViewControllerAnimated:YES];
-            [self setUserInfo];
         }
     }];
 }
 
-- (void) setUserInfo
-{
-//    AVQuery *query = [AVQuery ]
-}
-
-- (void) registerUser
+- (void)registerUser
 {
     [SVProgressHUD showWithStatus:@"正在注册"];
 
@@ -155,6 +147,8 @@
         }
     }];
 }
+
+#pragma mark - Error Filter
 
 -(BOOL)hasError:(NSError *)error{
     if (error) {
@@ -181,5 +175,15 @@
         return NO;
     }
 }
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

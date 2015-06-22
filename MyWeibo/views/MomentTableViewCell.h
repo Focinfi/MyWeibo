@@ -18,5 +18,5 @@
 
 - (void) setAvatarAsRound;
 - (void) setImages:(NSArray *) images;
-- (void) addImages;
+
 @end

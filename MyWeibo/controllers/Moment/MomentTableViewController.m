@@ -22,13 +22,13 @@
 #import "Support.h"
 #import "MyWeiboDefaults.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
-#import "LoginViewController.h"
+#import "UserLoginViewController.h"
 #import "RefreshControl.h"
+#import "NSString+Format.h"
 
 @interface MomentTableViewController ()<RefreshControlDelegate> {
     NSArray *tableData;
     RefreshControl *refreshControl;
-    NSNumber *maxMomentID;
     NSNumber *miniMomentID;
 }
 
@@ -47,6 +47,8 @@
     return self;
 }
 
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [self initValues];
     [self initBasicData];
@@ -54,21 +56,20 @@
     [super viewDidLoad];
 }
 
-- (void) didReceiveMemoryWarning
+- (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Init Values
 
-- (void) initValues
+- (void)initValues
 {
     tableData = [[NSMutableArray alloc] init];
 
     self.sizeOfRefresh = 10;
     self.count = 0;
     
-    maxMomentID = [NSNumber numberWithInt:0];
     miniMomentID = [NSNumber numberWithInt:0];
     
     refreshControl = [[RefreshControl alloc] initWithScrollView:self.tableView delegate:self];
@@ -78,52 +79,15 @@
 
 #pragma Init tableData
 
-- (void) dismissProcessorAndInitTableData
+- (void)initBasicData
 {
-    [SVProgressHUD dismiss];
-    [self loadTableData];
-    [self initAVOS];
+    [SVProgressHUD showWithStatus:@"正在加载。。"];
+    [self refreshMoreData];
 }
-
-- (void) initAVOS
-{
-//    lastestMomentID = [tableData[0] objectForKey:MomentID];
-    maxMomentID = [NSNumber numberWithInt:10];
-    DDLogDebug(@"Lastest Moment ID:%@", maxMomentID);
-    AVQuery *query = [AVQuery queryWithClassName:@"MomentModel"];
-    [query addDescendingOrder:MomentID];
-
-    [query whereKey:MomentID greaterThan:maxMomentID];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error) {
-            DDLogError(@"getFirstObject Fail");
-        } else {            
-            DDLogDebug(@"New Moments:%@", [MomentModel arrayOfObjects:objects]);
-        }
-    }];
-}
-
-- (void) loadTableData
-{
-    [refreshControl finishRefreshingDirection:RefreshDirectionTop];
-    [refreshControl finishRefreshingDirection:RefreshDirectionBottom];
-
-    if (tableData.count == self.count) {
-        [SVProgressHUD showInfoWithStatus:@"没有更多了"];
-        refreshControl.bottomEnabled = NO;
-    } else {
-        self.count = tableData.count;
-    }
-
-    DDLogDebug(@"Moments count %ld", self.count);
-    
-    [self.tableView reloadData];
-}
-
 
 #pragma mark - Set Up For TableView
 
-- (void) setUpForTableView
+- (void)setUpForTableView
 {
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
@@ -137,7 +101,28 @@
     }
 }
 
-#pragma mark - Refresh Controll Delegate
+#pragma mark - Refresh Controll
+
+- (void)loadTableData
+{
+    DDLogDebug(@"RefreshDirection:%u", refreshControl.refreshingDirection);
+    
+    self.count = tableData.count;
+    
+    DDLogDebug(@"Moments count %ld", self.count);
+    
+    [self.tableView reloadData];
+    
+    if (refreshControl.refreshingDirection==RefreshingDirectionTop)
+    {
+        [refreshControl finishRefreshingDirection:RefreshDirectionTop];
+    }
+    else if (refreshControl.refreshingDirection==RefreshingDirectionBottom)
+    {
+        [refreshControl finishRefreshingDirection:RefreshDirectionBottom];
+        
+    }
+}
 
 - (void)refreshControl:(RefreshControl *)refreshControl didEngageRefreshDirection:(RefreshDirection)direction
 {
@@ -145,43 +130,18 @@
     {
         [self refreshMoreData];
     }
-    else if (direction==RefreshDirectionBottom)
-    {
-        __weak typeof(self)weakSelf=self;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            __strong typeof(weakSelf)strongSelf=weakSelf;
-            [strongSelf loadTableData];
-        });
+    else {
+        [self loadMoreData];
     }
-    
-}
-
-#pragma mark - Refresh Data
-
-- (void) initBasicData
-{
-    [SVProgressHUD showWithStatus:@"正在加载。。"];
-    [self refreshMoreData];
-}
-
-- (void) insearItemsToTableData
-{
-    long to = self.count + self.sizeOfRefresh;
-
-    NSLog(@"Comments Count in countOfItems: %d", [MomentModel countOfMoments]);
-    NSArray *comments = [MomentModel arrayOfItemsFrom:self.count to:to];
-    NSLog(@"Refresh Moments Count:%lu", [comments count]);
-    tableData = [tableData arrayByAddingObjectsFromArray:comments];
 }
 
 #pragma mark - Data From Web Server
 
-- (void) refreshMoreData
+- (void)refreshMoreData
 {
     if ([Support isReachabileToNet]) {
         AVQuery *query = [AVQuery queryWithClassName:@"MomentModel"];
         [query addDescendingOrder:MomentID];
-        [query whereKey:MomentID greaterThan:maxMomentID];
         query.limit = 10;
         
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -189,11 +149,15 @@
                 DDLogError(@"getFirstObject Fail");
                 [SVProgressHUD showErrorWithStatus:@"网络加载失败"];
                 [self loadTableData];
-
             } else {
                 DDLogDebug(@"New Moments:%@", [MomentModel arrayOfObjects:objects]);
                 [SVProgressHUD showSuccessWithStatus:@"加载成功"];
                 tableData = [MomentModel arrayOfObjects:objects];
+                miniMomentID = [[objects lastObject] objectForKey:MomentID];
+                DDLogDebug(@"MiniMomentID :%@", miniMomentID);
+                
+                [MyWeiboDefaults updateValue:tableData forKey:LatestTenMoments];
+                
                 [self loadTableData];
             }
         }];
@@ -201,36 +165,41 @@
     } else {
         [SVProgressHUD showInfoWithStatus:AlertNotReachableNetWork];
         if ([tableData count] == 0) {
-            [self insearItemsToTableData];
-            [self loadTableData];
-            [SVProgressHUD showSuccessWithStatus:@"本地加载成功"];
+            NSString *localData = [MyWeiboDefaults stringOfKey:LatestTenMoments];
+            if (![localData isBlank]) {
+                tableData = (NSArray *) localData;
+                [SVProgressHUD showSuccessWithStatus:@"本地加载成功"];
+            } else {
+                [SVProgressHUD showInfoWithStatus:@"暂时没有动态"];
+            }
         }
+        [self loadTableData];
     }
 }
 
-- (void) loadMoreData
+- (void)loadMoreData
 {
     if ([Support isReachabileToNet]) {
-        maxMomentID = [NSNumber numberWithInt:10];
-        DDLogDebug(@"Lastest Moment ID:%@", maxMomentID);
+        DDLogDebug(@"Lastest Moment ID:%@", miniMomentID);
         AVQuery *query = [AVQuery queryWithClassName:@"MomentModel"];
         [query addDescendingOrder:MomentID];
-        //        [query whereKey:MtomentID greaterThan:lastestMomentID];
+        [query whereKey:MomentID lessThan:miniMomentID];
         query.limit = 10;
         
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (error) {
                 DDLogError(@"getFirstObject Fail");
                 [SVProgressHUD showErrorWithStatus:@"网络加载失败"];
-                [self insearItemsToTableData];
                 [self loadTableData];
-                [SVProgressHUD showSuccessWithStatus:@"本地加载成功"];
-                [refreshControl finishRefreshingDirection:RefreshDirectionTop];
-            } else {
+            } else if (objects.count > 0) {
                 DDLogDebug(@"New Moments:%@", [MomentModel arrayOfObjects:objects]);
                 [SVProgressHUD showSuccessWithStatus:@"加载成功"];
-                //                [tableData addObjectsFromArray:[MomentModel arrayOfObjects:objects]];
-                tableData = [MomentModel arrayOfObjects:objects];
+                tableData =
+                    [tableData arrayByAddingObjectsFromArray: [MomentModel arrayOfObjects: objects]];
+                miniMomentID = [[objects lastObject] objectForKey:MomentID];
+                DDLogDebug(@"MiniMomentID :%@", miniMomentID);
+                [self loadTableData];
+            } else {
                 [self loadTableData];
             }
         }];
@@ -258,9 +227,9 @@
     
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:MomentCellId owner:self options:nil] lastObject];
+        [cell setAvatarAsRound];
     }
 
-    [cell setAvatarAsRound];
     long index = (long)indexPath.row;
         
     NSDictionary *d = (NSDictionary *) [tableData objectAtIndex:index];
@@ -283,7 +252,7 @@
     return 10;
 }
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     long index = (long)indexPath.row;
     MomentDetailViewController *detailView = [[MomentDetailViewController alloc] init];
@@ -291,6 +260,7 @@
     [self.navigationController pushViewController:detailView animated:YES];
 }
 
+#pragma mark - TabBar Actions
 
 - (IBAction)AddMommentAction:(id)sender {
 
@@ -321,7 +291,7 @@
 {
      NSString *btnTitle = [alertView buttonTitleAtIndex:buttonIndex];
      if ([btnTitle isEqualToString:GotoLoginBtnTitle] ) {
-        LoginViewController *loginViewController = [[LoginViewController alloc] init];         
+        UserLoginViewController *loginViewController = [[UserLoginViewController alloc] init];         
         [self.navigationController pushViewController:loginViewController animated:YES];
     }
 }

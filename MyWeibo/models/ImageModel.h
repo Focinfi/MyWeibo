@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Model.h"
 
 @interface ImageModel : NSObject
 @property (nonatomic) NSString *name;

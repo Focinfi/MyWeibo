@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserLoginViewController">
             <connections>
                 <outlet property="exchangeButton" destination="Uyy-wH-u93" id="2FX-Qj-hyk"/>
                 <outlet property="loginButton" destination="6Kf-dn-rog" id="65p-BH-3yR"/>

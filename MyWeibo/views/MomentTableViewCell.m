@@ -16,13 +16,18 @@
 @synthesize description;
 @synthesize weibo;
 @synthesize weiboImages;
-- (void) setAvatarAsRound
+
+#pragma mark - UI Config
+
+- (void)setAvatarAsRound
 {
     self.avatar.layer.masksToBounds = YES;
     self.avatar.layer.cornerRadius = self.avatar.bounds.size.width/2;
 }
 
-- (void) setImages:(NSArray *) images
+#pragma mark - Image Insertor
+
+- (void)setImages:(NSArray *) images
 {
     for (int i = 0; i < 3; i++) {
         if (i < [images count]) {
@@ -39,9 +44,4 @@
     }
 }
 
-- (void) addImages
-{
-    UIImage *image = [UIImage imageNamed:@"Aoi1"];
-    [self addSubview:(UIView *) image];
-}
 @end

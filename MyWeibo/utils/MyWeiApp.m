@@ -11,6 +11,8 @@
 
 @implementation MyWeiApp
 
+#pragma mark - Extern Constants
+
 /**
  *  Model const
  */
@@ -41,15 +43,32 @@ NSString *const ImageName = @"name";
  *  Resources identifier
  */
 NSString *const MomentCellId = @"MomentCell";
-NSString *const CancelBtnTitle = @"稍后再说";
-NSString *const GotoLoginBtnTitle = @"马上登录";
+NSString * const LatestTenMoments = @"LatestTenMoments";
 
 /**
  *  Alert
  */
 NSString * const AlertNotReachableNetWork = @"网络没有连接哦";
+NSString *const CancelBtnTitle = @"稍后再说";
+NSString *const GotoLoginBtnTitle = @"马上登录";
 
 @synthesize dbManager;
+
+#pragma mark - Construction
+
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        self.dbManager = [[DBManager alloc] init];
+        self.usesrDefaults = [NSUserDefaults standardUserDefaults];
+        
+    }
+    return self;
+}
+
+#pragma mark - Singleton
+
 + (MyWeiApp *)sharedManager
 {
     static MyWeiApp *sharedAccountManagerInstance = nil;
@@ -58,17 +77,6 @@ NSString * const AlertNotReachableNetWork = @"网络没有连接哦";
         sharedAccountManagerInstance = [[self alloc] init];
     });
     return sharedAccountManagerInstance;
-}
-
-- (id) init
-{
-    self = [super init];
-    if (self) {
-        self.dbManager = [[DBManager alloc] init];
-        self.usesrDefaults = [NSUserDefaults standardUserDefaults];
-
-    }
-    return self;
 }
 
 @end

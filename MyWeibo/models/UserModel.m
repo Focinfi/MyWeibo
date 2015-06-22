@@ -19,6 +19,8 @@
 @synthesize avatar;
 @synthesize desc;
 
+#pragma mark - Construction
+
 - (id)init
 {
     self = [super self];
@@ -28,26 +30,31 @@
     return self;
 }
 
-+ (int) countOfUsers
+#pragma mark - Class Methods Return Basic Data
+
++ (int)countOfUsers
 {
     DBManager *dbManager = [MyWeiApp sharedManager].dbManager;
 
     return [dbManager countOfItemsNumberInTable:UserTableName];
 }
 
-+ (NSArray *) arrayOfProperties
++ (NSArray *)arrayOfProperties
 {
     return @[UserID, UserName, UserAvatar, UserDescription];
 }
 
-+ (NSDictionary *) directoryOfPropertiesAndTypes
++ (NSDictionary *)directoryOfPropertiesAndTypes
 {
     NSArray *types = @[@"TEXT", @"TEXT", @"TEXT", @"TEXT"];
 
     return [NSDictionary dictionaryWithObjects:types
                                        forKeys:[UserModel arrayOfProperties]];
 }
-+ (UserModel *) userWithRandomValues
+
+#pragma mark - Class Methods Return UserModel Instance
+
++ (UserModel *)userWithRandomValues
 {
     UserModel *user = [[UserModel alloc] init];
     
@@ -72,14 +79,18 @@
     return user;
 }
 
-- (NSDictionary *) dictionaryOfPropertiesAndValues
+#pragma mark - Extrive Data From UserModel Instance
+
+- (NSDictionary *)dictionaryOfPropertiesAndValues
 {
     NSArray *values = @[self.userID, self.name, self.avatar, self.desc];
     return [NSDictionary dictionaryWithObjects:values
                                        forKeys:[UserModel arrayOfProperties]];
 }
 
-- (void) saveInBackgroundWithBlock:(AVBooleanResultBlock)block
+#pragma mark - Overwirte AVObject Methods
+
+- (void)saveInBackgroundWithBlock:(AVBooleanResultBlock)block
 {
     DDLogDebug(@"New User:%@", [self dictionaryOfPropertiesAndValues]);
     [[self dictionaryOfPropertiesAndValues] eachPairDo:^(NSString *key, id value) {

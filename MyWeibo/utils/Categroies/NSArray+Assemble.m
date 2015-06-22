@@ -10,7 +10,10 @@
 #import "NSString+Format.h"
 
 @implementation NSArray (Assemble)
-- (NSString *) stringByJoinSimpelyWithBoundary:(NSString *)boundary
+
+#pragma mark - Join Every Elements To A String
+
+- (NSString *)stringByJoinSimpelyWithBoundary:(NSString *)boundary
 {
     NSString *mapString = @"";
     
@@ -24,7 +27,7 @@
     return mapString;
 }
 
-- (NSString *) stringByJoinEntierWithBoundary:(NSString *) boundary
+- (NSString *)stringByJoinEntierWithBoundary:(NSString *) boundary
 {
     NSString *mapString = @"";
     NSLog(@"Boundary: %@", boundary);
@@ -39,7 +42,9 @@
     return mapString;
 }
 
-- (NSArray *) arrayByMap:(id (^)(id)) map
+#pragma mark - Arrary Iterator
+
+- (NSArray *)arrayByMap:(id (^)(id)) map
 {
     NSMutableArray *res = [NSMutableArray array];
     for (int i = 0; i < self.count; i++) {
@@ -49,7 +54,7 @@
     return res;
 }
 
-- (NSArray *) arrayBySelect:(BOOL (^)(id)) select
+- (NSArray *)arrayBySelect:(BOOL (^)(id)) select
 {
     NSMutableArray *res = [NSMutableArray array];
     for (id element in self) {
@@ -60,7 +65,7 @@
     return res;
 }
 
-- (void) excetueEach:(void (^)(id)) exexcution {
+- (void)excetueEach:(void (^)(id)) exexcution {
     for (id item in self) {
         exexcution(item);
     }

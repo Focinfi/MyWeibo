@@ -19,7 +19,7 @@
 
 #pragma mark - Supporting Utils
 
-- (NSString *) dbPath:(NSString *)name
+- (NSString *)dbPath:(NSString *)name
 {
     NSArray *documentsPaths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
                                                                 , NSUserDomainMask
@@ -29,7 +29,7 @@
     return databaseFilePath;
 }
 
-- (NSString *) makeSqlString:(NSDictionary *) colums
+- (NSString *)makeSqlString:(NSDictionary *) colums
 {
     NSArray *keys = [colums allKeys];
     DDLogVerbose(@"Columns: %@", keys);
@@ -55,7 +55,7 @@
 
 #pragma mark - Init
 
-- (id) init
+- (id)init
 {
     self = [super init];
     if (self) {
@@ -66,7 +66,7 @@
 
 #pragma mark - Connect DB
 
-- (void) connectDB
+- (void)connectDB
 {
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self dbPath:@"myweibo_db10"]];
     dBQueue = queue;
@@ -74,7 +74,7 @@
 
 #pragma mark - Create Table
 
-- (BOOL) createTableName:(NSString *)name columns:(NSDictionary *)colums
+- (BOOL)createTableName:(NSString *)name columns:(NSDictionary *)colums
 {
 
     NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' (%@)",name,[self makeSqlString: colums]];
@@ -87,7 +87,7 @@
 
 #pragma mark - Query
 
-- (int) countOfItemsNumberInTable:(NSString *)name
+- (int)countOfItemsNumberInTable:(NSString *)name
 {
     __block int newsTotalCount = 0;
     
@@ -98,7 +98,7 @@
     return newsTotalCount;
 }
 
-- (NSDictionary *) dictionaryBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
+- (NSDictionary *)dictionaryBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
 {
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@ ", name];
@@ -124,7 +124,7 @@
     return item;
 }
 
-- (NSArray *) arrayOfAllBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions 
+- (NSArray *)arrayOfAllBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions
 {
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@ ", name];
@@ -153,7 +153,7 @@
     return data;
 }
 
-- (NSArray *) arrayOfAllBySelect:(NSArray *)columns fromTable:(NSString *)name where:(NSDictionary *)conditions orderBy:(NSDictionary *)order
+- (NSArray *)arrayOfAllBySelect:(NSArray *)columns fromTable:(NSString *)name where:(NSDictionary *)conditions orderBy:(NSDictionary *)order
 {
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@ ", name];
@@ -186,7 +186,7 @@
     return data;
 }
 
-- (NSArray *) arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions orderBy:(NSDictionary *) order from:(long) from to:(long) to
+- (NSArray *)arrayBySelect:(NSArray *) columns fromTable:(NSString *) name where:(NSDictionary *) conditions orderBy:(NSDictionary *) order from:(long) from to:(long) to
 {
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@ ", name];
@@ -226,7 +226,7 @@
 
 #pragma mark - Insert
 
-- (BOOL) insearItemsTableName:(NSString *)name columns:(NSDictionary *)columns
+- (BOOL)insearItemsTableName:(NSString *)name columns:(NSDictionary *)columns
 {
     NSArray *keys = [columns allKeys];
     NSArray *values = [columns allValues];
@@ -243,7 +243,7 @@
 
 #pragma mark - Execute a bundle of sqls
 
-- (BOOL) excuteSQLs:(NSArray *) sqls
+- (BOOL)excuteSQLs:(NSArray *) sqls
 {
     [dBQueue inDatabase:^(FMDatabase *db){
         for (NSString *sql in sqls) {

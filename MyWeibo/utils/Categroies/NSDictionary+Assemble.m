@@ -11,7 +11,10 @@
 #import "NSString+Format.h"
 
 @implementation NSDictionary (Assemble)
-- (NSString *) stringByJoinEntierWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary
+
+#pragma mark - Join Every Pair To A String
+
+- (NSString *)stringByJoinEntierWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary
 {
     NSArray *keys = [self allKeys];
     NSLog(@"Columns1: %@", keys);
@@ -31,7 +34,7 @@
     return mapString;
 }
 
-- (NSString *) stringByJoinSimplyrWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary
+- (NSString *)stringByJoinSimplyrWithSpaceCharacter:(NSString *) spaceCharacter andBoundary:(NSString *) boundary
 {
     NSArray *keys = [self allKeys];
     NSLog(@"Columns1: %@", keys);
@@ -51,7 +54,9 @@
 
 }
 
-- (void) eachPairDo:(void (^)(NSString *key, id value)) execute
+#pragma mark - Dictionary Iterator
+
+- (void)eachPairDo:(void (^)(NSString *key, id value)) execute
 {
     for (NSString *key in [self keyEnumerator]) {
         execute(key, [self objectForKey:key]);

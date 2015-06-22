@@ -18,11 +18,26 @@
 
 @interface UserEditViewController (){
     NSString *userAvatarImageString;
+    int sheetTag;
 }
 
 @end
 
 @implementation UserEditViewController
+
+#pragma mark - Contruction
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        userAvatarImageString = @"";
+        sheetTag = 255;
+    }
+    return self;
+}
+
+#pragma mark - View Life Cycle
 
 - (void)viewDidLoad {
     [self setUIText];
@@ -30,17 +45,9 @@
     [self setNavBar];
     [self setAvatarImageViewClickEvent];
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        userAvatarImageString = @"";
-    }
-    return self;
-}
+#pragma mark - UI Setup
 
 - (void)setUIText
 {
@@ -96,6 +103,8 @@
     [self.userAvatarImageVIew addGestureRecognizer:tap];
 }
 
+#pragma mark - TabBarItems Actions
+
 - (void)choseUserAvatarImage
 {
     UIActionSheet *sheet;
@@ -110,15 +119,16 @@
         sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
     }
     
-    sheet.tag = 255;
+    sheet.tag = sheetTag;
     
     [sheet showInView:self.view];
 }
+
 #pragma mark actionsheet delegate
 
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (actionSheet.tag == 255) {
+    if (actionSheet.tag == sheetTag) {
         
         NSUInteger sourceType = 0;
         
@@ -166,11 +176,6 @@
     self.userAvatarImageVIew.image = image;
     userAvatarImageString = [NSString stringWithFormat:@"%@_%@", UserAvatarImage, [MyWeiboDefaults stringOfIdentifier:UserAvatarImageID]];
     [Support saveImage:image withName:userAvatarImageString];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

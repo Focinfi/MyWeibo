@@ -17,7 +17,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
 @implementation DataWorker
-+ (void) insertBasicDataWihtNumber:(int) number
++ (void)insertBasicDataWihtNumber:(int) number
 {
     if ([MomentModel countOfMoments] < number) {
         [MyWeiboDefaults updateValue:@"NO" forKey:@"user_moment"];
@@ -30,7 +30,7 @@
     }
 }
 
-+ (void) saveBasicImages
++ (void)saveBasicImages
 {
     for (int i = 0; i < 4; i++) {
         NSString *imageName = [NSString stringWithFormat:@"moment_image_%d", i + 1];
