@@ -65,7 +65,9 @@
 
 - (void)setAvatarAsRound
 {
-    self.avatar.image = [UIImage imageNamed:[userInfo objectForKey:UserAvatar]];
+    self.avatar.image = [[UIImage alloc]
+                         initWithContentsOfFile:
+                         [Support stringOfFilePathForImageName:[userInfo objectForKey:UserAvatar]]];
     self.avatar.layer.masksToBounds = YES;
     self.avatar.layer.cornerRadius = self.avatar.bounds.size.width/2;
 }
