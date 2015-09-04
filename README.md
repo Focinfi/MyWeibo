@@ -1,6 +1,6 @@
 ####Introduction
 
-This project for learning IOS:
+This project is for learning IOS:
 
 1. TableViewController
 2. Wrap FMDB
